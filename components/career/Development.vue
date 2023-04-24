@@ -151,7 +151,7 @@
                 </article>
                 <article>
                     <div class="icon">
-                        <img src="~/assets/images/only work.png" alt="only work">
+                        <img src="~/assets/images/only-work.png" alt="only work">
                     </div>
                     <h4>Развитие компетенций</h4>
                     <p>необходимые для успешной <br>карьеры.</p>
