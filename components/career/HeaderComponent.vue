@@ -8,7 +8,7 @@
             <div class="right-side">
                 <div class="columns">
                     <div class="column">
-                        <img src="~/assets/images/Frame 107.jpg" alt="frame 107">
+                        <img src="~/assets/images/Frame-107.jpg" alt="frame 107">
                     </div>
                     <div class="column">
                         <img src="~/assets/images/Frame-108.jpg" alt="frame 108">
