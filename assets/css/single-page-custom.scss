@@ -1,0 +1,27 @@
+header {
+    padding: 100px 0 50px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin: auto;
+}
+
+main {
+    margin-bottom: 150px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 42px;
+}
+
+@media screen and (max-width: 760px) {
+    header {
+        padding: 30px 0;
+    }
+    main {
+        margin-bottom: 30px;
+    }
+}
