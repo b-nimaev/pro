@@ -32,29 +32,29 @@
                 <div class="users-grid">
                     <div class="row">
                         <div class="user">
-                            <nuxt-img src="/realuser.jpg" alt="" />
+                            <nuxt-img width="183" height="138" src="/realuser.jpg" alt="" />
                         </div>
                         <div class="user">
-                            <nuxt-img format="webp" quality="80" src="/realuser2.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="user">
-                            <nuxt-img format="webp" quality="80" src="/realuser3.jpg" alt="" />
-                        </div>
-                        <div class="user">
-                            <nuxt-img format="webp" quality="80" src="/realuser4.jpg" alt="" />
-                        </div>
-                        <div class="user">
-                            <nuxt-img format="webp" quality="80" src="/realuser5.jpg" alt="" />
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser2.jpg" alt="" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="user">
-                            <nuxt-img format="webp" quality="80" src="/realuser6.jpg" alt="" />
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser3.jpg" alt="" />
                         </div>
                         <div class="user">
-                            <nuxt-img format="webp" quality="80" src="/realuser7.jpg" alt="" />
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser4.jpg" alt="" />
+                        </div>
+                        <div class="user">
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser5.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="user">
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser6.jpg" alt="" />
+                        </div>
+                        <div class="user">
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser7.jpg" alt="" />
                         </div>
                     </div>
                 </div>

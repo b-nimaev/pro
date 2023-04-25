@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="left-side">
-                    <img src="~/assets/images/Frame-43.png" alt="frame-43">
+                    <nuxt-img format="webp" src="/Frame-43.png" quality="80" alt="frame-43" />
                 </div>
                 <div class="right-side">
                     <div class="description">
