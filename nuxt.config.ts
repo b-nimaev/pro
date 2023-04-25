@@ -22,6 +22,6 @@ export default defineNuxtConfig({
         '~/plugins/pinia.js'
     ],
     image: {
-        dir: 'static/images'
+        dir: 'assets/images'
     }
 })
