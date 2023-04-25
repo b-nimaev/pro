@@ -1,7 +1,7 @@
 <template>
     <div class="slide">
         <div class="user-avatar">
-            <img src="~/assets/svg/user-avatar-for-slider.png" alt="user-avatar">
+            <nuxt-img quality="80" format="webp" src="~/assets/svg/user-avatar-for-slider.png" alt="user-avatar" />
         </div>
         <div class="user-data">
             <div class="user-name">

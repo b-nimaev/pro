@@ -6,7 +6,7 @@
                     <div class="column">
                         <article class="mt-30">
                             <div class="user-avatar">
-                                <img src="~/assets/images/user-avatar-for-review.png" alt="user-avatar">
+                                <nuxt-img format="webp" quality="80" src="/assets/images/user-avatar-for-review.png" alt="user-avatar" />
                             </div>
                             <div class="user-review">
                                 <p>Я получила незаменимую помощь в определении своей карьерной стратегии благодаря карьерным
@@ -30,7 +30,7 @@
                         </article>
                         <article>
                             <div class="user-avatar">
-                                <img src="~/assets/svg/user-avatar-2.png" alt="user-avatar">
+                                <nuxt-img format="webp" quality="80" src="~/assets/svg/user-avatar-2.png" alt="user-avatar" />
                             </div>
                             <div class="user-review">
                                 <p>Я получил незаменимую помощь в определении своей карьерной</p>

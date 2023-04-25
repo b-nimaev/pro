@@ -1,7 +1,7 @@
 <template>
     <div class="slide">
         <div class="thumbnail">
-            <img src="~/assets/svg/thumb.jpg" alt="thumb">
+            <nuxt-img format="webp" quality="80" src="/assets/svg/thumb.jpg" alt="thumb" />
         </div>
         <div class="content">
             <div class="post-title">
