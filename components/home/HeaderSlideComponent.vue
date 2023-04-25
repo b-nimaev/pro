@@ -35,30 +35,30 @@
                             <nuxt-img width="183" height="138" src="/assets/images/realuser.jpg" alt="" />
                         </div>
                         <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser2.jpg" alt="" />
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser2.jpg" alt="" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser3.jpg" alt="" />
-                        </div>
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser4.jpg" alt="" />
-                        </div>
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser5.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser6.jpg" alt="" />
-                        </div>
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser7.jpg" alt="" />
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser3.jpg" alt="" />
+                        </div>/assets/images
+                        <div class="user">/assets/images
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser4.jpg" alt="" />
+                        </div>/assets/images
+                        <div class="user">/assets/images
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser5.jpg" alt="" />
+                        </div>/assets/images
+                    </div>/assets/images
+                    <div class="row">/assets/images
+                        <div class="user">/assets/images
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser6.jpg" alt="" />
+                        </div>/assets/images
+                        <div class="user">/assets/images
+                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser7.jpg" alt="" />
                         </div>
                     </div>
                 </div>
-                <nuxt-img format="webp" quality="80" src="/bgi.png" class="bgi" alt="" />
+                <nuxt-img format="webp" quality="80" src="/assets/images/bgi.png" class="bgi" alt="" />
             </div>
         </div>
     </div>
