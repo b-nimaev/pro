@@ -41,19 +41,19 @@
                     <div class="row">
                         <div class="user">
                             <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser3.jpg" alt="" />
-                        </div>/assets/images
-                        <div class="user">/assets/images
+                        </div>
+                        <div class="user">
                             <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser4.jpg" alt="" />
-                        </div>/assets/images
-                        <div class="user">/assets/images
+                        </div>
+                        <div class="user">
                             <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser5.jpg" alt="" />
-                        </div>/assets/images
-                    </div>/assets/images
-                    <div class="row">/assets/images
-                        <div class="user">/assets/images
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="user">
                             <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser6.jpg" alt="" />
-                        </div>/assets/images
-                        <div class="user">/assets/images
+                        </div>
+                        <div class="user">
                             <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser7.jpg" alt="" />
                         </div>
                     </div>
