@@ -22,7 +22,7 @@ export default defineNuxtConfig({
         '~/plugins/pinia.js'
     ],
     image: {
-        dir: 'assets/images',
-        domains: [ '195.133.198.131:3000' ]
+        // dir: 'assets/images',
+        // domains: [ '195.133.198.131:3000' ]
     }
 })
