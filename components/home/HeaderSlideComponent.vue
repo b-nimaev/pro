@@ -32,7 +32,7 @@
                 <div class="users-grid">
                     <div class="row">
                         <div class="user">
-                            <nuxt-img width="183" height="138" src="/images/realuser.jpg" alt="" />
+                            <nuxt-img width="183" height="138" src="/assets/images/realuser.jpg" alt="" />
                         </div>
                         <div class="user">
                             <nuxt-img width="183" height="138" format="webp" quality="80" src="/realuser2.jpg" alt="" />
