@@ -9,6 +9,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxt/image": "^0.7.1",
+    "@nuxt/image-edge": "^1.0.0-28020728.5df24eb",
+    "@unhead/addons": "^1.1.26",
     "node-sass": "^8.0.0",
     "nuxt": "^3.4.0",
     "sass": "^1.62.0",
@@ -16,8 +19,10 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.8",
+    "@unhead/ssr": "^1.1.26",
     "@vueform/slider": "^2.1.7",
     "pinia": "^2.0.34",
-    "swiper": "^9.2.0"
+    "swiper": "^9.2.0",
+    "unhead": "^1.1.26"
   }
 }

@@ -1,0 +1,55 @@
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+.heading {
+    margin-bottom: 30px;
+}
+
+.change {
+    font-size: 12px;
+    display: block;
+    border-bottom: 1px solid #222;
+    width: fit-content;
+    margin: auto 0;
+}
+
+.content {
+    // background-color: #f8f8f8;
+    // background-image: linear-gradient(45deg, #fafafa, #d7d7d75c);
+    padding: 20px 30px;
+    margin: 0 -30px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 30px;
+}
+
+.edit-icon {
+    transition: 250ms;
+    position: absolute;
+    cursor: pointer;
+    margin-left: 15px;
+    left: calc(100%);
+    transform: scale(1);
+}
+
+.edity {
+    display: flex;
+    position: relative;
+    padding-right: 15px;
+    transition: 400ms;
+    overflow: hidden;
+    padding: 0 40px 0 0;
+    width: fit-content;
+    span {
+        margin: auto 0;
+    }
+    &:hover {
+        .edit-icon {
+            left: calc(100% - 40px)
+        }
+    }
+}

@@ -32,33 +32,33 @@
                 <div class="users-grid">
                     <div class="row">
                         <div class="user">
-                            <img src="~/assets/images/realuser.jpg" alt="">
+                            <nuxt-img src="/realuser.jpg" alt="" />
                         </div>
                         <div class="user">
-                            <img src="~/assets/images/realuser2.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="user">
-                            <img src="~/assets/images/realuser3.jpg" alt="">
-                        </div>
-                        <div class="user">
-                            <img src="~/assets/images/realuser4.jpg" alt="">
-                        </div>
-                        <div class="user">
-                            <img src="~/assets/images/realuser5.jpg" alt="">
+                            <nuxt-img format="webp" quality="80" src="/realuser2.jpg" alt="" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="user">
-                            <img src="~/assets/images/realuser6.jpg" alt="">
+                            <nuxt-img format="webp" quality="80" src="/realuser3.jpg" alt="" />
                         </div>
                         <div class="user">
-                            <img src="~/assets/images/realuser7.jpg" alt="">
+                            <nuxt-img format="webp" quality="80" src="/realuser4.jpg" alt="" />
+                        </div>
+                        <div class="user">
+                            <nuxt-img format="webp" quality="80" src="/realuser5.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="user">
+                            <nuxt-img format="webp" quality="80" src="/realuser6.jpg" alt="" />
+                        </div>
+                        <div class="user">
+                            <nuxt-img format="webp" quality="80" src="/realuser7.jpg" alt="" />
                         </div>
                     </div>
                 </div>
-                <img src="~/assets/images/bgi.png" class="bgi" alt="">
+                <nuxt-img format="webp" quality="80" src="/bgi.png" class="bgi" alt="" />
             </div>
         </div>
     </div>
@@ -68,7 +68,9 @@ export default {
     methods: {
         chooseConsultant() {
             const consultantsElement = document.getElementById("our-consultants");
-            consultantsElement.scrollIntoView({ behavior: 'smooth' });
+            if (consultantsElement) {
+                consultantsElement.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     }
 }

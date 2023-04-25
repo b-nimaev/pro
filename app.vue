@@ -1,7 +1,11 @@
 <template>
-  <div class="pagewrapper" :class="{ 'mobile-menu-active': mobileMenu, 'dark': colorTheme.name === 'dark', 'light': colorTheme.name === 'light' }">
+  <div class="pagewrapper"
+    :class="{ 'mobile-menu-active': mobileMenu, 'dark': colorTheme.name === 'dark', 'light': colorTheme.name === 'light' }">
     <div class="preloader" v-if="preloader">
-      <div class="lds-ripple"><div></div><div></div></div>
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <NuxtPage />
   </div>
@@ -33,34 +37,42 @@ body {
     border-radius: 2px;
   }
 }
+
 .pagewrapper {
   transition: 400ms;
+
   &.dark {
     background-image: linear-gradient(88deg, #0f0d12, #2a272e)
   }
 }
+
 .slide-left-enter-active,
 .slide-left-leave-active,
 .slide-right-enter-active,
 .slide-right-leave-active {
   transition: all 0.2s;
 }
+
 .slide-left-enter-from {
   opacity: 0;
   transform: translate(50px, 0);
 }
+
 .slide-left-leave-to {
   opacity: 0;
   transform: translate(-50px, 0);
 }
+
 .slide-right-enter-from {
   opacity: 0;
   transform: translate(-50px, 0);
 }
+
 .slide-right-leave-to {
   opacity: 0;
   transform: translate(50px, 0);
 }
+
 .lds-ripple {
   display: inline-block;
   position: relative;
@@ -68,6 +80,7 @@ body {
   height: 80px;
   margin: auto;
 }
+
 .lds-ripple div {
   position: absolute;
   border: 4px solid #fff;
@@ -75,9 +88,11 @@ body {
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
+
 .lds-ripple div:nth-child(2) {
   animation-delay: -0.5s;
 }
+
 .preloader {
   background: #8e8eff;
   position: fixed;
@@ -89,6 +104,7 @@ body {
   display: flex;
   background-image: linear-gradient(45deg, #6cffc4, transparent);
 }
+
 @keyframes lds-ripple {
   0% {
     top: 36px;
@@ -97,6 +113,7 @@ body {
     height: 0;
     opacity: 0;
   }
+
   4.9% {
     top: 36px;
     left: 36px;
@@ -104,6 +121,7 @@ body {
     height: 0;
     opacity: 0;
   }
+
   5% {
     top: 36px;
     left: 36px;
@@ -111,6 +129,7 @@ body {
     height: 0;
     opacity: 1;
   }
+
   100% {
     top: 0px;
     left: 0px;
@@ -119,10 +138,9 @@ body {
     opacity: 0;
   }
 }
-
 </style>
 
-<script>
+<script lang="ts">
 import { useMainStore } from '~/store';
 export default defineComponent({
   setup() {
@@ -140,20 +158,23 @@ export default defineComponent({
     },
     loggedStatus: function () {
       return this.mainStore.getSessionID
-    }
-  },
-  beforeMount () {
-    if (localStorage.token) {
-      // this.mainStore.setSessionID(localStorage.token)
-    }
-  },
-  mounted () {
-    let user = this.mainStore.getUser
-  },
-  computed: {
-    colorTheme () {
+    },
+    colorTheme() {
       return this.mainStore.getUser.colorScheme
     }
+  },
+  beforeMount() {
+    const id: any = useCookie('id')
+    console.log(id)
+    if (id.value) {
+      this.mainStore.setSessionID = id.value
+      console.log(id.value)
+    }
+  },
+  mounted() {
+    let user = this.mainStore.getUser
+    const cookie = useCookie('id')
+    cookie.value = user._id
   }
 })
 </script>

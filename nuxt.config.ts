@@ -16,8 +16,12 @@ export default defineNuxtConfig({
     },
     modules: [
         '@pinia/nuxt',
+        '@nuxt/image-edge'
     ],
     plugins: [
         '~/plugins/pinia.js'
     ],
+    image: {
+        dir: 'assets/images'
+    }
 })

@@ -52,9 +52,10 @@ export default {
                     if (result.message) {
                         this.errMessage = result.message
                     } else if (result._id) {
+                        const id = useCookie('id')
+                        id.value = result._id
+                        console.log(id)
                         this.errMessage = ''
-                        localStorage.setItem('token', result._id)
-                        this.mainStore.setSessionID(localStorage.getItem('token'))
                         this.$router.push('/dashboard')
                     }
                 }
