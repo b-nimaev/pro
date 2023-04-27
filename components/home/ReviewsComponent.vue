@@ -30,7 +30,7 @@
                         </article>
                         <article>
                             <div class="user-avatar">
-                                <nuxt-img format="webp" quality="80" src="~/assets/svg/user-avatar-2.png" alt="user-avatar" />
+                                <nuxt-img format="webp" quality="80" src="/assets/svg/user-avatar-2.png" alt="user-avatar" />
                             </div>
                             <div class="user-review">
                                 <p>Я получил незаменимую помощь в определении своей карьерной</p>

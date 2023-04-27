@@ -11,6 +11,9 @@
 </template>
 
 <script lang="ts">
+// definePageMeta({
+//     middleware: 'auth'
+// })
 import { useMainStore } from "~/store"
 export default defineComponent({
     async setup() {
@@ -24,12 +27,12 @@ export default defineComponent({
             return this.mainStore.getSessionID
         }
     },
-    async beforeCreate () {
-        await this.mainStore.setUser(this.user)
+    beforeCreate() {
+        const id = useCookie("id")
+        if (!id) {
+            this.$router.push("/login")
+        }
     }
-})
-definePageMeta({
-    middleware: 'auth'
 })
 </script>
 

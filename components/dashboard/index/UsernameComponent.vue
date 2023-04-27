@@ -44,14 +44,8 @@ export default defineComponent({
         const mainStore = useMainStore()
         return { mainStore }
     },
-    data() {
-        return {
-            name: '',
-            secondName: ''
-        }
-    },
     computed: {
-        user: function () {
+        user () {
             return this.mainStore.getUser
         }
     },

@@ -20,7 +20,6 @@ export default defineComponent({
     methods: {
         async logout() {
             this.$router.push("/login")
-            this.mainStore.setSessionID('')
         }
     },
     props: {

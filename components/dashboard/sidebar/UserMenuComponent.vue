@@ -73,6 +73,10 @@ export default defineComponent({
         async logout() {
             this.$router.push("/login")
             this.mainStore.setSessionID('')
+            this.mainStore.setUser('')
+            const cookie = useCookie("id")
+            cookie.value = null
+            console.log(cookie)
         }
     },
     props: {

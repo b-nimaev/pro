@@ -54,7 +54,7 @@ export default {
                     } else if (result._id) {
                         const id = useCookie('id')
                         id.value = result._id
-                        console.log(id)
+                        this.mainStore.setUser(result)
                         this.errMessage = ''
                         this.$router.push('/dashboard')
                     }

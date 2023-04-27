@@ -1,8 +1,7 @@
 import { useMainStore } from "~/store"
 export default defineNuxtRouteMiddleware((to, from) => {
-    const mainStore = useMainStore()
-
-    if (mainStore.getSessionID == '') {
+    const id = useCookie("id")
+    if (!id) {
         return navigateTo('/login')
     }
 

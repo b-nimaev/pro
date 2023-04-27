@@ -106,7 +106,7 @@ export default defineComponent({
     },
     computed: {
         loggedStatusInner: function () {
-            return this.mainStore.getSessionID
+            return this.mainStore.getUser._id
         }
     },
     methods: {
@@ -125,6 +125,9 @@ export default defineComponent({
     },
     beforeMount: function () {
         document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
+        if (useCookie('id')) {
+            
+        }
     },
 })
 </script>

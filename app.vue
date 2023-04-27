@@ -141,6 +141,7 @@ body {
 </style>
 
 <script lang="ts">
+import { CookieRef } from 'nuxt/app';
 import { useMainStore } from '~/store';
 export default defineComponent({
   setup() {
@@ -164,17 +165,27 @@ export default defineComponent({
     }
   },
   beforeMount() {
-    const id: any = useCookie('id')
-    console.log(id)
+    const id: CookieRef<string | null | undefined> = useCookie('id')
     if (id.value) {
-      this.mainStore.setSessionID = id.value
-      console.log(id.value)
+      // this.mainStore.setSessionID = id.value
+      (async () => {
+        await fetch('http://localhost:1337/users/' + id.value, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(async (res) => {
+          this.mainStore.setUser(await res.json())
+        }).catch(err => {
+          console.log(err)
+        })
+      })();
     }
   },
   mounted() {
-    let user = this.mainStore.getUser
-    const cookie = useCookie('id')
-    cookie.value = user._id
+    // let user = this.mainStore.getUser
+    // const cookie = useCookie('id')
+    // cookie.value = user._id
   }
 })
 </script>

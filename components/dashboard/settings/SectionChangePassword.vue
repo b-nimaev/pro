@@ -76,6 +76,11 @@ export default defineComponent({
                 
             }
         }
+    },
+    watch: {
+        passwordChangeData () {
+            console.log(this.passwordChangeData)
+        }
     }
 })
 </script>

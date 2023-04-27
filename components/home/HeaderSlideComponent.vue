@@ -241,7 +241,7 @@ p {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    object-position: 0 -18px;
+                    // object-position: 0 -18px;
                 }
             }
         }

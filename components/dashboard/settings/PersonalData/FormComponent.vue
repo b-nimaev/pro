@@ -297,24 +297,34 @@ export default defineComponent({
                 for (let i = 0; i < cities.length; i++) {
 
                     cities[i].addEventListener('click', (e) => {
-                        this.selectedCity = {
+
+                        let updated = this.mainStore.getUser
+                        updated.city = {
+
+                            // @ts-ignore
                             nameEn: e.target.getAttribute('data-value'),
+                            // @ts-ignore
                             nameRu: e.target.innerHTML
+
                         }
+
+                        // диспатч надо сделать
+                        this.mainStore.setUser(updated)
                         this.selectedCityToggler = false
+
                     })
 
                 }
             }
         },
         async cityClick(e: any) {
-            let selectedCity = {
+            let selectedCity: any = {
                 nameEn: e.target.getAttribute('data-value'),
                 nameRu: e.target.innerHTML
             }
             this.selectedCity = selectedCity
             this.selectedCityToggler = false
-            let updated = this.mainStore.getUser
+            let updated: any = this.mainStore.getUser
             updated.city = this.selectedCity
             this.searchData = ''
             await fetch('http://localhost:1337/users/' + updated._id, {
@@ -331,7 +341,7 @@ export default defineComponent({
         },
         async selectGender(e: any) {
             this.selectedGenderToggler = false
-            let selectedGender = {
+            let selectedGender: any = {
                 name: e.target.getAttribute('data-gender-name'),
                 value: e.target.innerHTML
             }
@@ -366,25 +376,24 @@ export default defineComponent({
             for (let i = 0; i < cities.length; i++) {
 
                 cities[i].addEventListener('click', async (e) => {
-                    this.selectedCity = {
-                        nameEn: e.target.getAttribute('data-value'),
-                        nameRu: e.target.innerHTML
-                    }
-                    console.log(this.selectedCity)
+
                     let updated = this.mainStore.getUser
-                    updated.city = this.selectedCity
-                    console.log(updated)
+                    updated.city = {
+
+                        // @ts-ignore
+                        nameEn: e.target.getAttribute('data-value'),
+                        // @ts-ignore
+                        nameRu: e.target.innerHTML
+
+                    }
+
                     await fetch('http://localhost:1337/users/' + updated._id, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify(this.mainStore.getUser)
-                    }).then(response => {
-                        console.log(response)
-                    }).catch(error => {
-                        console.error(error)
-                    })
+                    }).then(response => { console.log(response) }).catch(error => { console.error(error) })
 
                     this.selectedCityToggler = false
                 })
@@ -402,7 +411,7 @@ export default defineComponent({
         }
     },
     watch: {
-        async dateOfBirth () {
+        async dateOfBirth() {
             let updated = this.mainStore.getUser
             updated.dateOfBirth = this.dateOfBirth
             await fetch('http://localhost:1337/users/' + updated._id, {

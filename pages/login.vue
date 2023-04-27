@@ -51,8 +51,8 @@ export default defineComponent({
             return this.mainStore.linkStatusGet
         }
     },
-    mounted() {
-        if (localStorage.id) {
+    beforeMount() {
+        if (useCookie("id") === '') {
             this.$router.push('/dashboard')
         }
     }

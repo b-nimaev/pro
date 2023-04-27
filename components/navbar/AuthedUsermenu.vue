@@ -277,7 +277,12 @@ export default defineComponent({
         }
     }
 }
-.pagewrapper .user-controller .real-user-controller .right-side {
+.pagewrapper.light .user-controller .real-user-controller .right-side {
+    h4, p {
+        color: #333
+    }
+}
+.pagewrapper.dark .user-controller .real-user-controller .right-side {
     h4, p {
         color: #fff
     }

@@ -1,4 +1,4 @@
-<template>
+ <template>
     <section id="blog">
         <div class="container">
             <div class="heading">
