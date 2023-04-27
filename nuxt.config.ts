@@ -8,9 +8,6 @@ export default defineNuxtConfig({
             meta: [
                 { name: 'description', content: 'Центр профориентации' }
             ],
-            link: [
-                { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css' }
-            ]
         },
         pageTransition: { name: 'slide-left', mode: 'out-in' },
     },
