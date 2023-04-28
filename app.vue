@@ -519,17 +519,17 @@ template {
 @font-face {
   font-family: 'Raleway';
   src: url('~/assets/fonts/Raleway/static/Raleway-Bold.ttf');
-  font-weight: normal;
+  font-weight: bold;
 }
 @font-face {
   font-family: 'Raleway';
   src: url('~/assets/fonts/Raleway/static/Raleway-SemiBold.ttf');
-  font-weight: normal;
+  font-weight: 500;
 }
 @font-face {
   font-family: 'Raleway';
   src: url('~/assets/fonts/Raleway/static/Raleway-Light.ttf');
-  font-weight: normal;
+  font-weight: 300;
 }
 body {
   font-family: 'Raleway', sans-serif;
