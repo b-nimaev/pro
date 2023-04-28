@@ -167,6 +167,7 @@
                 font-size: 24px;
                 color: #000000B2;
                 opacity: .7;
+                font-weight: 300;
                 margin-bottom: 40px;
             }
         }
