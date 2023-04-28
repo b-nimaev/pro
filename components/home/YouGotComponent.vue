@@ -254,6 +254,8 @@ article {
 
             .left-side__description {
                 font-size: 20px;
+                line-height: 34px;
+                font-weight: 300;
                 margin-top: 30px;
             }
         }
