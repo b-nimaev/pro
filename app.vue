@@ -523,7 +523,7 @@ template {
 }
 @font-face {
   font-family: 'Raleway';
-  src: url('~/assets/fonts/Raleway/static/Semi-Bold.ttf');
+  src: url('~/assets/fonts/Raleway/static/Raleway-SemiBold.ttf');
   font-weight: normal;
 }
 @font-face {
