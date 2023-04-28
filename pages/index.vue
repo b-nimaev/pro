@@ -1,6 +1,5 @@
 <template>
     <div>
-        <NavbarComponent :loggedStatus="loggedStatus" themeClass="light" />
         <HomeHeaderComponent />
         <HomeAdvantagesComponent></HomeAdvantagesComponent>
         <HomeYouGotComponent></HomeYouGotComponent>

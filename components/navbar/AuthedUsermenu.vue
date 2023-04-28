@@ -163,7 +163,8 @@ export default defineComponent({
         right: -100%;
         z-index: 2;
         // background-clip: ;
-        background-color: #141414;
+        // background-color: #141414;
+        background-color: #ffffff;
         opacity: 0;
         // background-image: linear-gradient(45deg, #3fa16b, rgb(17 185 188 / 96%));
         // height: 239px;
@@ -233,7 +234,7 @@ export default defineComponent({
                         overflow: hidden;
                         transition: 400ms ease-in;
                         width: fit-content;
-                        color: #fff;
+                        color: #222;
 
                         &::after {
                             content: '';
@@ -241,9 +242,9 @@ export default defineComponent({
                             position: absolute;
                             bottom: 0;
                             left: -120%;
-                            height: 2px;
+                            height: 1px;
                             width: 80%;
-                            background-color: #fff;
+                            background-color: #222;
                             // background-image: linear-gradient(244.45deg, rgb(63, 221, 192) 3.03%, rgba(101, 195, 195, 0.87) 99.9%);
                             border-radius: 3px;
                             transition: 300ms ease-in;

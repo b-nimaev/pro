@@ -1,6 +1,5 @@
 <template>
     <div>
-        <NavbarComponent />
         <header>
             <div class="container">
                 <h1>Политика конфиденциальности и Правила</h1>

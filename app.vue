@@ -1,12 +1,7 @@
 <template>
   <div class="pagewrapper"
     :class="{ 'mobile-menu-active': mobileMenu, 'dark': colorTheme.name === 'dark', 'light': colorTheme.name === 'light' }">
-    <div class="preloader" v-if="preloader">
-      <div class="lds-ripple">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
+    <NavbarComponent :user-data="userData" />
     <NuxtPage />
   </div>
 </template>
@@ -668,11 +663,13 @@ import { useMainStore } from '~/store';
 export default defineComponent({
   setup() {
     const mainStore = useMainStore()
-    return { mainStore }
+    const userData = mainStore.getUser
+    return { userData, mainStore }
   },
   data() {
     return {
-      preloader: false
+      preloader: false,
+      userData: this.userData
     }
   },
   computed: {

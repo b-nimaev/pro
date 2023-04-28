@@ -1,6 +1,5 @@
 <template>
     <div>
-        <NavbarComponent :loggedStatus="loggedStatus" />
         <!-- <DashboardHeaderComponent /> -->
         <div class="container">
             <DashboardSidebarComponent />

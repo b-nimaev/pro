@@ -6,7 +6,8 @@
                     <div class="column">
                         <article class="mt-30">
                             <div class="user-avatar">
-                                <nuxt-img format="webp" quality="80" src="/assets/images/user-avatar-for-review.png" alt="user-avatar" />
+                                <nuxt-img format="webp" quality="80" src="/assets/images/user-avatar-for-review.png"
+                                    alt="user-avatar" />
                             </div>
                             <div class="user-review">
                                 <p>Я получила незаменимую помощь в определении своей карьерной стратегии благодаря карьерным
@@ -30,7 +31,8 @@
                         </article>
                         <article>
                             <div class="user-avatar">
-                                <nuxt-img format="webp" quality="80" src="/assets/svg/user-avatar-2.png" alt="user-avatar" />
+                                <nuxt-img format="webp" quality="80" src="/assets/svg/user-avatar-2.png"
+                                    alt="user-avatar" />
                             </div>
                             <div class="user-review">
                                 <p>Я получил незаменимую помощь в определении своей карьерной</p>
@@ -69,7 +71,7 @@
 <script>
 export default defineComponent({
     methods: {
-        allReviews () {
+        allReviews() {
             return this.$router.push('/reviews')
         }
     },
@@ -84,33 +86,44 @@ export default defineComponent({
     #reviews {
         background-color: #0d091026;
         color: #fff;
+
         .heading {
             h2 {
                 color: #fff;
             }
         }
+
         .content {
             p {
                 color: #fff;
             }
         }
+
         button {
             background-color: rgb(255, 122, 47);
+
             &:hover {
                 color: #fff;
                 background-color: rgb(255 141 76)
             }
         }
+
         article {
             user-select: none;
             background-color: #1a181f;
             color: #eee;
-            .reviews-stat span, .user-review p, .user-data .username span, .user-data .userpos span, .article-descr p {
+
+            .reviews-stat span,
+            .user-review p,
+            .user-data .username span,
+            .user-data .userpos span,
+            .article-descr p {
                 color: #eee;
             }
         }
     }
 }
+
 #reviews {
     padding: 100px 0;
     background-color: #fdfdfd;
@@ -148,10 +161,11 @@ export default defineComponent({
         width: 796px;
 
         p {
-            width: 100%;
-            font-size: 18px;
-            line-height: 27px;
-            color: #222;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 300;
+            margin-top: 20px;
+            color: #6a6a6a;
         }
     }
 
@@ -295,9 +309,11 @@ article {
 @media screen and (max-width: 1420px) {
     .container {
         flex-direction: column;
+
         .left-side {
             order: 2
         }
+
         .right-side {
             order: 1;
             margin-bottom: 30px;
@@ -309,6 +325,7 @@ article {
     #reviews {
         padding: 50px 0;
     }
+
     .right-side {
         button {
             padding: 16px 32px;
@@ -323,8 +340,27 @@ article {
             width: 100%;
         }
     }
+
     .left-side {
         margin-right: 0;
+    }
+
+    .right-side {
+        .heading {
+            h2 {
+                font-size: 34px;
+                font-weight: 300
+            }
+        }
+
+        .content {
+            p {
+                color: #6a6a6a;
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: 400;
+            }
+        }
     }
 }
 
@@ -332,14 +368,17 @@ article {
     .left-side {
         .columns {
             flex-direction: column;
+
             .column {
                 margin-right: 0;
+
                 &:first-child {
                     margin-bottom: 20px;
                 }
             }
         }
     }
+
     .right-side {
         .heading {
             .line {
@@ -347,6 +386,4 @@ article {
             }
         }
     }
-}
-
-</style>
+}</style>

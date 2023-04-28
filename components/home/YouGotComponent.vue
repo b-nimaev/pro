@@ -4,7 +4,7 @@
             <div class="heading">
                 <p class="description">Ваш шанс</p>
                 <h2>С нами <span>вы получите</span></h2>
-                <div class="line">
+                <!-- <div class="line">
                     <svg width="244" height="22" viewBox="0 0 244 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M243.331 16.6788C243.526 16.4721 243.615 15.9349 243.243 15.9763L242.728 16.8302L243.331 16.6788Z"
@@ -133,7 +133,7 @@
                         <path d="M74.5885 2.00881L74.9431 1.69202L74.2517 1.98126L74.5885 2.00881Z" fill="#FF6610" />
                     </svg>
 
-                </div>
+                </div> -->
             </div>
 
             <div class="content">
@@ -141,7 +141,7 @@
                     <div class="left-side mr-50">
                         <div class="left-side__heading">
                             <h4>Всесторонний анализ <br>личности и способностей</h4>
-                            <p class="left-side__description">Откройте для себя свои сильный стороны</p>
+                            <p class="left-side__description">Откройте для себя свои сильные стороны</p>
                         </div>
                     </div>
                     <div class="right-side">
@@ -205,7 +205,8 @@
     }
 
     h2 {
-        font-size: 48px;
+        font-size: 46px;
+        font-weight: 300;
 
         span {
             color: #FF6610;
@@ -249,14 +250,17 @@ article {
 
         .left-side__heading {
             h4 {
-                font-size: 36px;
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 32px;
             }
 
             .left-side__description {
-                font-size: 20px;
-                line-height: 34px;
+                font-size: 16px;
+                line-height: 24px;
                 font-weight: 300;
-                margin-top: 30px;
+                margin-top: 20px;
+                color: #6a6a6a;
             }
         }
     }
@@ -278,12 +282,12 @@ article {
         .left-side {
             .left-side__heading {
                 h4 {
-                    font-size: 28px
+                    // font-size: 28px
                 }
             }
             .left-side__heading {
                 .left-side__description {
-                    font-size: 18px;
+                    // font-size: 18px;
                     margin-top: 15px;
                 }
 
@@ -310,7 +314,11 @@ article {
     }
 }
 @media screen and (max-width: 760px) {
+    .heading {
+        margin: 0 0 50px;
+    }
     article {
+        flex-direction: column;
         .left-side {
             .left-side__heading {
                 h4 {
@@ -321,6 +329,10 @@ article {
             .left-side__description {
                 font-size: 16px;
                 line-height: 24px;
+                
+                br {
+                    display: none
+                }
             }
             &.mr-50, &.mr-40 {
                 margin-right: 15px;
@@ -328,6 +340,13 @@ article {
 
             &.mr-100 {
                 margin-right: 30px;
+            }
+        }
+        .right-side {
+            display: flex;
+            margin: 30px auto 0 0;
+            img {
+                margin: auto;
             }
         }
     }

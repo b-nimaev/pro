@@ -218,6 +218,7 @@ export default {
 }
 
 section {
+    overflow: hidden;
     padding: 100px 0;
     // background-color: #fbfbfb;
 

@@ -1,6 +1,5 @@
 <template>
     <header>
-        <NavbarComponent :themeClass="themeClass"></NavbarComponent>
         <div class="container">
             <div class="left-side">
                 <h1>Профориентационный онлайн-тест, разработанный учёными МГУ имени М.В. Ломоносова</h1>
@@ -101,13 +100,10 @@
         }
     }
 }
-.container {
-    margin-top: 150px;
-}
 header {
     background-image: url('~/assets/images/header.jpg');
     background-size: cover;
-    padding: 0 0 150px;
+    padding: 150px 0;
 }
 
 p {

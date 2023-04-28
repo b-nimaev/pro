@@ -1,6 +1,5 @@
 <template>
     <div>
-        <NavbarComponent />
         <careerHeaderComponent />
         <careerDevelopment />
         <HomeYouGotComponent />

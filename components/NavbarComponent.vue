@@ -87,8 +87,7 @@ export default defineComponent({
     data() {
         return {
             toggled: true,
-            show: false,
-            userData: this.userData
+            show: false
         }
     },
     props: {
@@ -102,6 +101,10 @@ export default defineComponent({
         },
         loggedStatus: {
             type: String,
+            default: ''
+        },
+        userData: {
+            type: Object,
             default: ''
         }
     },

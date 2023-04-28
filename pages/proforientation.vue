@@ -1,6 +1,5 @@
 <template>
     <div>
-        <NavbarComponent />
         <ProforientationHeaderComponent />
         <HomeReviewsComponent />
         <HomeOurConsultants />

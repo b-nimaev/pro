@@ -1,6 +1,5 @@
 <template>
     <div>
-        <NavbarComponent />
         <main>
             <div class="wrapper">
                 <div class="items">
@@ -25,9 +24,6 @@
 
 <script>
 import { useMainStore } from '~/store';
-definePageMeta({
-    middleware: 'login'
-})
 export default defineComponent({
     setup() {
         const mainStore = useMainStore()
@@ -49,11 +45,6 @@ export default defineComponent({
     computed: {
         link() {
             return this.mainStore.linkStatusGet
-        }
-    },
-    beforeMount() {
-        if (useCookie("id") === '') {
-            this.$router.push('/dashboard')
         }
     }
 })
@@ -108,10 +99,12 @@ export default defineComponent({
         transition: 400ms;
         transform: scale(1);
         border: 1px solid #fff;
+
         &:hover {
             background-color: #fff;
             color: #000;
         }
+
         &:active {
             transform: scale(.95);
         }

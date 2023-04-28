@@ -247,9 +247,11 @@
         .row {
             .left-side {
                 margin-right: 40px;
-
+                display: flex;
                 img {
                     width: 260px;
+                    height: auto;
+                    margin: 0 auto auto;
                 }
             }
         }
@@ -341,8 +343,8 @@
                 order: 2;
 
                 img {
-                    margin-left: auto;
-                    width: 400px;
+                    margin: 0;
+                    width: 300px;
                 }
             }
         }
@@ -363,4 +365,5 @@
             }
         }
     }
-}</style>
+}
+</style>
