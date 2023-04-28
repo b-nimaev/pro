@@ -59,7 +59,7 @@
                         <NuxtLink to="/for-consultants">Консультантам</NuxtLink>
                     </li>
                 </ul>
-                <NuxtLink class="navbar-login" to="/login" v-if="!loggedStatusInner">
+                <NuxtLink class="navbar-login" to="/login" v-if="!userData">
                     <span>Вход</span>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -67,7 +67,7 @@
                             fill="white" fill-opacity="0.9" />
                     </svg>
                 </NuxtLink>
-                <NavbarAuthedUsermenu :themeClass="themeClass" v-if="loggedStatusInner" />
+                <NavbarAuthedUsermenu :themeClass="themeClass" v-if="userData" />
             </div>
             <button class="toggler" @click="toShow()" v-if="toggled">
                 <span></span>
@@ -88,6 +88,7 @@ export default defineComponent({
         return {
             toggled: true,
             show: false,
+            userData: this.userData
         }
     },
     props: {
@@ -102,11 +103,6 @@ export default defineComponent({
         loggedStatus: {
             type: String,
             default: ''
-        }
-    },
-    computed: {
-        loggedStatusInner: function () {
-            return this.mainStore.getUser._id
         }
     },
     methods: {

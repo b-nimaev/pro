@@ -12,6 +12,9 @@
 </template>
 
 <style lang="scss">
+.swiper-slide {
+  padding: 10px 0;
+}
 /*! destyle.css v1.0.14 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 
 /* Reset box-model */
@@ -683,7 +686,7 @@ export default defineComponent({
       return this.mainStore.getUser.colorScheme
     }
   },
-  beforeMount() {
+  beforeCreate() {
     const id: CookieRef<string | null | undefined> = useCookie('id')
     if (id.value) {
       // this.mainStore.setSessionID = id.value

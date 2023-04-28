@@ -181,6 +181,12 @@
         background-color: unset;
         background-image: linear-gradient(90deg, #0d0b0f, #0f0909);
     }
+
+    .heading {
+        h2 {
+            color: #fff;
+        }
+    }
 }
 .swiper-slide {
     overflow: hidden;

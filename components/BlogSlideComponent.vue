@@ -16,6 +16,32 @@
 </template>
 
 <style lang="scss" scoped>
+.pagewrapper.dark {
+    .slide {
+        background-color: #0f0e0f;
+        box-shadow: 3px 0px 18px -9px rgb(0 0 0);
+        .content {
+            .post-title {
+                h4 {
+                    color: #fff;
+                }
+            }
+            .post-meta {
+                .time {
+                    span {
+                        color: #fff;
+                    }
+                }
+
+                button {
+                    color: #fff;
+                    background-color: #171717;
+                    border-color: #171717;
+                }
+            }
+        }
+    }
+}
 .slide {
     position: relative;
     top: 0;
@@ -27,6 +53,7 @@
         margin-bottom: 8px;
 
         img {
+            width: 100%;
             border-radius: 8px;
         }
     }
