@@ -352,8 +352,10 @@
                 }
 
                 p {
-                    font-size: 18px;
-                    line-height: 21.6px;
+                    font-size: 16px;
+                    color: #6a6a6a;
+                    font-weight: 300;
+                    line-height: 24px;
                 }
             }
         }
