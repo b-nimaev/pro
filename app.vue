@@ -519,7 +519,7 @@ template {
 @font-face {
   font-family: 'Raleway';
   src: url('~/assets/fonts/Raleway/static/Raleway-Bold.ttf');
-  font-weight: bold;
+  font-weight: 600;
 }
 @font-face {
   font-family: 'Raleway';
