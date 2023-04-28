@@ -511,6 +511,26 @@ template {
 [hidden] {
   display: none;
 }
+@font-face {
+  font-family: 'Raleway';
+  src: url('~/assets/fonts/Raleway/static/Raleway-Regular.ttf');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('~/assets/fonts/Raleway/static/Raleway-Bold.ttf');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('~/assets/fonts/Raleway/static/Semi-Bold.ttf');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('~/assets/fonts/Raleway/static/Raleway-Light.ttf');
+  font-weight: normal;
+}
 body {
   font-family: 'Raleway', sans-serif;
   transition: 400ms;
