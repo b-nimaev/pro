@@ -3,7 +3,7 @@
         <div class="real-user-controller" @click="goToDashboard()">
             <div class="left-side">
                 <div class="UservAatar">
-                    <img v-if="user.photo" :src="`/_nuxt/assets/avatars/${user.photo}`" alt="">
+                    <img v-if="user.photo" :src="`https://profori.pro/avatars/${user.photo}`" alt="">
                     <IconsAvatarEmtyIcon v-if="!user.photo" />
                 </div>
             </div>

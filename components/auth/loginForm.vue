@@ -28,7 +28,7 @@ export default {
     },
     data() {
         return {
-            apiUrl: 'http://87.236.22.124:1337',
+            apiUrl: 'https://87.236.22.124:1337',
             passwordIncorrect: false,
             emailIncorrect: false,
             errMessage: ''

@@ -713,7 +713,7 @@ export default defineComponent({
     if (id.value) {
       // this.mainStore.setSessionID = id.value
       (async () => {
-        await fetch('http://localhost:1337/users/' + id.value, {
+        await fetch('https://87.236.22.124:1337/users/' + id.value, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'

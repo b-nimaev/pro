@@ -32,9 +32,19 @@ aside {
         background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
     }
 }
-
-.pagewrapper.dark aside {
-    background-color: #0000002b;
-    box-shadow: 0 2px 3px #00000052;
+@media screen and (max-width: 1420px) {
+    aside {
+        padding: 30px 20px;
+    }
+    ul {
+        li {
+            a {
+                margin: 0 0 6px;
+                font-size: 14px;
+                padding: 10px;
+                width: 178px;
+            }
+        }
+    }
 }
 </style>

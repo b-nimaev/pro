@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img v-if="user.photo" :src="`/_nuxt/assets/avatars/${user.photo}`" alt="user-avatar">
+        <img v-if="user.photo" :src="`https://profori.pro/avatars/${user.photo}`" alt="user-avatar">
         <IconsAvatarEmtyIcon v-if="!user.photo" />
     </div>
 </template>

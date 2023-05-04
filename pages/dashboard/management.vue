@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h4>Реферальные ссылки</h4>
+    <div class="dashboard-content">
+        <DashboardSettingsSectionHeadingComponent title="Реферальные ссылки" />
         <ul>
             <li v-for="link of links" :key="link.value">
                 <div class="headertop">
@@ -22,7 +22,9 @@
                         :data-id="link._id">{{ link._id }}</span>
                 </div>
                 <div class="statistic" v-if="link.users.length">
-                    {{ link.users }}
+                    <ul>
+                        <li v-for="linkItem of link.users" :key="linkItem">{{ linkItem }}</li>
+                    </ul>
                 </div>
             </li>
         </ul>
@@ -43,6 +45,20 @@
     flex-wrap: wrap;
     padding: 10px;
     margin-top: 10px;
+    ul {
+        width: 100%;
+        margin-bottom: 0;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            color: #eee;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
 }
 
 .icons {
@@ -65,13 +81,13 @@
 
             path {
                 transition: 400ms;
-                fill: #222
+                fill: #eee
             }
         }
 
         &:hover {
             svg path {
-                fill: #333;
+                fill: #fff;
             }
         }
     }
@@ -79,7 +95,7 @@
 
 h4 {
     font-size: 26px;
-    color: #333;
+    color: #eee;
     margin-bottom: 30px;
 }
 
@@ -93,7 +109,7 @@ button {
 
 ul {
     margin-bottom: 30px;
-
+    width: 100%;
     li {
         display: flex;
         flex-direction: column;
@@ -102,7 +118,7 @@ ul {
 
         span {
             font-size: 16px;
-            color: #333;
+            color: #eee;
             cursor: pointer;
 
             &.muted {
@@ -152,7 +168,7 @@ export default defineComponent({
                 value: 'asdf',
                 users: []
             })
-            await fetch('http://localhost:1337/users/' + user._id, {
+            await fetch('https://87.236.22.124:1337/users/' + user._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -175,7 +191,7 @@ export default defineComponent({
                     user.ref_links.splice(i, 1)
                 }
             }
-            await fetch('http://localhost:1337/users/' + user._id, {
+            await fetch('https://87.236.22.124:1337/users/' + user._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -207,7 +223,7 @@ export default defineComponent({
 
         this.$socket.on(eventName, async () => {
             // Ваш код обработки события
-            await fetch('http://localhost:1337/users/' + this.mainStore.getUser._id, {
+            await fetch('https://87.236.22.124:1337/users/' + this.mainStore.getUser._id, {
                 method: 'GET',
             }).then(async (res) => {
                 let userdata = await res.json()

@@ -21,9 +21,8 @@ definePageMeta({
 export default defineComponent({
     async setup() {
         const mainStore = useMainStore()
-        const { data: user } = await useFetch('http://localhost:1337/users/' + mainStore.getSessionID)
 
-        return { mainStore, user }
+        return { mainStore }
     },
     computed: {
         loggedStatus: function () {
@@ -57,5 +56,11 @@ main {
     // top: 20px;
     background-image: linear-gradient(138deg, #302a2a, rgba(40, 43, 43, 0.9411764706), #082625);
     height: auto;
+    width: 1230px;
+}
+@media screen and (max-width: 1420px) {
+    .container {
+        margin: 20px auto;
+    }
 }
 </style>

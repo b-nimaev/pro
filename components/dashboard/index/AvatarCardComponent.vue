@@ -1,6 +1,7 @@
 <template>
     <div class="avatar">
-        <img v-if="user.photo" :src="`/_nuxt/assets/avatars/${user.photo}`" alt="user-card-avatar">
+        <!-- <img v-if="user.photo" :src="`/_nuxt/assets/avatars/${user.photo}`" alt="user-card-avatar"> -->
+        <img v-if="user.photo" :src="`//profori.pro/avatars/${user.photo}`" alt="user-card-avatar">
         <IconsAvatarEmtyIcon v-if="!user.photo" />
         <div @click="jackclick" class="icon">
             <IconsCameraIcon />
@@ -40,7 +41,7 @@ export default defineComponent({
             const file = event.target.files[0]
             const formData = new FormData()
             formData.append('avatar', file)
-            fetch(`http://localhost:1337/users/${this.user._id}/avatar`, {
+            fetch(`https://87.236.22.124:1337/users/${this.user._id}/avatar`, {
                 method: 'POST',
                 body: formData
             })
@@ -53,10 +54,10 @@ export default defineComponent({
                 .then(async (data) => {
                     // обновляем данные пользователя на фронтенде
                     let user = this.mainStore.getUser
-                    await fetch('http://localhost:1337/users/' + user._id)
+                    await fetch('https://87.236.22.124:1337/' + user._id)
                         .then(response => response.json())
                         .then(async (user) => {
-                            await this.mainStore.setUser(user)
+                            this.mainStore.setUser(user)
                         })
                 })
                 .catch(error => {

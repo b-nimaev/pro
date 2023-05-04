@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h2>Консультации</h2>
+    <div class="dashboard-content">
+        <DashboardSettingsSectionHeadingComponent title="Консультации" />
     </div>
 </template>
 
