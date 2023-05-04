@@ -176,7 +176,8 @@ export default defineComponent({
             if (this.privacy) {
                 console.log({
                     name: this.name,
-                    phone: this.phone
+                    phone: this.phone,
+                    ref: this.mainStore.getReferral
                 })
                 // send & clear data
                 return this.mainStore.setStatusModal(false)

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NavbarComponent />
         <HomeHeaderComponent />
         <HomeAdvantagesComponent></HomeAdvantagesComponent>
         <HomeYouGotComponent></HomeYouGotComponent>
@@ -11,7 +12,11 @@
 </template>
 <script>
 import { useMainStore } from "~/store"
-
+definePageMeta({
+    middleware: [
+        'named-test'
+    ]
+})
 export default defineComponent({
     setup() {
         const mainStore = useMainStore()
@@ -26,7 +31,7 @@ export default defineComponent({
         loggedStatus: function () {
             return this.mainStore.getSessionID
         }
-    }
+    },
 })
 </script>
 

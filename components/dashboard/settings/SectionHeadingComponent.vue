@@ -19,7 +19,7 @@ h4 {
     margin-bottom: 30px;
     
     font-size: 26px;
-    color: #444;
+    color: #eee;
     font-weight: 500;
     width: fit-content;
     cursor: pointer;

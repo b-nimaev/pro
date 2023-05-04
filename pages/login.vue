@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NavbarComponent />
         <main>
             <div class="wrapper">
                 <div class="items">
@@ -19,11 +20,16 @@
             </div>
         </main>
         <FooterComponent />
-    </div>
+    </div>  
 </template>
 
 <script>
 import { useMainStore } from '~/store';
+definePageMeta({
+    middleware: [
+        'login'
+    ]
+})
 export default defineComponent({
     setup() {
         const mainStore = useMainStore()
@@ -65,10 +71,11 @@ export default defineComponent({
 
 .right-side {
     // background-image: linear-gradient(244.45deg, rgba(0, 0, 0, 0.8) 3.03%, rgba(0, 0, 0, 0.8) 99.9%);
-    background-image: linear-gradient(244.45deg, rgb(63 221 192) 3.03%, rgb(101 195 195 / 87%) 99.9%);
+    // background-image: linear-gradient(244.45deg, rgb(63 221 192) 3.03%, rgb(101 195 195 / 87%) 99.9%);
+    background-image: linear-gradient(244.45deg, rgb(54 40 46) 3.03%, rgb(3 8 8 / 87%) 99.9%);
     height: 300px;
     margin: auto;
-    border-radius: 8px;
+    // border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,7 +106,7 @@ export default defineComponent({
         transition: 400ms;
         transform: scale(1);
         border: 1px solid #fff;
-
+        background-image: linear-gradient(244.45deg, rgb(54 40 46) 3.03%, rgb(3 8 8 / 87%) 99.9%);
         &:hover {
             background-color: #fff;
             color: #000;

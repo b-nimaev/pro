@@ -1,14 +1,20 @@
 <template>
-    <div class="username">
-        <div class="left-side">
+    <div class="userdata">
+        <div class="top-side">
             <DashboardIndexNameComponent />
             <h6 class="edity">
-                <p><span class="static">https://profori.pro/</span><span>{{ user._id ? user._id : user.nickname }}</span>
+                <p class="small"><span class="static">https://profori.pro/</span><span>{{ user._id ? user._id : user.nickname }}</span>
                 </p>
                 <div class="edit-icon">
                     <edit-icon size="small" />
                 </div>
             </h6>
+        </div>
+        <div class="bottom-side">
+            <div class="statistic">
+                <p>🛡 12 безопасных сделок</p>
+            </div>
+            <!-- <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores eaque at aliquam.</p> -->
         </div>
         <!-- <a class="change" href="javascript:void(0)">Редактировать</a> -->
     </div>
@@ -16,24 +22,42 @@
 
 <style lang="scss" scoped>
 @import '~/assets/css/dashboard.scss';
-.username {
-    margin: auto 0;
+.userdata {
+    margin: 0;
     display: flex;
-    padding: 0;
+    flex-direction: column;
+    padding: 15px 0;
 
     h4 {
-        font-size: 20px;
+        font-size: 26px;
         margin-bottom: 5px;
+        color: $primary-color;
     }
 
     h6 {
         font-size: 12px;
-        color: #c3c3c3
+        color: $primary-color;
     }
 
     .change {
         margin-left: 15px;
     }
+}
+p {
+    font-size: 16p;
+    line-height: 24px;
+    &.description {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    &.small {
+        font-size: 12px;
+    }
+}
+
+.bottom-side {
+    margin-top: 15px;
+    color: #eee;
 }
 </style>
 

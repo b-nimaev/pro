@@ -23,20 +23,29 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
+
 button {
     padding: 12px 30px;
     color: #fff;
     padding: 16px 32px;
     border-radius: 30px;
-    background-color: #FF6610;
-    border: 1px solid #FF6610;
+    background-color: $ohra-primary;
+    border: 1px solid $ohra-primary;
     font-size: 24px;
     transition: 400ms;
-margin: 40px auto 0 0;
+    position: relative;
+    top: 0;
+    margin: 40px auto 0 0;
+
     &:hover {
         background-color: transparent;
         color: #000;
         padding: 15px 31px;
+        top: -5px;
+    }
+    &:active {
+        top: -3px;
     }
 }
 

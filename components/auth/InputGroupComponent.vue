@@ -6,8 +6,8 @@
             </label>
             <label class="icon" v-else for="selectRole"><slot /></label>
             <select v-if="inputType === 'select'" name="role" id="selectRole" v-model="role">
-                <option value="consultant">Консультант</option>                
                 <option value="client">Клиент</option>                
+                <option value="consultant">Консультант</option>                
             </select>
             <input type="text" :id="inputName" :placeholder="inputName" v-model="userEmail" v-if="inputName === 'email'"
                 @input="emailWatcher">
@@ -33,7 +33,7 @@ export default {
             userPwd: this.password,
             emailExists: false,
             inputValue: '',
-            role: 'consultant'
+            role: 'client'
         }
     },
     props: {
@@ -78,8 +78,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .input-group {
-    background-color: rgb(245 245 245);
-    border: 1px solid rgb(245 245 245);
+    // background-color: rgb(245 245 245);
+    // border: 1px solid rgb(245 245 245);
+    background-image: linear-gradient(104deg, #331c1c, #150d0d);
     width: 255px;
     display: flex;
     margin-bottom: 10px;
@@ -92,7 +93,7 @@ export default {
         padding: 12px 10px;
         padding-left: 0;
         width: 100%;
-        color: #00000094;
+        color: #fff;
         cursor: pointer;
         margin: 0;
     }
@@ -101,5 +102,10 @@ export default {
         margin: auto 0;
         display: flex;
         padding: 10px;
+        svg {
+            path {
+                fill: #fff;
+            }
+        }
     }
 }</style>

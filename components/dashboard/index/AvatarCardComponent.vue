@@ -51,10 +51,9 @@ export default defineComponent({
                     return response.json()
                 })
                 .then(async (data) => {
-                    console.log('Avatar uploaded successfully')
                     // обновляем данные пользователя на фронтенде
-                    console.log(this.mainStore.getSessionID)
-                    await fetch('http://localhost:1337/users/' + this.mainStore.getSessionID)
+                    let user = this.mainStore.getUser
+                    await fetch('http://localhost:1337/users/' + user._id)
                         .then(response => response.json())
                         .then(async (user) => {
                             await this.mainStore.setUser(user)
@@ -80,8 +79,8 @@ export default defineComponent({
 @import '~/assets/css/dashboard.scss';
 
 .avatar {
-    width: 80px;
-    height: 80px;
+    height: 160px;
+    width: 160px;
     border-radius: 50%;
     overflow: hidden;
     margin-right: 15px;
@@ -99,8 +98,8 @@ export default defineComponent({
     .icon {
         background-color: #000000a1;
         position: absolute;
-        width: 80px;
-        height: 80px;
+        height: 160px;
+        width: 160px;
         top: 0;
         left: 0;
         display: flex;

@@ -1,8 +1,8 @@
 <template>
     <form @submit.prevent="registration">
-        <AuthHeadingComponent message="Регистрация" />
-        <AuthSocialsListComponent />
-        <p>или используйте email адрес</p>
+        <AuthHeadingComponent message="Регистрация" style="margin-bottom: 20px" />
+        <!-- <AuthSocialsListComponent /> -->
+        <!-- <p>или используйте email адрес</p> -->
         <AuthInputGroupComponent input-name="role" input-type="select">
             <IconsFormUserIcon />
         </AuthInputGroupComponent>
@@ -23,8 +23,8 @@
 form {
     padding: 50px;
     border-radius: 5px;
-    background-image: linear-gradient(104deg, #fffbfb, #ffffff);
-
+    // background-image: linear-gradient(104deg, #fffbfb, #ffffff);
+    background-image: linear-gradient(104deg, #422f2f, #383232);
     p {
         margin-bottom: 10px;
         text-align: center;
@@ -63,6 +63,7 @@ form {
 input[type="submit"] {
     display: block;
     background-color: rgb(63 221 192);
+    background-image: linear-gradient(244.45deg, rgb(54 40 46) 3.03%, rgb(3 8 8 / 87%) 99.9%);
     padding: 10px 28px;
     color: #fff;
     font-size: 16px;
@@ -102,6 +103,7 @@ export default defineComponent({
 
             let userData = this.mainStore.getRegistrationData
             userData.role = this.mainStore.getUserRole
+            userData.ref = this.mainStore.getReferral 
             console.log(userData)
             try {
                 const response = await fetch(`${this.apiUrl}/users/register`, {
@@ -115,15 +117,18 @@ export default defineComponent({
                     if (res.code == 110000) {
                         this.emailExists = true
                     } else {
-                        new Promise<void>((resolve, reject) => {
-                            this.mainStore.setUser(res)
-                            this.$router.afterEach(() => {
-                                this.$nextTick(() => {
-                                    resolve()
-                                })
-                            })
-                            this.$router.push('dashboard')
-                        })
+                        this.mainStore.setUser(res)
+                        useCookie('id').value = res._id
+                        this.$router.push('dashboard')
+                        // new Promise<void>((resolve, reject) => {
+                            // this.mainStore.setUser(res)
+                            // this.$router.afterEach(() => {
+                                // this.$nextTick(() => {
+                                    // resolve()
+                                // })
+                            // })
+                            // this.$router.push('dashboard')
+                        // })
                     }
                 })
             } catch (error) {

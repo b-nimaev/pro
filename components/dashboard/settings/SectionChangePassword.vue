@@ -4,16 +4,16 @@
         <form @submit.prevent="changePassword">
             <div class="input-group">
                 <label for="password">Текущий пароль</label>
-                <input type="password" name="password" id="password" v-model="passwordChangeData.password">
+                <input type="password" name="password" id="password" v-model="passwordChangeData.password" @input="currentPasswordWatcher">
             </div>
             <div class="input-group">
                 <label for="newPassword">Новый пароль</label>
-                <input type="password" name="newPassword" id="newPassword" v-model="passwordChangeData.newPassword">
+                <input type="password" name="newPassword" id="newPassword" v-model="passwordChangeData.newPassword" @input="newPasswordWatcher">
             </div>
             <div class="input-group">
                 <label for="confirmNewPassword">Подтвердите пароль</label>
                 <input type="password" name="confirmNewPassword" id="confirmNewPassword"
-                    v-model="passwordChangeData.confirmNewPassword">
+                    v-model="passwordChangeData.confirmNewPassword" @input="confirmNewPassword">
             </div>
         </form>
         <p class="errMessage" v-if="passwordChangeData.errMessage">{{ passwordChangeData.errMessage }}</p>
@@ -36,6 +36,11 @@ form {
     margin-top: 15px;
     font-size: 14px;
     color: #333;
+}
+input {
+    &.err {
+        box-shadow: 1px 4px 0px rgb(255 13 13 / 56%);
+    }
 }
 </style>
 
@@ -75,12 +80,24 @@ export default defineComponent({
                 this.passwordChangeData.errMessage = ''
                 
             }
+        },
+
+        // текущий пароль
+        currentPasswordWatcher: function (e: any) {
+            let value = e.target.value
+            console.log(value)
+        },
+
+        // новый пароль
+        newPasswordWatcher: function (e: any) {
+            let value = e.target.value
+            console.log(value)
+        },
+
+        confirmNewPassword: function (e: any) {
+            let value = e.target.value
+            console.log(value)
         }
     },
-    watch: {
-        passwordChangeData () {
-            console.log(this.passwordChangeData)
-        }
-    }
 })
 </script>

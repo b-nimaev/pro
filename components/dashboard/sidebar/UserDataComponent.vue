@@ -13,23 +13,27 @@
 
     h4 {
         font-weight: 600;
-        font-size: 20px;
-        color: #333333;
+        font-size: 18px;
+        color: #eee;
         font-family: 'Nunito', sans-serif;
         max-width: 200px;
         word-break: break-word;
+        line-height: 24px;
+        margin: auto;   
     }
 
     P {
         font-size: 16px;
-        color: #3333336E;
+        color: #eee;
     }
 }
+
 .pagewrapper.dark {
     .user-data {
         h4 {
             color: #f0f0f0
         }
+
         p {
             color: #eee;
         }

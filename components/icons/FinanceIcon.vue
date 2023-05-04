@@ -8,12 +8,15 @@
 <style lang="scss" scoped>
 svg {
     width: 16px;
+    path {
+        fill: #eee;
+    }
 }
 .pagewrapper.dark {
 
     g,
     path {
-        fill: #fff;
+        fill: #eee;
     }
 }
 </style>

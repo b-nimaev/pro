@@ -1,5 +1,7 @@
 <template>
     <div>
+        <NavbarComponent />
+
         <header>
             <div class="container">
                 <h1>Обработка персональны данных</h1>
@@ -17,4 +19,6 @@
     </div>
 </template>
 
-<style lang="scss" scoped>@import '~/assets/css/single-page-custom.scss';</style>
+<style lang="scss" scoped>
+@import '~/assets/css/single-page-custom.scss';
+</style>

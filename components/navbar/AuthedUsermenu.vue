@@ -7,7 +7,7 @@
                     <IconsAvatarEmtyIcon v-if="!user.photo" />
                 </div>
             </div>
-            <div class="right-side">
+            <div class="right-side" v-if="mobile">
                 <h4>{{ user.firstName }}</h4>
                 <p>{{ user.position }}</p>
             </div>
@@ -64,8 +64,14 @@ export default defineComponent({
     },
     methods: {
         async logout() {
-            this.$router.push("/login")
-            this.mainStore.setSessionID('')
+            this.mainStore.setUser({
+                colorScheme: {
+                    name: 'light',
+                    value: 'Светлая'
+                },
+            })
+            useCookie('id').value = ''
+            this.$router.push('/login')
         },
         async goToDashboard() {
             this.$router.push('/dashboard')
@@ -83,7 +89,11 @@ export default defineComponent({
         }
     },
     props: {
-        themeClass: 'light'
+        themeClass: 'light',
+        mobile: {
+            type: Boolean,
+            default: false
+        }
     }
 })
 </script>
@@ -92,10 +102,12 @@ export default defineComponent({
 .UservAatar {
     width: 40px;
     height: 40px;
+
     svg {
         width: 100%;
         height: 100%;
     }
+
     img {
         width: 40px;
         height: 40px;
@@ -103,11 +115,13 @@ export default defineComponent({
         object-fit: cover;
     }
 }
+
 .user-controller {
     cursor: pointer;
     // background-color: #333;
     margin: auto 0 auto 60px;
     position: relative;
+
     .real-user-controller {
         display: flex;
         padding: 15px 0;
@@ -164,7 +178,8 @@ export default defineComponent({
         z-index: 2;
         // background-clip: ;
         // background-color: #141414;
-        background-color: #ffffff;
+        // background-color: #ffffff;
+        background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
         opacity: 0;
         // background-image: linear-gradient(45deg, #3fa16b, rgb(17 185 188 / 96%));
         // height: 239px;
@@ -180,6 +195,7 @@ export default defineComponent({
             width: 397px;
             right: 0;
             opacity: 1;
+
             .inner {
                 top: 0;
                 right: 0;
@@ -234,25 +250,39 @@ export default defineComponent({
                         overflow: hidden;
                         transition: 400ms ease-in;
                         width: fit-content;
-                        color: #222;
+                        color: #eee;
+                        border-radius: 5px;
 
-                        &::after {
-                            content: '';
-                            display: block;
-                            position: absolute;
-                            bottom: 0;
-                            left: -120%;
-                            height: 1px;
-                            width: 80%;
-                            background-color: #222;
-                            // background-image: linear-gradient(244.45deg, rgb(63, 221, 192) 3.03%, rgba(101, 195, 195, 0.87) 99.9%);
-                            border-radius: 3px;
-                            transition: 300ms ease-in;
-                        }
+                        // &::after {
+                        //     content: '';
+                        //     display: block;
+                        //     position: absolute;
+                        //     bottom: 0;
+                        //     left: -120%;
+                        //     height: 1px;
+                        //     width: 80%;
+                        //     background-color: #eee;
+                        //     // background-image: linear-gradient(244.45deg, rgb(63, 221, 192) 3.03%, rgba(101, 195, 195, 0.87) 99.9%);
+                        //     border-radius: 3px;
+                        //     opacity: 1;
+                        //     transition: 300ms ease-in;
+                        // }
 
                         &:hover {
+                            background-color: #0009;
+                            // &::after {
+                            //     left: 10%;
+                            // }
+                        }
+
+                        &:active {
+                            background-color: #0007;
+                        }
+
+                        &.router-link-active.router-link-exact-active {
+                            background-color: #0005;
                             &::after {
-                                left: 10%;
+                                opacity: 0;
                             }
                         }
                     }
@@ -278,14 +308,19 @@ export default defineComponent({
         }
     }
 }
+
 .pagewrapper.light .user-controller .real-user-controller .right-side {
-    h4, p {
+
+    h4,
+    p {
         color: #333
     }
 }
+
 .pagewrapper.dark .user-controller .real-user-controller .right-side {
-    h4, p {
+
+    h4,
+    p {
         color: #fff
     }
-}
-</style>
+}</style>

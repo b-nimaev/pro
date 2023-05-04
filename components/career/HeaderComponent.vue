@@ -3,7 +3,7 @@
         <div class="container">
             <div class="left-side">
                 <h2>Добейтесь успеха в карьере <br>с нашими экспертами-консультантами</h2>
-                <p>Разблокируйте свой потенциал и достигните своих карьерных целей вместе с нашими экспертами</p>
+                <p>Разблокируйте свой потенциал и достигните своих карьерных <br> целей вместе с нашими экспертами</p>
             </div>
             <div class="right-side">
                 <div class="columns">
@@ -20,6 +20,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
 header {
     margin: 100px 0;
 }
@@ -30,15 +31,19 @@ header {
     flex-direction: column;
     justify-content: center;
     h2 {
-        font-size: 48px;
-        line-height: 48px;
-        color: #000;
+        font-size: $h1-size;
+        line-height: 52px;
+        color: $ohra-primary;
         margin-bottom: 20px;
     }
     p {
-        font-size: 20px;
+        font-size: 18px;
+        color: #444;
         line-height: 26px;
     }
+}
+.right-side {
+    margin: 0 0 0 auto;
 }
 .columns {
     display: flex;

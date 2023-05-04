@@ -25,9 +25,9 @@
 
 <script lang="ts">
 export default {
-    data () {
+    data() {
         return {
-            color: '#f00'
+            color: '#000'
         }
     }
 }
@@ -44,13 +44,17 @@ ul {
         transition: 300ms;
         position: relative;
         top: 0;
+
         &:hover {
             top: -1px;
+
             svg {
                 height: 36px;
             }
         }
+
         &:active {
+
             // transform: scale(.95);
             svg {
                 height: 30px;
@@ -61,14 +65,13 @@ ul {
     li {
         margin: 0 5px;
     }
-    
+
     svg {
         height: 34px;
         transition: 400ms;
     }
 
     rect {
-        fill: #f00;
+        fill: #000;
     }
-}
-</style>
+}</style>

@@ -32,6 +32,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
 header {
     padding: 150px 0;
 }
@@ -40,7 +41,7 @@ header {
 }
 h1 {
     font-size: 42px;
-    line-height: 58px;
+    line-height: 52px;
     margin-bottom: 40px;
 }
 .primary_description {
@@ -60,15 +61,21 @@ button {
     color: #fff;
     padding: 16px 32px;
     border-radius: 30px;
-    background-color: #FF6610;
-    border: 1px solid #FF6610;
+    background-color: $ohra-primary;
+    border: 1px solid $ohra-primary;
     margin-top: 40px;
     font-size: 24px;
     transition: 400ms;
+    position: relative;
+    top: 0;
     &:hover {
         background-color: transparent;
-        color: #000;
+        color: $ohra-primary;
         padding: 15px 31px;
+        top: -5px;
+    }
+    &:active {
+        top: -3px;
     }
 }
 

@@ -1,5 +1,6 @@
 <template>
     <header>
+        <NavbarComponent />
         <div class="container">
             <div class="left-side">
                 <h1>Профориентационный онлайн-тест, разработанный учёными МГУ имени М.В. Ломоносова</h1>
@@ -64,7 +65,7 @@
                 </div>
 
                 <div class="buttons">
-                    <button>Пройти тесты</button>
+                    <button><span>Пройти тест</span></button>
                 </div>
             </div>
         </div>
@@ -72,57 +73,72 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
 .buttons {
     display: flex;
-    margin-top: 30px;
+    margin-top: 40px;
 
     button {
         border-radius: 5px;
         color: #FBFBFB;
-        background-color: #FF6610;
-        border: 1px solid #FF6610;
-        padding: 12px 30px;
+        background-color: $ohra-primary;
+        border: 1px solid $ohra-primary;
+        padding: 20px 50px;
         transition: 400ms;
-
+        display: flex;
+        border-radius: 50px;
+        position: relative;
+        top: 0;
+        span {
+            margin: auto;
+            font-size: 24px;
+        }
         &:hover {
-            background-color: #FBFBFB;
-            border-color: #FBFBFB;
-            color: #FF6610;
+            // background-color: #FBFBFB;
+            // border-color: #FBFBFB;
+            // color: #FF6610;
+            top: -5px;
+            background: transparent;
+            span {
+                color: $ohra-primary;
+            }
+        }
+        &:active {
+            top: -3px;
         }
 
         &:first-child {
             margin-right: 30px;
         }
-        &:last-child {
-            font-size: 24px;
-            border-radius: 30px;
-            padding: 16px 32px;
-        }
     }
 }
 header {
-    background-image: url('~/assets/images/header.jpg');
+    // background-image: url('~/assets/images/header.jpg');
     background-size: cover;
-    padding: 150px 0;
+    padding: 0 0 150px;
+    .left-side {
+        margin-top: 150px;
+    }
 }
 
 p {
-    color: #FBFBFB;
-    font-size: 24px;
+    color: #444;
+    font-size: 18px;
+    line-height: 26px;
     margin-top: 30px;
 }
 
 ul {
-    margin: 40px 0;
+    margin: 30px 0 30px;
     padding-left: 30px;
     list-style-type: disc;
     display: flex;
     flex-direction: column;
     li {
-        color: #FBFBFB;
-        font-size: 24px;
-        line-height: 28px;
-        margin-bottom: 12px;
+        color: #444;
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 5px;
         &:last-child {
             margin-bottom: 0;
         }
@@ -130,7 +146,7 @@ ul {
 }
 
 .meta {
-    color: #FBFBFB;
+    color: #444;
     display: flex;
 
     span {
@@ -144,7 +160,12 @@ ul {
     }
 
     .icon {
-        margin-right: 10px
+        margin-right: 10px;
+        svg {
+            path {
+                fill: #333;
+            }
+        }
     }
 
     .cost {
@@ -154,9 +175,10 @@ ul {
 
 h1 {
     width: 826px;
-    font-size: 42px;
+    font-size: $h1-size;
     margin-bottom: 40px;
-    color: #FBFBFB;
+    color: #444;
+    line-height: 52px;
 }
 </style>
 

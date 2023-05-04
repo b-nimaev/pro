@@ -77,7 +77,7 @@
     width: fit-content !important;
     margin-right: 15px;
     transition: 400ms ease-in;
-    box-shadow: -1px 1px 20px 0px #e5e0eb36;
+    box-shadow: -1px 1px 6px 0px #ebebeb78;
 
     &:hover {
         top: -5px;

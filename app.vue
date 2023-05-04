@@ -1,7 +1,6 @@
 <template>
   <div class="pagewrapper"
-    :class="{ 'mobile-menu-active': mobileMenu, 'dark': colorTheme.name === 'dark', 'light': colorTheme.name === 'light' }">
-    <NavbarComponent :user-data="userData" />
+    :class="{ 'mobile-menu-active': mobileMenu, 'dark': colorScheme.name === 'dark', 'light': colorScheme.name === 'light' }">
     <NuxtPage />
   </div>
 </template>
@@ -10,6 +9,7 @@
 .swiper-slide {
   padding: 10px 0;
 }
+
 /*! destyle.css v1.0.14 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 
 /* Reset box-model */
@@ -34,9 +34,12 @@
  */
 
 html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -webkit-tap-highlight-color: transparent; /* 3*/
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-tap-highlight-color: transparent;
+  /* 3*/
 }
 
 /* Sections */
@@ -118,9 +121,12 @@ dd {
  */
 
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
   border: 0;
   border-top: 1px solid;
   margin: 0;
@@ -134,8 +140,10 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: inherit; /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: inherit;
+  /* 2 */
 }
 
 address {
@@ -161,9 +169,12 @@ a {
  */
 
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
 }
 
 /**
@@ -183,8 +194,10 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: inherit; /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: inherit;
+  /* 2 */
 }
 
 /**
@@ -375,11 +388,16 @@ fieldset {
  */
 
 legend {
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
 }
 
 /**
@@ -412,7 +430,8 @@ textarea {
  */
 
 [type="search"] {
-  outline-offset: -2px; /* 1 */
+  outline-offset: -2px;
+  /* 1 */
 }
 
 /**
@@ -429,8 +448,10 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
 }
 
 /**
@@ -509,26 +530,31 @@ template {
 [hidden] {
   display: none;
 }
-@font-face {
-  font-family: 'Raleway';
-  src: url('~/assets/fonts/Raleway/static/Raleway-Regular.ttf');
-  font-weight: normal;
-}
-@font-face {
-  font-family: 'Raleway';
-  src: url('~/assets/fonts/Raleway/static/Raleway-Bold.ttf');
-  font-weight: 600;
-}
-@font-face {
-  font-family: 'Raleway';
-  src: url('~/assets/fonts/Raleway/static/Raleway-SemiBold.ttf');
-  font-weight: 500;
-}
+
 @font-face {
   font-family: 'Raleway';
   src: url('~/assets/fonts/Raleway/static/Raleway-Light.ttf');
   font-weight: 300;
 }
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('~/assets/fonts/Raleway/static/Raleway-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('~/assets/fonts/Raleway/static/Raleway-Bold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('~/assets/fonts/Raleway/static/Raleway-SemiBold.ttf');
+  font-weight: 500;
+}
+
 body {
   font-family: 'Raleway', sans-serif;
   transition: 400ms;
@@ -546,8 +572,6 @@ body {
   &::-webkit-scrollbar {
     width: 5px;
   }
-
-  &::-webkit-scrollbar-track {}
 
   &::-webkit-scrollbar-thumb {
     background: #1c1313;
@@ -658,6 +682,7 @@ body {
 </style>
 
 <script lang="ts">
+
 import { CookieRef } from 'nuxt/app';
 import { useMainStore } from '~/store';
 export default defineComponent({
@@ -679,7 +704,7 @@ export default defineComponent({
     loggedStatus: function () {
       return this.mainStore.getSessionID
     },
-    colorTheme() {
+    colorScheme() {
       return this.mainStore.getUser.colorScheme
     }
   },

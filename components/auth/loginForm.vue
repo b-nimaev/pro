@@ -52,11 +52,10 @@ export default {
                     if (result.message) {
                         this.errMessage = result.message
                     } else if (result._id) {
-                        const id = useCookie('id')
-                        id.value = result._id
+                        useCookie('id').value = result._id
+                        return this.$router.push('/dashboard')
                         this.mainStore.setUser(result)
                         this.errMessage = ''
-                        this.$router.push('/dashboard')
                     }
                 }
 
@@ -110,11 +109,12 @@ aside {
     border-radius: 5px;
     // box-shadow: -13px 10px 15px 0px #f3f3f3b5;
     // background-color: #fcf9f9;
-    background-image: linear-gradient(104deg, #fffbfb, #ffffff);
+    // background-image: linear-gradient(104deg, #fffbfb, #ffffff);
+    background-image: linear-gradient(104deg, #422f2f, #383232);
 
     &.register {
         margin: auto auto auto 0;
-        box-shadow: 20px 4px 15px 0px rgba(243, 243, 243, 0.7098039216);
+        // box-shadow: 20px 4px 15px 0px rgba(243, 243, 243, 0.7098039216);
     }
 
     form {
@@ -157,6 +157,7 @@ aside {
     input[type="submit"] {
         display: block;
         background-color: rgb(63 221 192);
+        background-image: linear-gradient(244.45deg, rgb(54 40 46) 3.03%, rgb(3 8 8 / 87%) 99.9%);
         padding: 10px 28px;
         color: #fff;
         font-size: 16px;

@@ -1,7 +1,8 @@
 <template>
-    <main>
-        <DashboardIndexCardComponent />
-    </main>
+    <section>
+        <DashboardIndexAvatarCardComponent />
+        <DashboardIndexUsernameComponent />
+    </section>
 </template>
 
 <style lang="scss" scoped>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ul>
+        <ul v-if="!settings">
             <li>
                 <NuxtLink to="/dashboard">
                     <div class="icon">
@@ -54,10 +54,49 @@
                 <a @click="logout" href="javascript:void(0)">Выйти</a>
             </li>
         </ul>
+        <ul v-if="settings">
+            <li>
+                <NuxtLink clic to="/dashboard/settings">
+                    <div class="icon">
+                        <IconsAnalyticIcon />
+                    </div>
+                    <span>Личные данные</span>
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/dashboard/settings/experience">
+                    <div class="icon">
+                        <IconsManagementIcon />
+                    </div>
+                    <span>Опыт работы</span>
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/dashboard/settings/safety">
+                    <div class="icon">
+                        <IconsFinanceIcon />
+                    </div>
+                    <span>Безопасность</span>
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/dashboard/settings/delete-account">
+                    <div class="icon">
+                        <IconsCogsIcon />
+                    </div>
+                    <span>Удаление аккаунта</span>
+                </NuxtLink>
+            </li>
+            <!-- <DashboardSidebarListItemComponent Icon="IconsFinanceIcon" /> -->
+            <li>
+                <a @click="back" href="javascript:void(0)">Назад</a>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
+
 import { useMainStore } from '~/store';
 export default defineComponent({
     setup() {
@@ -66,25 +105,34 @@ export default defineComponent({
     },
     data() {
         return {
-
+            // settings: false
         }
     },
     methods: {
         async logout() {
-            this.$router.push("/login")
-            this.mainStore.setSessionID('')
-            this.mainStore.setUser('')
-            const cookie = useCookie("id")
-            cookie.value = null
-            console.log(cookie)
+            this.mainStore.setUser({
+                colorScheme: {
+                    name: 'light',
+                    value: 'Светлая'
+                },
+            })
+            useCookie('id').value = ''
+            return this.$router.push("/login")
+        },
+        async back() {
+            this.$router.push('/dashboard')
+            this.mainStore.setDashboardSettings(false)
+        }
+    },
+    computed: {
+        settings() {
+            console.log(this.mainStore.getIsDashboardSettings)
+            return this.mainStore.getIsDashboardSettings
         }
     },
     props: {
         themeClass: 'light'
     },
-    components: {
-
-    }
 })
 </script>
 
@@ -99,8 +147,9 @@ ul {
             font-size: 16px;
             color: #333333;
             font-weight: 600;
-            width: 190px;
+            width: 220px;
             padding: 10px 20px;
+
             position: relative;
             top: 0;
             left: 0;
@@ -108,8 +157,6 @@ ul {
             background-color: transparent;
             border: 1px solid transparent;
             transition: 400ms;
-
-            span {}
 
             .icon {
                 margin: auto 5px auto 0;
@@ -140,17 +187,49 @@ ul {
                 background-color: #fafafa;
                 left: 5px;
             }
+
+            &.router-link-active.router-link-exact-active {
+                left: 5px;
+                background-color: #0000003b;
+                // background-color: #fafafa;
+            }
         }
 
     }
 }
+
+ul {
+    li {
+        a {
+            color: #fff;
+
+            .icon {
+                svg {
+
+                    path,
+                    g {
+                        fill: #fff;
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: #0000003b;
+            }
+        }
+    }
+}
+
 .pagewrapper.dark ul {
     li {
         a {
             color: #fff;
+
             .icon {
                 svg {
-                    path, g {
+
+                    path,
+                    g {
                         fill: #fff;
                     }
                 }

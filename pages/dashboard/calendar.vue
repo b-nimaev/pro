@@ -1,8 +1,6 @@
 <template>
-    <div id="main">
-        <main>
-            <h2>Консультации</h2>
-        </main>
+    <div>
+        <h2>Консультации</h2>
     </div>
 </template>
 

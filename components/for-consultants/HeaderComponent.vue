@@ -3,7 +3,6 @@
         <div class="container">
             <div class="inner">
                 <h1>Присоединяйтесь к нашей команде консультантов</h1>
-                <p>и помогите людям достигнуть успеха в карьере!</p>
                 <ButtonsSendOrderComponent />
             </div>
         </div>
@@ -11,23 +10,20 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
 header {
-    padding: 100px 0;
+    padding: 70px 0;
 
     .inner {
         display: flex;
         flex-direction: column;
-
-        p {
-            font-size: 32px;
-            margin-top: 12px;
-        }
     }
 }
 
 h1 {
-    font-size: 42px;
-    line-height: 62px;
+    font-size: $h1-size;
+    line-height: 52px;
+    color: $ohra-primary;
 }
 
 @media screen and (max-width: 1420px) {

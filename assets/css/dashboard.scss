@@ -5,6 +5,8 @@ h1 {
 h2 {
     font-size: 28px;
 }
+$light: #eee;
+$primary-color: $light;
 
 .heading {
     margin-bottom: 30px;
@@ -16,6 +18,13 @@ h2 {
     border-bottom: 1px solid #222;
     width: fit-content;
     margin: auto 0;
+}
+
+section {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .content {
@@ -44,9 +53,11 @@ h2 {
     overflow: hidden;
     padding: 0 40px 0 0;
     width: fit-content;
+
     span {
         margin: auto 0;
     }
+
     &:hover {
         .edit-icon {
             left: calc(100% - 40px)

@@ -1,10 +1,6 @@
 <template>
-    <div id="main">
-        <main>
-            <div class="content">
-                <DashboardSubtitleComponent heading="Финансы" />
-            </div>
-        </main>
+    <div>
+        <DashboardSubtitleComponent heading="Финансы" />
     </div>
 </template>
 

@@ -111,6 +111,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
+
 .advantages {
     padding: 200px 0;
     background-color: #fff;
@@ -132,10 +134,10 @@
         margin: auto;
 
         .description {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
 
             p {
-                font-size: 20px;
+                font-size: 18px;
                 color: #99DCD5;
                 opacity: .9;
             }
@@ -143,17 +145,12 @@
 
         .heading {
             h2 {
-                font-size: 48px;
-                color: 000000;
-                opacity: 1;
-                font-size: 48px;
-                opacity: 1;
-                font-weight: 300;
+                font-size: $h1-size;
+                color: $primary;
                 margin-bottom: 20px;
-                margin-top: 20px;
 
                 span {
-                    color: #FF6610;
+                    color: $ohra-primary;
                 }
             }
 
@@ -164,11 +161,10 @@
             }
 
             p {
-                font-size: 24px;
-                color: #000000B2;
-                opacity: .7;
-                font-weight: 300;
-                margin-bottom: 40px;
+                font-size: 20px;
+                line-height: 30px;
+                color: #444;
+                margin-bottom: 30px;
             }
         }
     }
@@ -192,23 +188,29 @@
 
             .icon {
                 margin-right: 15px;
-                background-color: #0D0D0D;
+                background-color: transparent;
                 border-radius: 50px;
                 width: 70px;
                 height: 70px;
                 display: flex;
                 justify-content: center;
+                border: 1px solid $ohra-primary;
 
                 svg {
                     margin: auto;
+
+                    path {
+                        fill: $ohra-primary;
+                    }
                 }
             }
 
             .content {
                 h4 {
                     margin-bottom: 10px;
-                    font-size: 24px;
-                    color: #000;
+                    font-size: 20px;
+                    // color: $ohra-primary;
+                    font-weight: 400;
                     display: flex;
 
                     span {
@@ -220,14 +222,18 @@
                         margin-left: 10px;
                         height: 24px;
                         width: 24px;
+
+                        path {
+                            fill: $ohra-primary;
+                        }
                     }
                 }
 
                 p {
-                    font-size: 16px;
-                    color: #6a6a6a;
-                    font-weight: 300;
-                    line-height: 24px;
+                    font-size: 18px;
+                    color: $ohra-primary;
+                    // font-weight: 300;
+                    line-height: 26px;
                 }
             }
         }
@@ -248,6 +254,7 @@
             .left-side {
                 margin-right: 40px;
                 display: flex;
+
                 img {
                     width: 260px;
                     height: auto;
@@ -365,5 +372,4 @@
             }
         }
     }
-}
-</style>
+}</style>

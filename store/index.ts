@@ -1,4 +1,35 @@
 import { defineStore } from 'pinia'
+interface user {
+    _id: string;
+    nickname: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    surName: string;
+    position: string;
+    photo100: string;
+    password: string;
+    gender: {};
+    role: string;
+    referral: string;
+    colorScheme: {
+        name: string;
+        value: string
+    };
+    photo: string;
+    experience: never[];
+    dateOfBirth: string;
+    city: {
+        nameEn: string;
+        nameRu: string
+    };
+    isDashboardSettings: boolean;
+    subscriptionStatus: string;
+    fullLink: string;
+    ref: string;
+    ref_links: { value: string; users: [] }[]
+}
+
 export const useMainStore = defineStore('main', {
     state: () => ({
         link: false,
@@ -9,7 +40,10 @@ export const useMainStore = defineStore('main', {
         userEmail: '',
         userPassword: '',
         userName: '',
-        userRole: '',
+        userRole: 'client',
+        referral: '',
+        isDashboardSettings: false,
+        fillLink: '',
         userData: {
             _id: '',
             nickname: '',
@@ -33,14 +67,20 @@ export const useMainStore = defineStore('main', {
                 nameEn: 'Moscow',
                 nameRu: 'Москва'
             },
-            subscriptionStatus: ''
+            subscriptionStatus: '',
+            ref: '',
+            ref_links: [{
+                value: '',
+                users: []
+            }]
         },
         registrationData: {
             name: '',
             email: '',
             role: '',
-            password: ''
-        }
+            password: '',
+            ref: ''
+        },
     }),
     getters: {
         getUserRole(state) {
@@ -61,54 +101,65 @@ export const useMainStore = defineStore('main', {
         getCurrentPageDashboard(state) {
             return state.currentPageDashboard
         },
-        getUserdata(state) {
-            return {
-                userLogin: state.userLogin,
-                userName: state.name,
-                userPassword: state.userPassword
-            }
-        },
         getUser(state) {
             return state.userData
         },
         getRegistrationData(state) {
             return state.registrationData
+        },
+        getReferral(state) {
+            return state.referral
+        },
+        getIsDashboardSettings(state) {
+            return state.isDashboardSettings
+        },
+        getFullLink(state) {
+            return state.fillLink
         }
     },
     actions: {
-        setLinkStatus(value) {
+        setLinkStatus(value: boolean) {
             return this.link = value
         },
-        setSessionID(string) {
+        setSessionID(string: string) {
             return this.id = string
         },
-        setStatusModal(value) {
+        setStatusModal(value: boolean) {
             return this.contactModal = value
         },
-        setMobileMenu(value) {
+        setMobileMenu(value: boolean) {
             return this.mobileMenu = value
         },
-        setCurrentPageDashboard (value) {
+        setCurrentPageDashboard(value: string) {
             return this.currentPageDashboard = value
         },
-        
-        setUserEmail (value) {
+
+        setUserEmail(value: string) {
             return this.userEmail = value
         },
-        setUserPassword(value) {
+        setUserPassword(value: string) {
             return this.userPassword = value
         },
-        setFirstName(value) {
+        setFirstName(value: string) {
             return this.userData.firstName = value
         },
-        setUser(value) {
+        setUser(value: user) {
             return this.userData = value
         },
-        setRegistrationData(registrationData) {
+        setRegistrationData(registrationData: { name: string; email: string; role: string; password: string; ref: string }) {
             return this.registrationData = registrationData
         },
-        setUserRole(value) {
+        setUserRole(value: string) {
             return this.userRole = value
+        },
+        setReferral(value: string) {
+            return this.referral = value
+        },
+        setDashboardSettings(value: boolean) {
+            return this.isDashboardSettings = value
+        },
+        setFillLink(value: string) {
+            return this.fillLink = value
         }
     }
 })

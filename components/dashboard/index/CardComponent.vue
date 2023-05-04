@@ -8,15 +8,6 @@
 <style lang="scss" scoped>
 @import '~/assets/css/dashboard.scss';
 
-section {
-    display: flex;
-    width: fit-content;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fffafa;
-    font-family: 'Nunito', sans-serif;
-}
-
 .user-data {
     display: flex;
     width: fit-content;

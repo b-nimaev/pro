@@ -1,5 +1,7 @@
 <template>
     <div>
+        <NavbarComponent />
+
         <header>
             <div class="container">
                 <h1>Политика конфиденциальности и Правила</h1>
@@ -18,6 +20,7 @@
             </div>
         </main>
         <FooterComponent />
-</div></template>
+    </div>
+</template>
 
 <style lang="scss" scoped>@import '~/assets/css/single-page-custom.scss';</style>

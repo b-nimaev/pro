@@ -1,11 +1,12 @@
 $dark-color: #eee;
 $light-color: #111;
 $border-radius: 5px;
+$input-bg-image: linear-gradient(45deg, black, transparent);
 
 main {
     font-family: 'Nunito', sans-serif;
     width: 100%;
-    padding: 30px;
+    // padding: 30px;
     border-radius: $border-radius;
     color: #eee;
 }
@@ -19,17 +20,54 @@ main {
 
 .pagewrapper.light {
     main {
-        background: linear-gradient(90deg, rgb(255 238 228), rgb(238 240 255)),
-            linear-gradient(262.21deg, rgba(136, 98, 86, 0.2) 0%, rgba(173, 183, 198, 0.2) 100%),
-            rgba(136, 98, 86, 0.3);
+        // background-color: #eee;
+        // background: linear-gradient(90deg, rgb(255 238 228), rgb(238 240 255)),
+        // linear-gradient(262.21deg, rgba(136, 98, 86, 0.2) 0%, rgba(173, 183, 198, 0.2) 100%),
+        // rgba(136, 98, 86, 0.3);
     }
-}
 
-label {
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: #444;
-    font-size: 20px;
+    section {
+        padding: 30px;
+        // background: rgba(11, 2, 2, 0.02);
+        border-radius: 5px;
+        // background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
+        // background-image: linear-gradient(138deg, #1d1d1d, rgba(40, 43, 43, 0.9411764706), #060706);
+        margin-bottom: 30px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+    }
+
+    label {
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: #bbb;
+        font-size: 20px;
+    }
+
+    input {
+        color: #444;
+        background-color: #FDFDFD;
+        // background-color: #fff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+        width: 220px;
+        // box-shadow: 0px 2px 2px 1px #140d07d4;
+    }
+
+    .selected {
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 5px;
+        background-color: #FDFDFD;
+        color: #444;
+        // box-shadow: 0px 2px 2px 1px #140d07d4;
+    }
 }
 
 textarea {
@@ -42,21 +80,11 @@ textarea {
     max-height: 200px;
 }
 
-.selected {
-    cursor: pointer;
-    padding: 10px 15px;
-    background-color: #FDFDFD;
-    border-radius: 5px;
-}
-
 .input-wrapper {
     border-radius: 5px;
     color: #222;
     width: 220px;
-    // overflow: hidden;
-    // border: 1px solid $light-color;
     position: relative;
-    // box-shadow: 0px 4px 4px rgba(179, 179, 179, 0.2);
     font-size: 18px;
 
     .select-dropmenu {
@@ -68,8 +96,6 @@ textarea {
         width: 100%;
         border-radius: 15px;
         z-index: 2;
-
-        // box-shadow: -1px 5px 11px 1px #000;
 
         .wrapper-search {
             height: 0;
@@ -168,38 +194,13 @@ textarea {
 
 }
 
-input {
-    color: #222;
-    background-color: #FDFDFD;
-    // background-color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 18px;
-    line-height: 1;
-    width: 220px;
-    box-shadow: 0px 4px 4px rgba(179, 179, 179, 0.2);
-}
-
-section {
-    padding: 30px;
-    background: rgba(11, 2, 2, 0.02);
-    border-radius: 5px;
-    // background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
-    // background-image: linear-gradient(138deg, #1d1d1d, rgba(40, 43, 43, 0.9411764706), #060706);
-    margin-bottom: 30px;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-}
-
 .pagewrapper.dark {
     label {
         color: #d6d6d6;
     }
 
-    input, .selected {
+    input,
+    .selected {
         color: #d6d6d6;
         background-color: #0000003d;
         box-shadow: 0 2px 3px #00000042;
@@ -211,16 +212,20 @@ section {
         .select {
             background-color: #0000003d;
         }
+
         .select-dropmenu ul {
             box-shadow: 0 2px 20px 0px rgb(13 10 10);
             background-color: #0000003d;
+
             li {
                 color: #eee;
+
                 &:hover {
                     background-color: #0000003d;
                 }
             }
         }
+
         .select-dropmenu {
             .wrapper-search {
                 input {

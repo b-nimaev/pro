@@ -6,6 +6,7 @@ import AdvantagesComponent from '~/components/home/AdvantagesComponent.vue';
 
 <template>
     <div>
+        <NavbarComponent />
         <ForConsultantsHeaderComponent />
         <!-- <ForConsultantsAdvantagesComponent /> -->
         <FooterComponent />

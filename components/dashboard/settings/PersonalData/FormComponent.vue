@@ -23,7 +23,7 @@
             <div class="input-group">
 
                 <label for="dateOfBirth">Дата рождения</label>
-                <input type="text" id="dateOfBirth" v-model="dateOfBirth">
+                <input type="text" id="dateOfBirth" v-model="dateOfBirth" @input="dateOfBirthhandler">
             </div>
 
             <div class="input-group">
@@ -249,7 +249,7 @@ export default defineComponent({
             ],
             findedCities: [],
             searchData: '',
-            dateOfBirth: this.dateOfBirth,
+            dateOfBirth: '',
             selectedGender: this.gender,
             genders: [
                 { name: 'male', value: 'Мужской' },
@@ -400,19 +400,28 @@ export default defineComponent({
 
             }
         },
-        async dateOfBirthWatch(e: any) {
-            let value = this.dateOfBirth.replace(/\D/g, '');
-            let day = value.substring(0, 2);
-            let month = value.substring(2, 4);
-            let year = value.substring(4, 8);
-            if (value.length == 2) {
-                value += '/'
-            }
+        async dateOfBirthhandler(e: any) {
+            let newVal = e.target.value
+            console.log(newVal)
+            let user = this.mainStore.getUser
+            user.dateOfBirth = newVal
+            await fetch('http://localhost:1337/users/' + user._id, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(this.mainStore.getUser)
+            }).then(response => {
+                console.log(response)
+            }).catch(error => {
+                console.error(error)
+            })
         }
     },
     watch: {
         async dateOfBirth() {
             let updated = this.mainStore.getUser
+            console.log(updated)
             updated.dateOfBirth = this.dateOfBirth
             await fetch('http://localhost:1337/users/' + updated._id, {
                 method: 'PUT',

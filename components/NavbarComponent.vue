@@ -59,7 +59,8 @@
                         <NuxtLink to="/for-consultants">Консультантам</NuxtLink>
                     </li>
                 </ul>
-                <NuxtLink class="navbar-login" to="/login" v-if="!userData">
+
+                <NuxtLink class="navbar-login" to="/login" v-if="!userData._id">
                     <span>Вход</span>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -67,29 +68,39 @@
                             fill="white" fill-opacity="0.9" />
                     </svg>
                 </NuxtLink>
-                <NavbarAuthedUsermenu :themeClass="themeClass" v-if="userData" />
+
+                <NavbarAuthedUsermenu :themeClass="themeClass" v-if="userData._id" />
             </div>
-            <button class="toggler" @click="toShow()" v-if="toggled">
+
+            <button class="toggler" @click="toShow()">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+
+            <NuxtLink to="/dashboard" class="UserAvatar">
+                <img v-if="userData.photo" :src="`/_nuxt/assets/avatars/${userData.photo}`" alt="">
+                <IconsAvatarEmtyIcon v-if="!userData.photo" />
+            </NuxtLink>
         </div>
     </nav>
 </template>
 <script>
 import { useMainStore } from '~/store';
 export default defineComponent({
+
     setup() {
         const mainStore = useMainStore()
         return { mainStore }
     },
+
     data() {
         return {
             toggled: true,
             show: false
         }
     },
+
     props: {
         themeClass: {
             type: String,
@@ -102,10 +113,11 @@ export default defineComponent({
         loggedStatus: {
             type: String,
             default: ''
-        },
-        userData: {
-            type: Object,
-            default: ''
+        }
+    },
+    computed: {
+        userData() {
+            return this.mainStore.getUser
         }
     },
     methods: {
@@ -122,16 +134,46 @@ export default defineComponent({
             document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
         }
     },
-    beforeMount: function () {
+    beforeMount: async function () {
         document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
-        if (useCookie('id')) {
-            
+        if (useCookie('id').value) {
+            await fetch('http://localhost:1337/users/' + useCookie('id').value, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(async (res) => {
+                this.mainStore.setUser(await res.json())
+            }).catch(err => {
+                console.log(err)
+            })
         }
     },
 })
 </script>
 
 <style lang="scss" scoped>
+.UserAvatar {
+    display: none;
+    margin: auto 5px auto 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    // border: 1px solid #ccc;
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    svg {
+        height: 100%;
+        width: 100%;
+    }
+}
+
 @import '@/assets/css/main.scss';
 $paddings: 10px 20px;
 
@@ -154,10 +196,10 @@ nav .container {
         .my-profori {
             margin: auto 0;
             padding: $paddings;
-            background-color: #FF6610;
+            background-color: $ohra-primary;
             // color: #000;
             border: 1px solid transparent;
-            font-size: 14px;
+            font-size: 16px;
             border-radius: 30px;
             margin-right: 30px;
             transition: 400ms;
@@ -176,8 +218,8 @@ nav .container {
                 margin: 0 15px;
 
                 a {
-                    color: #111;
-                    font-size: 16px;
+                    color: $ohra-primary;
+                    font-size: 18px
                 }
             }
         }
@@ -186,20 +228,20 @@ nav .container {
             margin: auto 0 auto 30px;
             border-radius: 30px;
             padding: $paddings;
-            // background-color: $primary;
-            color: #000;
-            border: 1px solid #000;
+            background-color: $ohra-primary;
+            color: #fff;
+            border: 1px solid $ohra-primary;
             display: flex;
 
             span {
-                font-size: 14px;
+                font-size: 16px;
             }
 
             svg {
                 margin: auto 0 auto 5px;
 
                 path {
-                    fill: #000;
+                    fill: #fff;
                     fill-opacity: 1;
                 }
             }
@@ -207,7 +249,8 @@ nav .container {
     }
 }
 
-nav.dark, .pagewrapper.dark nav {
+nav.dark,
+.pagewrapper.dark nav {
     .right-side {
         .my-profori {
             border: 0;
@@ -249,7 +292,7 @@ nav.dark, .pagewrapper.dark nav {
         width: 20px;
         height: 2px;
         border-radius: 5px;
-        background: #000;
+        background: $ohra-primary;
         margin: 2px 0;
     }
 }
@@ -290,6 +333,9 @@ nav.dark, .pagewrapper.dark nav {
 }
 
 @media screen and (max-width: 1420px) {
+    .UserAvatar {
+        display: flex;
+    }
     .right-side {
         display: none;
     }

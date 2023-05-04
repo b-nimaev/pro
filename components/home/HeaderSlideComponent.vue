@@ -12,7 +12,7 @@
                             <g clip-path="url(#clip0_36_1735)">
                                 <path
                                     d="M9.66358 0.478837L9.34791 0.669019C9.13872 0.795071 9.13872 0.999456 9.34791 1.12554L17.3164 5.92699H0.535715C0.239866 5.92699 0 6.07152 0 6.24979V6.51879C0 6.69705 0.239866 6.84158 0.535715 6.84158H17.3164L9.34791 11.643C9.13872 11.7691 9.13872 11.9735 9.34791 12.0996L9.66358 12.2897C9.87278 12.4158 10.212 12.4158 10.4212 12.2897L19.8431 6.61253C20.0523 6.48648 20.0523 6.2821 19.8431 6.15602L10.4212 0.478837C10.212 0.352757 9.87278 0.352757 9.66358 0.478837Z"
-                                    fill="#222222" />
+                                    fill="#452921" />
                             </g>
                             <defs>
                                 <clipPath id="clip0_36_1735">
@@ -78,7 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/main.scss';
-
+$ohra-primary: #452921;
 .pagewrapper.dark {
     .buttons {
         button.choose {
@@ -117,19 +117,21 @@ header {
 
 
 h1 {
-    font-size: 42px;
+    font-size: $h1-size;
+    color: $primary;
     line-height: 52px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
     span {
-        color: $orange;
+        color: $ohra-primary;
         margin-left: 50px;
     }
 }
 
 p {
     font-size: 18px;
-    line-height: 32px;
+    color: $primary;
+    line-height: 26px;
 }
 
 .bgi {
@@ -147,7 +149,7 @@ p {
         margin: 0 0 auto 0;
         padding: 12px 25px;
         display: flex;
-        border: 1px solid #000;
+        border: 1px solid $ohra-primary;
         border-radius: 30px;
         transition: 400ms;
 
@@ -160,10 +162,11 @@ p {
 
         &:first-child {
             span {
-                font-weight: 500;
+                font-weight: 400;
+                color: $ohra-primary;
             }
 
-            border: 1px solid #222222;
+            // border: 2px solid $ohra-primary;
 
             &:hover {
                 // background-color: #FF6610;
@@ -206,8 +209,8 @@ p {
             margin: 0 0 auto 30px;
             padding: 16px 32px;
             transition: 400ms;
-            background-color: #FF6610;
-            border-color: #FF6610;
+            background-color: $ohra-primary;
+            border-color: $ohra-primary;
             color: #fff;
 
             span {

@@ -75,6 +75,11 @@
                 </div>
             </div>
         </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2023 Profori.com. Все права защищены.</p>
+            </div>
+        </div>
     </footer>
     <ModalComponent />
 </template>
@@ -109,6 +114,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
 .telegramLink {
     padding-bottom: 5px;
     // margin-bottom: 40px;
@@ -143,8 +149,16 @@ export default defineComponent({
 }
 
 footer {
-    padding: 50px 0;
-
+    padding: 50px 0 0;
+    .footer-bottom {
+        padding: 15px 0;
+        margin-top: 40px;
+        background-image: linear-gradient(138deg, #302a2a, rgba(40, 43, 43, 0.9411764706), #082625);
+        p {
+            font-size: 16px;
+            color: #eee;
+        }
+    }
     .footer-inner {
         display: flex;
         width: 100%;
@@ -174,14 +188,14 @@ footer {
                 button {
                     padding: 15px 30px;
                     color: #fff;
-                    background-color: #222;
-                    border: 1px solid #222;
+                    background-color: $ohra-primary;
+                    border: 1px solid $ohra-primary;
                     border-radius: 30px;
                     font-size: 20px;
                     transition: 400ms ease;
 
                     &:hover {
-                        color: #222;
+                        color: $ohra-primary;
                         background-color: #fff;
                     }
                 }

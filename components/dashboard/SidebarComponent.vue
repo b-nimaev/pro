@@ -11,20 +11,7 @@ export default defineComponent({
     setup() {
         const mainStore = useMainStore()
         return { mainStore }
-    },
-    data() {
-        return {
-
-        }
-    },
-    methods: {
-        async logout() {
-            this.$router.push("/login")
-        }
-    },
-    props: {
-        themeClass: 'light'
-    },
+    }
 })
 </script>
 
@@ -39,7 +26,8 @@ aside {
     height: fit-content;
     position: sticky;
     top: 20px;
-
+    background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
+    
     &.dark {
         background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
     }
