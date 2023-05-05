@@ -28,7 +28,7 @@ export default {
     },
     data() {
         return {
-            apiUrl: 'https://profori.pro',
+            apiUrl: 'https://profori.pro:1337',
             passwordIncorrect: false,
             emailIncorrect: false,
             errMessage: ''
