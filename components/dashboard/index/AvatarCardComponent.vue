@@ -54,7 +54,7 @@ export default defineComponent({
                 .then(async (data) => {
                     // обновляем данные пользователя на фронтенде
                     let user = this.mainStore.getUser
-                    await fetch('https://profori.pro:1337/' + user._id)
+                    await fetch('https://profori.pro:1337/users/' + user._id)
                         .then(response => response.json())
                         .then(async (user) => {
                             this.mainStore.setUser(user)
