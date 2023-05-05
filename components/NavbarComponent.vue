@@ -79,7 +79,7 @@
             </button>
 
             <NuxtLink to="/dashboard" class="UserAvatar">
-                <img v-if="userData.photo" :src="`https://profori.pro:1337/avatars/${userData.photo}`" alt="">
+                <img v-if="userData.photo" :src="`https://profori.pro/avatars/${userData.photo}`" alt="">
                 <IconsAvatarEmtyIcon v-if="!userData.photo" />
             </NuxtLink>
         </div>
