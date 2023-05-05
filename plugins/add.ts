@@ -14,17 +14,21 @@ export default defineNuxtPlugin(() => {
                 to.fullPath = '/'
                 console.log(to)
             }
-            console.log(to.query)
-            if (to.query.confirm) {
-                console.log(to.query.confirm)
-                // @ts-ignore
-                mainStore.setConfirmID(to.query.confirm)
-                navigateTo('/confirm')
-            }
+
         }
     }, { global: true })
 
     addRouteMiddleware('named-test', (to, from) => {
-        console.log('this named middleware was added in a plugin')
+        // console.log('this named middleware was added in a plugin')
+        let mainStore = useMainStore()
+        if (to.query.confirm) {
+
+            // @ts-ignore
+            if (to.query.confirm) {
+                console.log('true!')
+            }
+
+            mainStore.setConfirmID(to.query.confirm)
+        }
     })
 })

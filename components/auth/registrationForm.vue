@@ -117,8 +117,8 @@ export default defineComponent({
                     if (res.code == 110000) {
                         this.emailExists = true
                     } else {
-                        this.mainStore.setUser(res)
-                        useCookie('id').value = res._id
+                        // this.mainStore.setUser(res)
+                        // useCookie('id').value = res._id
                         alert('Письмо отправлено к вам на почту, для авторизации подвердите')
                         this.$router.push("/login")
                         // this.$router.push('dashboard')

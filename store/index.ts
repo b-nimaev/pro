@@ -23,7 +23,7 @@ interface user {
         nameEn: string;
         nameRu: string
     };
-    confirmID: string;
+    confirmID: any;
     isDashboardSettings: boolean;
     subscriptionStatus: string;
     fullLink: string;
@@ -166,7 +166,7 @@ export const useMainStore = defineStore('main', {
         setFillLink(value: string) {
             return this.fillLink = value
         },
-        setConfirmID(value: string) {
+        setConfirmID(value: any) {
             return this.confirmID = value
         }
     }
