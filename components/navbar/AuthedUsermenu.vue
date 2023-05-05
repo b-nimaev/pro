@@ -71,6 +71,13 @@ export default defineComponent({
                 },
             })
             useCookie('id').value = ''
+            this.mainStore.setRegistrationData({
+                name: '',
+                email: '',
+                role: '',
+                password: '',
+                rel: ''
+            })
             this.$router.push('/login')
         },
         async goToDashboard() {
@@ -281,6 +288,7 @@ export default defineComponent({
 
                         &.router-link-active.router-link-exact-active {
                             background-color: #0005;
+
                             &::after {
                                 opacity: 0;
                             }
@@ -323,4 +331,5 @@ export default defineComponent({
     p {
         color: #fff
     }
-}</style>
+}
+</style>
