@@ -267,7 +267,7 @@ export default defineComponent({
             // @ts-ignore
             updated[e.target.id] = value
             this.mainStore.setUser(updated)
-            await fetch('https://87.236.22.124:1337/users/' + updated._id, {
+            await fetch('https://profori.pro:1337/users/' + updated._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -327,7 +327,7 @@ export default defineComponent({
             let updated: any = this.mainStore.getUser
             updated.city = this.selectedCity
             this.searchData = ''
-            await fetch('https://87.236.22.124:1337/users/' + updated._id, {
+            await fetch('https://profori.pro:1337/users/' + updated._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -348,7 +348,7 @@ export default defineComponent({
             this.selectedGender = selectedGender
             let updated = this.mainStore.getUser
             updated.gender = selectedGender
-            await fetch('https://87.236.22.124:1337/users/' + updated._id, {
+            await fetch('https://profori.pro:1337/users/' + updated._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -387,7 +387,7 @@ export default defineComponent({
 
                     }
 
-                    await fetch('https://87.236.22.124:1337/users/' + updated._id, {
+                    await fetch('https://profori.pro:1337/users/' + updated._id, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
@@ -405,7 +405,7 @@ export default defineComponent({
             console.log(newVal)
             let user = this.mainStore.getUser
             user.dateOfBirth = newVal
-            await fetch('https://87.236.22.124:1337/users/' + user._id, {
+            await fetch('https://profori.pro:1337/users/' + user._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -423,7 +423,7 @@ export default defineComponent({
             let updated = this.mainStore.getUser
             console.log(updated)
             updated.dateOfBirth = this.dateOfBirth
-            await fetch('https://87.236.22.124:1337/users/' + updated._id, {
+            await fetch('https://profori.pro:1337/users/' + updated._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

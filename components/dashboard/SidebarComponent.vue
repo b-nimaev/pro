@@ -42,7 +42,7 @@ aside {
                 margin: 0 0 6px;
                 font-size: 14px;
                 padding: 10px;
-                width: 178px;
+                width: 178px;       
             }
         }
     }

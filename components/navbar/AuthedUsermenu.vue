@@ -3,7 +3,7 @@
         <div class="real-user-controller" @click="goToDashboard()">
             <div class="left-side">
                 <div class="UservAatar">
-                    <img v-if="user.photo" :src="`https://profori.pro/avatars/${user.photo}`" alt="">
+                    <img v-if="user.photo" :src="`https://profori.pro:1337/avatars/${user.photo}`" alt="">
                     <IconsAvatarEmtyIcon v-if="!user.photo" />
                 </div>
             </div>

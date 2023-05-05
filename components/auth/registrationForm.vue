@@ -93,7 +93,7 @@ export default defineComponent({
     },
     data() {
         return {
-            apiUrl: 'https://87.236.22.124:1337',
+            apiUrl: 'https://profori.pro:1337',
             emailExists: false
         };
     },

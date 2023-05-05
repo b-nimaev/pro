@@ -79,7 +79,7 @@
             </button>
 
             <NuxtLink to="/dashboard" class="UserAvatar">
-                <img v-if="userData.photo" :src="`https://profori.pro/avatars/${userData.photo}`" alt="">
+                <img v-if="userData.photo" :src="`https://profori.pro:1337/avatars/${userData.photo}`" alt="">
                 <IconsAvatarEmtyIcon v-if="!userData.photo" />
             </NuxtLink>
         </div>
@@ -137,7 +137,7 @@ export default defineComponent({
     beforeMount: async function () {
         document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
         if (useCookie('id').value) {
-            await fetch('https://profori.pro/users/' + useCookie('id').value, {
+            await fetch('https://profori.pro:1337/users/' + useCookie('id').value, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
