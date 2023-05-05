@@ -16,9 +16,10 @@ export default defineNuxtPlugin(() => {
             }
             console.log(to.query)
             if (to.query.confirm) {
+                console.log(to.query.confirm)
                 // @ts-ignore
                 mainStore.setConfirmID(to.query.confirm)
-
+                navigateTo('/confirm')
             }
         }
     }, { global: true })
