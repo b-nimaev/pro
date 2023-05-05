@@ -23,7 +23,8 @@
                 </div>
                 <div class="statistic" v-if="link.users.length">
                     <ul>
-                        <li v-for="linkItem of link.users" :key="linkItem">{{ linkItem }}</li>
+                        <li>Присоединилось: {{ link.users.length }}</li>
+                        <!-- <li v-for="linkItem of link.users" :key="linkItem">{{ linkItem }}</li> -->
                     </ul>
                 </div>
             </li>
