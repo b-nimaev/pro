@@ -119,16 +119,9 @@ export default defineComponent({
                     } else {
                         this.mainStore.setUser(res)
                         useCookie('id').value = res._id
-                        this.$router.push('dashboard')
-                        // new Promise<void>((resolve, reject) => {
-                            // this.mainStore.setUser(res)
-                            // this.$router.afterEach(() => {
-                                // this.$nextTick(() => {
-                                    // resolve()
-                                // })
-                            // })
-                            // this.$router.push('dashboard')
-                        // })
+                        alert('Письмо отправлено к вам на почту, для авторизации подвердите')
+                        this.$router.push("/login")
+                        // this.$router.push('dashboard')
                     }
                 })
             } catch (error) {

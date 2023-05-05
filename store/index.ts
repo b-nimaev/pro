@@ -23,6 +23,7 @@ interface user {
         nameEn: string;
         nameRu: string
     };
+    confirmID: string;
     isDashboardSettings: boolean;
     subscriptionStatus: string;
     fullLink: string;
@@ -44,6 +45,7 @@ export const useMainStore = defineStore('main', {
         referral: '',
         isDashboardSettings: false,
         fillLink: '',
+        confirmID: '',
         userData: {
             _id: '',
             nickname: '',
@@ -115,6 +117,9 @@ export const useMainStore = defineStore('main', {
         },
         getFullLink(state) {
             return state.fillLink
+        },
+        getConfirmID(state) {
+            return state.confirmID
         }
     },
     actions: {
@@ -160,6 +165,9 @@ export const useMainStore = defineStore('main', {
         },
         setFillLink(value: string) {
             return this.fillLink = value
+        },
+        setConfirmID(value: string) {
+            return this.confirmID = value
         }
     }
 })
