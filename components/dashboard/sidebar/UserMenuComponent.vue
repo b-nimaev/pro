@@ -116,6 +116,13 @@ export default defineComponent({
                     value: 'Светлая'
                 },
             })
+            this.mainStore.setRegistrationData({
+                name: '',
+                email: '',
+                role: '',
+                password: '',
+                rel: ''
+            })
             useCookie('id').value = ''
             return this.$router.push("/login")
         },
