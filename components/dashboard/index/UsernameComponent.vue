@@ -10,12 +10,12 @@
                 </div>
             </h6>
         </div>
-        <!-- <div class="bottom-side">
-            <div class="statistic">
-                <p>🛡 12 безопасных сделок</p>
-            </div>
+        <!-- <div class="bottom-side"> -->
+            <!-- <div class="statistic"> -->
+                <!-- <p>🛡 12 безопасных сделок</p> -->
+            <!-- </div> -->
             <!-- <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores eaque at aliquam.</p> -->
-        </div> -->
+        <!-- </div> -->
         <!-- <a class="change" href="javascript:void(0)">Редактировать</a> -->
     </div>
 </template>
