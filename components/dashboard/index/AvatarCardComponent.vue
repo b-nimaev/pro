@@ -1,7 +1,7 @@
 <template>
     <div class="avatar">
         <!-- <img v-if="user.photo" :src="`/_nuxt/assets/avatars/${user.photo}`" alt="user-card-avatar"> -->
-        <img v-if="user.photo" :src="`//profori.pro:1337/avatars/${user.photo}`" alt="user-card-avatar">
+        <img v-if="user.photo" :src="`//profori.pro/avatars/${user.photo}`" alt="user-card-avatar">
         <IconsAvatarEmtyIcon v-if="!user.photo" />
         <div @click="jackclick" class="icon">
             <IconsCameraIcon />
