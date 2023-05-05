@@ -12,6 +12,7 @@
                     <IconsLockIcon />
                 </AuthInputGroupComponent>
                 <p v-if="errMessage">{{ errMessage }}</p>
+                <p v-if="confirm"><a href="javscript:void(0)">Выслать письмо повторно</a></p>
                 <a href="javascript:void(0)">Забыли пароль?</a>
                 <input type="submit" value="Войти">
             </form>
@@ -31,13 +32,15 @@ export default {
             apiUrl: 'https://profori.pro:1337',
             passwordIncorrect: false,
             emailIncorrect: false,
+            confirm: false,
             errMessage: ''
         }
     },
     methods: {
         async login() {
             try {
-                
+                this.confirm = false
+                this.errMessage = ''
                 let userData = this.mainStore.getUser
                 console.log(userData)
                 if (userData.email !== '' || userData.password !== '') {
@@ -50,6 +53,11 @@ export default {
                     })
                     const result = await response.json()
                     if (result.message) {
+
+                        if (result.message === 'Подтвердите почту') {
+                            this.confirm = true
+                        }
+
                         this.errMessage = result.message
                     } else if (result._id) {
                         useCookie('id').value = result._id
@@ -79,14 +87,17 @@ export default {
 div {
     position: relative;
     overflow: hidden;
+
     aside {
         height: 100%;
+
         &:nth-child(2) {
             position: absolute;
             left: 0;
             top: 0;
             display: flex;
             background-image: linear-gradient(244.45deg, rgb(63, 221, 192) 3.03%, rgba(101, 195, 195, 0.87) 99.9%);
+
             div {
                 margin: auto;
             }
@@ -94,15 +105,19 @@ div {
     }
 }
 
-h3, button {
+h3,
+button {
     color: #fff;
 }
+
 h3 {
     font-size: 24px;
 }
+
 p {
     font-size: 16px;
 }
+
 aside {
 
     padding: 50px;
@@ -122,6 +137,9 @@ aside {
             margin-bottom: 10px;
             text-align: center;
             font-size: 12px;
+            color: #eee;
+            width: 210px;
+            margin: 5px auto;
         }
 
         a {
@@ -167,13 +185,13 @@ aside {
         position: relative;
         top: 0;
         transform: scale(1);
+
         &:hover {
             top: -2px;
         }
+
         &:acitve {
             transform: scale(.9);
         }
     }
-}
-
-</style>
+}</style>

@@ -109,7 +109,7 @@ export default defineComponent({
         background-image: linear-gradient(244.45deg, rgb(54 40 46) 3.03%, rgb(3 8 8 / 87%) 99.9%);
         &:hover {
             background-color: #fff;
-            color: #000;
+            color: #eee;
         }
 
         &:active {
