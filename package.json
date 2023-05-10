@@ -27,6 +27,7 @@
     "pinia": "^2.0.34",
     "socket.io-client": "^4.6.1",
     "swiper": "^9.2.0",
-    "unhead": "^1.1.26"
+    "unhead": "^1.1.26",
+    "vue-imask": "^6.6.1"
   }
 }

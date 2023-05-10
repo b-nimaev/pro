@@ -171,20 +171,37 @@ export default defineComponent({
         }
     },
     methods: {
-        order(e) {
+        async order(e) {
             e.preventDefault()
             if (this.privacy) {
-                console.log({
-                    name: this.name,
-                    phone: this.phone,
-                    ref: this.mainStore.getReferral
+                await fetch('https://profori.pro:1337/users/order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: this.name,
+                        phone: this.phone,
+                        ref: this.mainStore.getReferral
+                    })
+                }).then(response => {
+                    console.log(response)
+                }).catch(error => {
+                    console.error(error)
                 })
                 // send & clear data
-                return this.mainStore.setStatusModal(false)
+                this.mainStore.setStatusModal(false)
             }
         },
         close() {
-            return this.mainStore.setStatusModal(false)
+            this.mainStore.setStatusModal(false)
+        }
+    },
+    watch: {
+        phone() {
+            let input = this.phone
+            let x = input.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            this.phone = input = !x[2] ? x[1] : '+7' + (x[2] ? ' ' + x[2] : '') + (x[3] ? ' ' + x[3] : '') + (x[4] ? ' ' + x[4] : '') + (x[5] ? ' ' + x[5] : '');
         }
     },
     data() {
@@ -238,6 +255,7 @@ export default defineComponent({
     display: block;
     width: 20px;
     height: 20px;
+
     span {
         display: block;
         height: 2px;
@@ -345,10 +363,10 @@ form {
 @media screen and (max-width: 760px) {
     .modal-window {
         padding: 30px;
+
         .content {
             padding: 30px;
         }
     }
 }
-
 </style>
