@@ -152,7 +152,10 @@
                     slidesPerView: 2
                 }
             }">
-                <swiper-slide>
+                <!-- <swiper-slide v-for=""> -->
+                    <!-- <OurConcultantsSlideComponent /> -->
+                <!-- </swiper-slide> -->
+                <!-- <swiper-slide>
                     <OurConcultantsSlideComponent />
                 </swiper-slide>
                 <swiper-slide>
@@ -166,10 +169,7 @@
                 </swiper-slide>
                 <swiper-slide>
                     <OurConcultantsSlideComponent />
-                </swiper-slide>
-                <swiper-slide>
-                    <OurConcultantsSlideComponent />
-                </swiper-slide>
+                </swiper-slide> -->
             </swiper>
         </div>
     </section>
@@ -177,7 +177,6 @@
 
 <script>
 // Import Swiper Vue.js components
-
 import { Swiper, SwiperSlide } from 'swiper/vue';
 // Import Swiper styles
 import 'swiper/css';
@@ -187,6 +186,12 @@ export default {
         SwiperSlide,
     },
     setup() {
+        const user = useFetch(() => `https://profori.pro/users`, {
+            method: 'GET',
+            lazy: true
+        }).then(res => {
+            return res
+        })
         const onSwiper = (swiper) => {
             console.log(swiper);
         };
@@ -194,10 +199,16 @@ export default {
             console.log('slide change');
         };
         return {
+            user,
             onSwiper,
             onSlideChange,
         };
     },
+    mounted () {
+        this.user.then(async (res) => {
+            console.log(await res.json())
+        })
+    }
 };
 </script>
 

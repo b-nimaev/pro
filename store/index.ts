@@ -42,6 +42,7 @@ export const useMainStore = defineStore('main', {
         userPassword: '',
         userName: '',
         userRole: 'client',
+        loginStatus: 'login',
         referral: '',
         isDashboardSettings: false,
         fillLink: '',
@@ -120,6 +121,9 @@ export const useMainStore = defineStore('main', {
         },
         getConfirmID(state) {
             return state.confirmID
+        },
+        getLoginStatus(state) {
+            return state.loginStatus
         }
     },
     actions: {
@@ -168,6 +172,9 @@ export const useMainStore = defineStore('main', {
         },
         setConfirmID(value: any) {
             return this.confirmID = value
+        },
+        setLoginStatus(value: string) {
+            return this.loginStatus = value
         }
     }
 })

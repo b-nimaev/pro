@@ -4,7 +4,7 @@
         <main>
             <div class="wrapper">
                 <div class="items">
-                    <AuthLoginForm v-if="status === 'login'" />
+                    <AuthLoginForm v-if="status == 'login'" />
                     <div class="right-side" v-if="status === 'login'">
                         <h3>Приветствуем!</h3>
                         <p>Создайте аккаунт и присоединяйтесь <br>к нам, и получите консультацию</p>
@@ -35,22 +35,17 @@ export default defineComponent({
         const mainStore = useMainStore()
         return { mainStore }
     },
-    data() {
-        return {
-            status: 'login'
-        }
-    },
     methods: {
         register() {
-            this.status = 'register'
+            this.mainStore.setLoginStatus('register')
         },
         login() {
-            this.status = 'login'
+            this.mainStore.setLoginStatus('login')
         }
     },
     computed: {
-        link() {
-            return this.mainStore.linkStatusGet
+        status () {
+            return this.mainStore.getLoginStatus
         }
     }
 })
@@ -116,4 +111,18 @@ export default defineComponent({
             transform: scale(.95);
         }
     }
-}</style>
+}
+
+@media screen and (max-width: 1100px) {
+    .wrapper {
+        margin: 0 auto;
+        padding: 50px 0 20px; 
+    }
+    .items {
+        .right-side {
+            display: none;
+        }
+    }
+}
+
+</style>

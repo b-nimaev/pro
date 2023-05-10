@@ -16,11 +16,6 @@
                 </div>
             </div>
         </div>
-        <!-- <AuthSocialsListComponent /> -->
-        <!-- <p>или используйте email адрес</p> -->
-        <!-- <AuthInputGroupComponent input-name="role" input-type="select">
-            <IconsFormUserIcon />
-        </AuthInputGroupComponent> -->
 
         <AuthInputGroupComponent input-name="name" input-type="text">
             <IconsFormUserIcon />
@@ -31,7 +26,8 @@
         <AuthInputGroupComponent input-name="password" input-type="password">
             <IconsLockIcon />
         </AuthInputGroupComponent>
-        <input type="submit" value="Зарегистрироваться">
+        <input type="submit" value="Создать аккаунт">
+        <button class="login" @click="login()">Войти</button>
     </form>
 </template>
 
@@ -43,15 +39,43 @@ $input-bg-image: linear-gradient(45deg, black, transparent);
 
 .input-wrapper {
     display: flex;
+    width: 100%;
     cursor: pointer;
     transition: 400ms;
     color: #c6cdd5;
     margin: auto 0;
+    position: relative;
+
     .selected {
         font-size: 14px;
         margin-left: 3px;
     }
 }
+
+.select-dropdown {
+    display: block;
+    position: absolute;
+    top: calc(100% + 15px);
+    left: -30px;
+    width: calc(100% + 40px);
+    background: #1d1111;
+    border-radius: 5px;
+    overflow: hidden;
+    ul {
+        display: flex !important; 
+        flex-direction: column;
+        li {
+            padding: 10px 15px;
+            background: transparent;
+            transition: 400ms;
+            font-size: 12px;
+            &:hover {
+                background: #141111;
+            }
+        }
+    }
+}
+
 .input-group {
     // background-color: rgb(245 245 245);
     // border: 1px solid rgb(245 245 245);
@@ -63,7 +87,8 @@ $input-bg-image: linear-gradient(45deg, black, transparent);
     border-radius: 5px;
     transition: 400ms;
 
-    input, select {
+    input,
+    select {
         font-size: 12px;
         padding: 0;
         padding-left: 0;
@@ -77,16 +102,19 @@ $input-bg-image: linear-gradient(45deg, black, transparent);
         margin: auto 0;
         display: flex;
         padding: 0;
+
         svg {
             path {
                 fill: #fff;
             }
         }
     }
+
     ul {
         display: none
     }
 }
+
 form {
     padding: 50px;
     border-radius: 5px;
@@ -128,7 +156,7 @@ form {
     }
 }
 
-input[type="submit"] {
+input[type="submit"], button {
     display: block;
     background-color: rgb(63 221 192);
     background-image: linear-gradient(244.45deg, rgb(54 40 46) 3.03%, rgb(3 8 8 / 87%) 99.9%);
@@ -166,7 +194,9 @@ export default defineComponent({
         };
     },
     methods: {
-
+        login () {
+            this.mainStore.setLoginStatus('login')
+        },
         async registration() {
 
             let userData = this.mainStore.getRegistrationData

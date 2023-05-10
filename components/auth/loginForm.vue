@@ -15,6 +15,7 @@
                 <p v-if="confirm"><a href="javscript:void(0)">Выслать письмо повторно</a></p>
                 <a href="javascript:void(0)">Забыли пароль?</a>
                 <input type="submit" value="Войти">
+                <button @click="create()" class="create">Создать аккаунт</button>
             </form>
         </aside>
     </div>
@@ -37,6 +38,9 @@ export default {
         }
     },
     methods: {
+        create () {
+            this.mainStore.setLoginStatus('register')
+        },
         async login() {
             try {
                 this.confirm = false
@@ -172,7 +176,7 @@ aside {
         }
     }
 
-    input[type="submit"] {
+    input[type="submit"], button {
         display: block;
         background-color: rgb(63 221 192);
         background-image: linear-gradient(244.45deg, rgb(54 40 46) 3.03%, rgb(3 8 8 / 87%) 99.9%);
@@ -194,4 +198,16 @@ aside {
             transform: scale(.9);
         }
     }
-}</style>
+}
+
+.create {
+    display: none;
+}
+
+@media screen and (max-width: 1100px) {
+    .create {
+        display: block;
+    }
+}
+
+</style>
