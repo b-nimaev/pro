@@ -190,8 +190,8 @@ export default defineComponent({
                     console.error(error)
                 })
                 // send & clear data
-                this.mainStore.setStatusModal(false)
             }
+            this.mainStore.setStatusModal(false)
         },
         close() {
             this.mainStore.setStatusModal(false)
