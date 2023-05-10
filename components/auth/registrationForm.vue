@@ -1,11 +1,27 @@
 <template>
     <form @submit.prevent="registration">
         <AuthHeadingComponent message="Регистрация" style="margin-bottom: 20px" />
+        <div class="input-group">
+            <label for="role" class="icon">
+                <IconsFormUserIcon />
+            </label>
+
+            <div class="input-wrapper">
+                <div class="selected">Клиент</div>
+                <div class="select-dropdown">
+                    <ul>
+                        <li>Клиент</li>
+                        <li>Консультант</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <!-- <AuthSocialsListComponent /> -->
         <!-- <p>или используйте email адрес</p> -->
-        <AuthInputGroupComponent input-name="role" input-type="select">
+        <!-- <AuthInputGroupComponent input-name="role" input-type="select">
             <IconsFormUserIcon />
-        </AuthInputGroupComponent>
+        </AuthInputGroupComponent> -->
+
         <AuthInputGroupComponent input-name="name" input-type="text">
             <IconsFormUserIcon />
         </AuthInputGroupComponent>
@@ -20,11 +36,63 @@
 </template>
 
 <style lang="scss" scoped>
+$dark-color: #eee;
+$light-color: #111;
+$border-radius: 5px;
+$input-bg-image: linear-gradient(45deg, black, transparent);
+
+.input-wrapper {
+    display: flex;
+    cursor: pointer;
+    transition: 400ms;
+    color: #c6cdd5;
+    margin: auto 0;
+    .selected {
+        font-size: 14px;
+        margin-left: 3px;
+    }
+}
+.input-group {
+    // background-color: rgb(245 245 245);
+    // border: 1px solid rgb(245 245 245);
+    background-image: linear-gradient(104deg, #331c1c, #150d0d);
+    width: 255px;
+    display: flex;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 400ms;
+
+    input, select {
+        font-size: 12px;
+        padding: 0;
+        padding-left: 0;
+        width: 100%;
+        color: #fff;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    .icon {
+        margin: auto 0;
+        display: flex;
+        padding: 0;
+        svg {
+            path {
+                fill: #fff;
+            }
+        }
+    }
+    ul {
+        display: none
+    }
+}
 form {
     padding: 50px;
     border-radius: 5px;
     // background-image: linear-gradient(104deg, #fffbfb, #ffffff);
     background-image: linear-gradient(104deg, #422f2f, #383232);
+
     p {
         margin-bottom: 10px;
         text-align: center;
@@ -103,7 +171,7 @@ export default defineComponent({
 
             let userData = this.mainStore.getRegistrationData
             userData.role = this.mainStore.getUserRole
-            userData.ref = this.mainStore.getReferral 
+            userData.ref = this.mainStore.getReferral
             console.log(userData)
             try {
                 const response = await fetch(`${this.apiUrl}/users/register`, {
