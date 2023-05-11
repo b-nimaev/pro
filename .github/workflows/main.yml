@@ -7,9 +7,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04.01
+    runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
     - name: Build Docker image
       run: |
         docker build -t my-nuxt-app .
@@ -22,7 +25,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-22.04.01
+    runs-on: ubuntu-latest
 
     steps:
     - name: Deploy to remote server
