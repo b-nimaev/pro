@@ -152,9 +152,9 @@
                     slidesPerView: 2
                 }
             }">
-                <!-- <swiper-slide v-for=""> -->
-                    <!-- <OurConcultantsSlideComponent /> -->
-                <!-- </swiper-slide> -->
+                <swiper-slide v-for="user in users" :key="user">
+                    <OurConcultantsSlideComponent :photo="user.photo" />
+                </swiper-slide>
                 <!-- <swiper-slide>
                     <OurConcultantsSlideComponent />
                 </swiper-slide>
@@ -186,12 +186,6 @@ export default {
         SwiperSlide,
     },
     setup() {
-        const user = useFetch(() => `https://profori.pro/users`, {
-            method: 'GET',
-            lazy: true
-        }).then(res => {
-            return res
-        })
         const onSwiper = (swiper) => {
             console.log(swiper);
         };
@@ -199,14 +193,20 @@ export default {
             console.log('slide change');
         };
         return {
-            user,
             onSwiper,
             onSlideChange,
         };
     },
-    mounted () {
-        this.user.then(async (res) => {
-            console.log(await res.json())
+    data () {
+        return {
+            users: []
+        }
+    },
+    async mounted () {
+        await fetch('https://profori.pro:1337/users', {
+            method: 'GET'
+        }).then(async (result) => {
+            this.users = await result.json()
         })
     }
 };

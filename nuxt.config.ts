@@ -21,6 +21,6 @@ export default defineNuxtConfig({
     ],
     image: {
         // dir: 'assets/images',
-        // domains: [ '195.133.198.131:3000' ]
+        domains: [ '//profori.pro' ]
     }
 })
