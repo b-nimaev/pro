@@ -3,11 +3,11 @@ name: CI/CD Pipeline
 on: 
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04.01
 
     steps:
     - name: Build Docker image
@@ -22,7 +22,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04.01
 
     steps:
     - name: Deploy to remote server
