@@ -173,7 +173,7 @@ export default defineComponent({
             let updated = this.mainStore.getUser
             updated.firstName = value
             this.mainStore.setUser(updated)
-            await fetch('https://profori.pro:1337/users/' + updated._id, {
+            await fetch('https://profori.pro/api/users/' + updated._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -190,7 +190,7 @@ export default defineComponent({
             let updated = this.mainStore.getUser
             updated.lastName = value
             this.mainStore.setUser(updated)
-            await fetch('https://profori.pro:1337/users/' + updated._id, {
+            await fetch('https://profori.pro/api/users/' + updated._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -207,7 +207,7 @@ export default defineComponent({
             let updated = this.mainStore.getUser
             updated.gender = value
             this.mainStore.setUser(updated)
-            await fetch('https://profori.pro:1337/users/' + updated._id, {
+            await fetch('https://profori.pro/api/users/' + updated._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -224,7 +224,7 @@ export default defineComponent({
             let updated = this.mainStore.getUser
             updated.city = value
             this.mainStore.setUser(updated)
-            await fetch('https://profori.pro:1337/users/' + updated._id, {
+            await fetch('https://profori.pro/api/users/' + updated._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

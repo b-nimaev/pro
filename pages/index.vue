@@ -31,7 +31,7 @@ export default defineComponent({
         console.log(this.mainStore.getConfirmID)
         if (this.mainStore.getConfirmID.length > 0) {
             // console.log(this.mainStore.getConfirmID)
-            await fetch('https://profori.pro:1337/users/confirm/' + this.mainStore.getConfirmID, {
+            await fetch('https://profori.pro/api/users/confirm/' + this.mainStore.getConfirmID, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ export default defineComponent({
             }).then(async (res) => {
                 
                 if (res.status === 200) {
-                    await fetch('https://profori.pro:1337/users/' + this.mainStore.getConfirmID, {
+                    await fetch('https://profori.pro/api/users/' + this.mainStore.getConfirmID, {
                         method: 'GET'
                     }).then(async (res) => {
                         if (res.status === 200) {

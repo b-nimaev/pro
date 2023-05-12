@@ -713,7 +713,7 @@ export default defineComponent({
     if (id.value) {
       // this.mainStore.setSessionID = id.value
       (async () => {
-        await fetch('https://profori.pro:1337/users/' + id.value, {
+        await fetch('https://profori.pro/api/users/' + id.value, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'

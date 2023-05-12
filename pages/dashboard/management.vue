@@ -169,7 +169,7 @@ export default defineComponent({
                 value: 'asdf',
                 users: []
             })
-            await fetch('https://profori.pro:1337/users/' + user._id, {
+            await fetch('https://profori.pro/api/users/' + user._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -192,7 +192,7 @@ export default defineComponent({
                     user.ref_links.splice(i, 1)
                 }
             }
-            await fetch('https://profori.pro:1337/users/' + user._id, {
+            await fetch('https://profori.pro/api/users/' + user._id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -224,7 +224,7 @@ export default defineComponent({
 
         this.$socket.on(eventName, async () => {
             // Ваш код обработки события
-            await fetch('https://profori.pro:1337/users/' + this.mainStore.getUser._id, {
+            await fetch('https://profori.pro/api/users/' + this.mainStore.getUser._id, {
                 method: 'GET',
             }).then(async (res) => {
                 let userdata = await res.json()

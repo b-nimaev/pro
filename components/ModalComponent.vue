@@ -174,7 +174,7 @@ export default defineComponent({
         async order(e) {
             e.preventDefault()
             if (this.privacy) {
-                await fetch('https://profori.pro:1337/users/order', {
+                await fetch('https://profori.pro/api/users/order', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

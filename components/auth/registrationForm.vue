@@ -189,7 +189,7 @@ export default defineComponent({
     },
     data() {
         return {
-            apiUrl: 'https://profori.pro:1337',
+            apiUrl: 'https://profori.pro/api',
             emailExists: false
         };
     },

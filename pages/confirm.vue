@@ -18,7 +18,7 @@ export default defineComponent({
             // return navigateTo('/')
         } else {
             console.log(this.$route.path)
-            await fetch('https://profori.pro:1337/users/confirm/' + this.mainStore.getConfirmID, {
+            await fetch('https://profori.pro/api/users/confirm/' + this.mainStore.getConfirmID, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

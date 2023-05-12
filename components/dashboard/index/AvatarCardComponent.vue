@@ -39,9 +39,10 @@ export default defineComponent({
         },
         previewFile(event: any) {
             const file = event.target.files[0]
+            console.log(file)
             const formData = new FormData()
             formData.append('avatar', file)
-            fetch(`https://profori.pro:1337/users/${this.user._id}/avatar`, {
+            fetch(`https://profori.pro/api/users/${this.user._id}/avatar`, {
                 method: 'POST',
                 body: formData
             })
@@ -54,7 +55,7 @@ export default defineComponent({
                 .then(async (data) => {
                     // обновляем данные пользователя на фронтенде
                     let user = this.mainStore.getUser
-                    await fetch('https://profori.pro:1337/users/' + user._id)
+                    await fetch('https://profori.pro/api/users/' + user._id)
                         .then(response => response.json())
                         .then(async (user) => {
                             this.mainStore.setUser(user)

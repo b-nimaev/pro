@@ -154,6 +154,7 @@
             }">
                 <swiper-slide v-for="user in users" :key="user">
                     <OurConcultantsSlideComponent :photo="user.photo" />
+                    {{ user.photo }}
                 </swiper-slide>
                 <!-- <swiper-slide>
                     <OurConcultantsSlideComponent />
@@ -203,7 +204,7 @@ export default {
         }
     },
     async mounted () {
-        await fetch('https://profori.pro:1337/users', {
+        await fetch('https://profori.pro/api/users', {
             method: 'GET'
         }).then(async (result) => {
             this.users = await result.json()

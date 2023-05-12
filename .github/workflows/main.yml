@@ -41,3 +41,13 @@ jobs:
           docker rmi ${{ secrets.DOCKER_USERNAME }}/my-nuxt-app:current || true
           docker tag ${{ secrets.DOCKER_USERNAME }}/my-nuxt-app:latest ${{ secrets.DOCKER_USERNAME }}/my-nuxt-app:current
           docker run -d --name my-nuxt-app -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/my-nuxt-app:current
+    - name: Update code on server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          cd /var/www/pro
+          git pull
+
