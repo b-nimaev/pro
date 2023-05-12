@@ -136,18 +136,6 @@ export default defineComponent({
     },
     beforeMount: async function () {
         document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
-        if (useCookie('id').value) {
-            await fetch('https://profori.pro/api/users/' + useCookie('id').value, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(async (res) => {
-                this.mainStore.setUser(await res.json())
-            }).catch(err => {
-                console.log(err)
-            })
-        }
     },
 })
 </script>

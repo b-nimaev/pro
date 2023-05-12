@@ -719,7 +719,12 @@ export default defineComponent({
             'Content-Type': 'application/json'
           }
         }).then(async (res) => {
-          this.mainStore.setUser(await res.json())
+          // @ts-ignore
+          if (await res.json().message) {
+          
+          } else {
+            this.mainStore.setUser(await res.json())
+          }
         }).catch(err => {
           console.log(err)
         })
