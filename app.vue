@@ -710,26 +710,26 @@ export default defineComponent({
   },
   beforeCreate() {
     const id: CookieRef<string | null | undefined> = useCookie('id')
-    if (id.value) {
-      // this.mainStore.setSessionID = id.value
-      (async () => {
-        await fetch('https://profori.pro/api/users/' + id.value, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }).then(async (res) => {
-          // @ts-ignore
-          if (await res.json().message) {
+    // if (id.value) {
+    //   // this.mainStore.setSessionID = id.value
+    //   (async () => {
+    //     await fetch('https://profori.pro/api/users/' + id.value, {
+    //       method: 'GET',
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       }
+    //     }).then(async (res) => {
+    //       // @ts-ignore
+    //       if (await res.json().message) {
           
-          } else {
-            this.mainStore.setUser(await res.json())
-          }
-        }).catch(err => {
-          console.log(err)
-        })
-      })();
-    }
+    //       } else {
+    //         this.mainStore.setUser(await res.json())
+    //       }
+    //     }).catch(err => {
+    //       console.log(err)
+    //     })
+    //   })();
+    // }
   },
   mounted() {
     // let user = this.mainStore.getUser
