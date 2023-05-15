@@ -11,16 +11,15 @@ export default defineNuxtConfig({
         },
         pageTransition: { name: 'slide-left', mode: 'out-in' },
     },
-    routeRules: {
-        '*': { cors: true },
-    },
     modules: [
         '@pinia/nuxt',
-        '@nuxt/image-edge',
+        '@nuxt/image-edge'
     ],
 
     plugins: [
-        '~/plugins/pinia.js'
+        '~/plugins/pinia.js',
+        '~/plugins/socket-io.ts'
+        
     ],
     image: {
         // dir: 'assets/images',
