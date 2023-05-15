@@ -1,7 +1,8 @@
 <template>
     <div class="slide">
         <div class="user-avatar">
-            <nuxt-img quality="80" width="48" height="48" format="webp" :src="`/assets/avatars/${photo}`" alt="user-avatar" />
+            <nuxt-img quality="80" width="128" height="128" format="webp" :src="`https://profori.pro/avatars/${photo}`"
+                alt="user-avatar" />
         </div>
         <div class="user-data">
             <div class="user-name">
@@ -16,7 +17,7 @@
                 <p>Профориентолог</p>
             </div>
         </div>
-        <button>Перейти</button>
+        <button @click="goToUser(id)">Перейти</button>
     </div>
 </template>
 
@@ -24,13 +25,22 @@
 import { useMainStore } from "~/store"
 
 export default defineComponent({
-    setup () {
+    setup() {
         const mainStore = useMainStore()
         return { mainStore }
     },
     props: {
         photo: {
             type: String
+        },
+        id: {
+            type: String,
+            required: true
+        }
+    },
+    methods: {
+        goToUser (id: string) {
+            this.$router.push(`/users/${id}`)
         }
     }
 })
@@ -41,7 +51,6 @@ export default defineComponent({
     .slide {
         background-color: #1a19193b;
         box-shadow: -1px 1px 20px 0px rgb(0 0 0 / 21%);
-
         .user-data {
             .user-name {
                 h4 {
@@ -75,6 +84,7 @@ export default defineComponent({
                 border-color: transparent;
             }
         }
+
     }
 }
 
@@ -105,9 +115,21 @@ export default defineComponent({
             border-color: #fff;
         }
     }
-
+    &:active {
+        top: 1px;
+    }
     .user-avatar {
         margin-bottom: 15px;
+        border-radius: 5px;
+        overflow: hidden;
+
+        img {
+            object-position: center;
+            width: 100%;
+            height: 128px;
+            object-fit: cover;
+            object-position: center;
+        }
     }
 
     .user-data {

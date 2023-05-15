@@ -153,24 +153,8 @@
                 }
             }">
                 <swiper-slide v-for="user in users" :key="user">
-                    <OurConcultantsSlideComponent :photo="user.photo" />
-                    {{ user.photo }}
+                    <OurConcultantsSlideComponent :photo="user.photo" :id="user._id" />
                 </swiper-slide>
-                <!-- <swiper-slide>
-                    <OurConcultantsSlideComponent />
-                </swiper-slide>
-                <swiper-slide>
-                    <OurConcultantsSlideComponent />
-                </swiper-slide>
-                <swiper-slide>
-                    <OurConcultantsSlideComponent />
-                </swiper-slide>
-                <swiper-slide>
-                    <OurConcultantsSlideComponent />
-                </swiper-slide>
-                <swiper-slide>
-                    <OurConcultantsSlideComponent />
-                </swiper-slide> -->
             </swiper>
         </div>
     </section>
@@ -208,6 +192,7 @@ export default {
             method: 'GET'
         }).then(async (result) => {
             this.users = await result.json()
+            console.log(this.users)
         })
     }
 };

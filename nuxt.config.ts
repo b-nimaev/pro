@@ -11,6 +11,9 @@ export default defineNuxtConfig({
         },
         pageTransition: { name: 'slide-left', mode: 'out-in' },
     },
+    routeRules: {
+        '*': { cors: true },
+    },
     modules: [
         '@pinia/nuxt',
         '@nuxt/image-edge',

@@ -583,7 +583,8 @@ body {
   transition: 400ms;
 
   &.dark {
-    background-image: linear-gradient(88deg, #0f0d12, #2a272e)
+    background-color: #030203;
+    // background-image: linear-gradient(88deg, #0f0d12, #2a272e)
   }
 }
 

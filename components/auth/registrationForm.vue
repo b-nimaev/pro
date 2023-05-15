@@ -1,17 +1,20 @@
 <template>
     <form @submit.prevent="registration">
         <AuthHeadingComponent message="Регистрация" style="margin-bottom: 20px" />
-        <div class="input-group">
+        <div class="input-group" id="role">
             <label for="role" class="icon">
                 <IconsFormUserIcon />
             </label>
 
             <div class="input-wrapper">
-                <div class="selected">Клиент</div>
-                <div class="select-dropdown">
+                <div class="selected">
+                    <span v-if="role === 'client'">Клиент</span>
+                    <span v-else>Консультант</span>
+                </div>
+                <div class="select-dropdown" :class="{ 'active': roleActive }">
                     <ul>
-                        <li>Клиент</li>
-                        <li>Консультант</li>
+                        <li @click="chooseClient">Клиент</li>
+                        <li @click="chooseConsultant">Консультант</li>
                     </ul>
                 </div>
             </div>
@@ -61,14 +64,23 @@ $input-bg-image: linear-gradient(45deg, black, transparent);
     background: #1d1111;
     border-radius: 5px;
     overflow: hidden;
+    height: 0;
+    transition: 300ms;
+
+    &.active {
+        height: 68px;
+    }
+
     ul {
-        display: flex !important; 
+        display: flex !important;
         flex-direction: column;
+
         li {
             padding: 10px 15px;
             background: transparent;
             transition: 400ms;
             font-size: 12px;
+
             &:hover {
                 background: #141111;
             }
@@ -156,7 +168,8 @@ form {
     }
 }
 
-input[type="submit"], button {
+input[type="submit"],
+button {
     display: block;
     background-color: rgb(63 221 192);
     background-image: linear-gradient(244.45deg, rgb(54 40 46) 3.03%, rgb(3 8 8 / 87%) 99.9%);
@@ -190,17 +203,19 @@ export default defineComponent({
     data() {
         return {
             apiUrl: 'https://profori.pro/api',
-            emailExists: false
+            emailExists: false,
+            roleActive: false,
+            role: 'client'
         };
     },
     methods: {
-        login () {
+        login() {
             this.mainStore.setLoginStatus('login')
         },
         async registration() {
 
             let userData = this.mainStore.getRegistrationData
-            userData.role = this.mainStore.getUserRole
+            userData.role = this.role
             userData.ref = this.mainStore.getReferral
             console.log(userData)
             try {
@@ -212,13 +227,18 @@ export default defineComponent({
                     body: JSON.stringify(userData),
                 });
                 await response.json().then(async (res) => {
+
+                    console.log(res)
+
                     if (res.code == 110000) {
                         this.emailExists = true
                     } else {
-                        // this.mainStore.setUser(res)
-                        // useCookie('id').value = res._id
-                        alert('Письмо отправлено к вам на почту, для авторизации подвердите')
-                        this.$router.push("/login")
+                        // alert('Письмо отправлено к вам на почту, для авторизации подвердите')
+                        if (res._id) {
+                            useCookie('id').value = res._id
+                            this.mainStore.setUser(res)
+                            this.$router.push("/dashboard")
+                        }
                         // this.$router.push('dashboard')
                     }
                 })
@@ -226,7 +246,24 @@ export default defineComponent({
                 console.log(error);
             }
         },
+        async chooseClient() {
+            console.log('client')
+            this.role = 'client'
+        },
+        async chooseConsultant() {
+            console.log('consultant')
+            this.role = 'consultant'
+        }
     },
+    mounted() {
+        document.getElementById("role")?.addEventListener('click', () => {
+            if (this.roleActive) {
+                this.roleActive = false
+            } else {
+                this.roleActive = true
+            }
+        })
+    }
 })
 
 </script>

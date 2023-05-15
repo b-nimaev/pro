@@ -175,6 +175,12 @@ export const useMainStore = defineStore('main', {
         },
         setLoginStatus(value: string) {
             return this.loginStatus = value
+        },
+        setColorScheme(value: {
+            name: string;
+            value: string
+        }) {
+            return this.userData.colorScheme = value
         }
     }
 })

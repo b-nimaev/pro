@@ -24,11 +24,6 @@ export default defineComponent({
 
         return { mainStore }
     },
-    computed: {
-        loggedStatus: function () {
-            return this.mainStore.getSessionID
-        }
-    },
     beforeCreate() {
         const id = useCookie("id")
         if (!id) {

@@ -66,9 +66,9 @@
                                 <li>
                                     <NuxtLink to="/processing">Обработка персональных данных</NuxtLink>
                                 </li>
-                                <li>
-                                    <NuxtLink to="/terms">Пользовательское соглашение</NuxtLink>
-                                </li>
+                                <!-- <li> -->
+                                    <!-- <NuxtLink to="/terms">Пользовательское соглашение</NuxtLink> -->
+                                <!-- </li> -->
                             </ul>
                         </div>
                     </div>
@@ -273,6 +273,10 @@ footer {
     }
     footer {
         color: #fff;
+        .footer-bottom {
+            background-image: unset;
+            background-color: #030203;
+        }
         .right-side {
             .row__left-side {
                 button {
