@@ -97,7 +97,7 @@ section {
 
     .heading {
         width: fit-content;
-        margin: 0 auto 40px;
+        margin: 0 auto 30px;
         text-align: center;
 
         .description {

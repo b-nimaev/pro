@@ -2,17 +2,33 @@
     <div class="header-wrapper">
         <NavbarComponent />
         <header>
-            <swiper :slides-per-view="1" @swiper="onSwiper" @slideChange="onSlideChange">
-                <swiper-slide>
-                    <HomeHeaderSlideComponent></HomeHeaderSlideComponent>
-                </swiper-slide>
-                <swiper-slide>
-                    <HomeHeaderSlideComponent></HomeHeaderSlideComponent>
-                </swiper-slide>
-                <swiper-slide>
-                    <HomeHeaderSlideComponent></HomeHeaderSlideComponent>
-                </swiper-slide>
-            </swiper>
+     <swiper
+        :spaceBetween="30"
+        :centeredSlides="true"
+        :loop="true"
+        :autoplay="{
+            delay: 3000,
+            disableOnInteraction: false,
+        }"
+        :pagination="{
+            clickable: false,
+        }"
+        :navigation="false"
+        :modules="modules"
+            :effect="'cube'"
+        :grabCursor="true"
+        :cubeEffect="{
+            shadow: false,
+            slideShadows: false,
+            shadowOffset: 20,
+            shadowScale: 0.94,
+        }"
+        class="mySwiper"
+      >
+        <swiper-slide><HomeHeaderSlideComponent /></swiper-slide>
+        <swiper-slide><HomeHeaderSlideComponent /></swiper-slide>
+        <swiper-slide><HomeHeaderSlideComponent /></swiper-slide>
+      </swiper>
         </header>
     </div>
 </template>
@@ -23,25 +39,26 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
 import 'swiper/css';
+
+import 'swiper/css/pagination';
+import "swiper/css/effect-cube";
+
+// import required modules
+import { Autoplay, EffectCube, Pagination, Navigation } from 'swiper';
+
 export default {
     components: {
         Swiper,
         SwiperSlide,
     },
     setup() {
-        const onSwiper = (swiper) => {
-            console.log(swiper);
-        };
-        const onSlideChange = () => {
-            console.log('slide change');
-        };
         return {
-            onSwiper,
-            onSlideChange,
+            modules: [Autoplay, Pagination, Navigation, EffectCube],
         };
     },
 };
 </script>
+
 
 <style lang="scss" scoped>
 header {

@@ -140,12 +140,12 @@ aside {
         display: flex;
 
         .left-side {
-            margin-right: 80px;
+            margin: auto 0 auto auto;
         }
     }
 
     .right-side {
-        margin: auto;
+        margin: auto auto auto 50px;
 
         .description {
             margin-bottom: 15px;
@@ -159,7 +159,7 @@ aside {
 
         .heading {
             h2 {
-                font-size: $h2-font-size;
+                font-size: 36px;
                 color: $primary;
                 margin-bottom: 20px;
                 text-shadow: 0 0 3px $primary;

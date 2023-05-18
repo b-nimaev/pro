@@ -8,6 +8,7 @@ export default defineNuxtConfig({
             meta: [
                 { name: 'description', content: 'Центр профориентации' }
             ],
+            link: [{ rel: 'icon', type: 'image/png', href: '~/public/faviclon.ico' }]
         },
         pageTransition: { name: 'slide-left', mode: 'out-in' },
     },

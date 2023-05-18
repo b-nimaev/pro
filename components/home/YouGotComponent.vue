@@ -72,7 +72,7 @@
 .heading {
     margin: auto;
     width: fit-content;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 
     p.description {
         margin-bottom: 10px;
