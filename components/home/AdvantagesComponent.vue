@@ -361,15 +361,16 @@ aside {
             .right-side {
                 order: 1;
                 margin-bottom: 30px;
+                margin: 0 0 30px;
             }
 
             .left-side {
                 display: flex;
                 order: 2;
-
+                margin: 0 auto 0 0;
                 img {
                     margin: 0;
-                    width: 300px;
+                    width: 450px;
                 }
             }
         }
@@ -377,6 +378,9 @@ aside {
 }
 
 @media screen and (max-width: 992px) {
+    .advantages {
+        padding: 100px 0;
+    }
     aside {
         width: 100%;
         padding: 0;
@@ -414,8 +418,11 @@ aside {
     .container {
         .row {
             .left-side {
+                margin: 0;
+                width: 100%;
                 img {
-                    margin: auto;
+                    margin: 0 auto 0 0;
+                    width: 80%;
                 }
             }
         }
