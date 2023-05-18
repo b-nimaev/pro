@@ -1,68 +1,72 @@
 <template>
     <section id="reviews">
         <div class="container">
-            <div class="left-side">
-                <div class="columns">
-                    <div class="column">
-                        <article class="mt-30">
-                            <div class="user-avatar">
-                                <nuxt-img format="webp" quality="80" src="/assets/images/user-avatar-for-review.png"
-                                    alt="user-avatar" />
-                            </div>
-                            <div class="user-review">
-                                <p>Я получила незаменимую помощь в определении своей карьерной стратегии благодаря карьерным
-                                    консультантам. Рекомендую!</p>
+            <div class="wrapper">
+                <div class="left-side">
+                    <div class="columns">
+                        <div class="column">
+                            <article class="mt-30">
+                                <div class="user-avatar">
+                                    <nuxt-img format="webp" quality="80" src="/assets/images/user-avatar-for-review.png"
+                                        alt="user-avatar" />
+                                </div>
+                                <div class="user-review">
+                                    <p>Я получила незаменимую помощь в определении своей карьерной стратегии благодаря
+                                        карьерным
+                                        консультантам. Рекомендую!</p>
 
-                            </div>
-                            <ReviewsUserRatingComponent :rating=5 />
-                            <div class="user-data">
-                                <div class="username"><span>Анна Николаевна</span></div>
-                                <div class="userpos"><span>Ui/Ux Designer</span></div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="column">
-                        <article>
-                            <div class="reviews-stat"><span>4.9/5</span></div>
-                            <ReviewsUserRatingComponent :rating=5 />
-                            <div class="article-descr">
-                                <p>Средний рейтинг отзыва 2000+ клиентов </p>
-                            </div>
-                        </article>
-                        <article>
-                            <div class="user-avatar">
-                                <nuxt-img format="webp" quality="80" src="/assets/svg/user-avatar-2.png"
-                                    alt="user-avatar" />
-                            </div>
-                            <div class="user-review">
-                                <p>Я получил незаменимую помощь в определении своей карьерной</p>
-                            </div>
-                            <ReviewsUserRatingComponent :rating=5 />
-                            <div class="user-data">
-                                <div class="username"><span>Николай Александрович</span></div>
-                                <div class="userpos"><span>Java Developer</span></div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-            <div class="right-side">
-                <div class="heading">
-                    <p class="description">Отзывы</p>
-                    <h2>О чем пишут <span>наши клиенты</span></h2>
-                    <div class="line">
-                        <IconsLineComponent />
+                                </div>
+                                <ReviewsUserRatingComponent :rating=5 />
+                                <div class="user-data">
+                                    <div class="username"><span>Анна Николаевна</span></div>
+                                    <div class="userpos"><span>Ui/Ux Designer</span></div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="column">
+                            <article>
+                                <div class="reviews-stat"><span>4.9/5</span></div>
+                                <ReviewsUserRatingComponent :rating=5 />
+                                <div class="article-descr">
+                                    <p>Средний рейтинг отзыва 2000+ клиентов </p>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="user-avatar">
+                                    <nuxt-img format="webp" quality="80" src="/assets/svg/user-avatar-2.png"
+                                        alt="user-avatar" />
+                                </div>
+                                <div class="user-review">
+                                    <p>Я получил незаменимую помощь в определении своей карьерной</p>
+                                </div>
+                                <ReviewsUserRatingComponent :rating=5 />
+                                <div class="user-data">
+                                    <div class="username"><span>Николай Александрович</span></div>
+                                    <div class="userpos"><span>Java Developer</span></div>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
-                <div class="content">
-                    <p>Многие из наших клиентов пишут отзывы после консультирования с нашими консультантами и
-                        профориентологами, потому что они получили незаменимую помощь в определении своей карьерной
-                        стратегии и достижении успеха в работе. Наша команда специалистов не только обладает высокой
-                        квалификацией и опытом, но и умеет находить индивидуальный подход к каждому клиенту, помогая им
-                        развиваться и реализовывать свой потенциал. Мы ценим каждый отзыв и всегда рады получить обратную
-                        связь от наших клиентов, чтобы продолжать улучшать качество наших услуг.</p>
+                <div class="right-side">
+                    <div class="heading">
+                        <p class="description">Отзывы</p>
+                        <h2>О чем пишут <span>наши клиенты</span></h2>
+                        <div class="line">
+                            <IconsLineComponent />
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Многие из наших клиентов пишут отзывы после консультирования с нашими консультантами и
+                            профориентологами, потому что они получили незаменимую помощь в определении своей карьерной
+                            стратегии и достижении успеха в работе. Наша команда специалистов не только обладает высокой
+                            квалификацией и опытом, но и умеет находить индивидуальный подход к каждому клиенту, помогая им
+                            развиваться и реализовывать свой потенциал. Мы ценим каждый отзыв и всегда рады получить
+                            обратную
+                            связь от наших клиентов, чтобы продолжать улучшать качество наших услуг.</p>
+                    </div>
+                    <button v-if="!isReviewSingle" @click="allReviews"><span>Посмотреть все отзывы</span></button>
                 </div>
-                <button v-if="!isReviewSingle" @click="allReviews"><span>Посмотреть все отзывы</span></button>
             </div>
         </div>
     </section>
@@ -82,6 +86,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
+
 .pagewrapper.dark {
     #reviews {
         background-color: #0d091026;
@@ -125,8 +131,19 @@ export default defineComponent({
 }
 
 #reviews {
-    padding: 100px 0;
-    background-color: #fdfdfd;
+    padding: 100px 20px;
+    border-radius: 20px;
+    min-height: calc(100vh - 40px);
+    display: flex;
+    margin: 0 30px;
+
+    .container {
+        margin: auto;
+    }
+}
+
+.wrapper {
+    display: flex;
 }
 
 .right-side {
@@ -139,6 +156,7 @@ export default defineComponent({
         .line {
             display: flex;
             justify-content: flex-end;
+            margin-right: 5px;
         }
 
         p.description {
@@ -161,27 +179,26 @@ export default defineComponent({
         width: 796px;
 
         p {
-            font-size: 16px;
-            line-height: 24px;
+            font-size: 18px;
+            line-height: 28px;
             font-weight: 300;
-            margin-top: 20px;
-            color: #6a6a6a;
+            margin-top: 15px;
+            color: #444;
         }
     }
 
     button {
         margin-top: 44px;
-        padding: 16px 32px;
-        border-radius: 30px;
-        background-color: #222222;
-        color: #fff;
+        padding: 12px 30px;
+        color: #FFFFFF;
         font-size: 24px;
-        transition: 400ms ease;
-        border: 1px solid #222;
+        background-color: #10b981;
+        border-radius: 8px;
+        transition: 400ms;
 
         &:hover {
-            background-color: #fff;
-            color: #222;
+            background-color: #0fc98b;
+            color: #fff;
         }
     }
 }
@@ -211,7 +228,7 @@ export default defineComponent({
 article {
     margin-bottom: 20px;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
     position: relative;
     top: 0;
     background-color: #fff;
@@ -306,7 +323,7 @@ article {
     }
 }
 
-@media screen and (max-width: 1420px) {
+@media screen and (max-width: 1300px) {
     .container {
         flex-direction: column;
 
@@ -386,4 +403,5 @@ article {
             }
         }
     }
-}</style>
+}
+</style>

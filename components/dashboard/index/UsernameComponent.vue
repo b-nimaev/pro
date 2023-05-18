@@ -3,7 +3,7 @@
         <div class="top-side">
             <DashboardIndexNameComponent />
             <h6 class="edity">
-                <p class="small"><span class="static">https://profori.pro/</span><span>{{ user._id ? user._id : user.nickname }}</span>
+                <p class="small"><span class="static">@</span><span>{{ user._id ? user._id : user.nickname }}</span>
                 </p>
                 <div class="edit-icon">
                     <edit-icon size="small" />
@@ -44,7 +44,7 @@ p {
         line-height: 22px;
     }
     &.small {
-        font-size: 12px;
+        font-size: 16px;
     }
 }
 

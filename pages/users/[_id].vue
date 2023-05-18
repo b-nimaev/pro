@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarComponent />
+        <NavbarComponent themeClass="dark" />
         <main>
             <div class="container">
                 <div class="card-header">
@@ -10,7 +10,7 @@
                     </div>
 
                     <div class="user-data">
-                        <h3>Сандак-Доржо Бальжинимаев</h3>
+                        <h3>{{ userData.firstName }} {{ userData.lastName }}</h3>
                         <p>@balzhinimaev 22 лет, Улан-Удэ</p>
                         <p>3 дня в сервисе</p>
                         <p class="last-seen">был 29 минут назад</p>
@@ -45,12 +45,13 @@
                 </div>
             </div>
         </main>
-        <FooterComponent />
+        <FooterComponent themeClass="light" />
     </div>
 </template>
 
 <style lang="scss" scoped>
-$dark: #050505;
+@import '@/assets/css/main.scss';
+$dark: #07020263;
 
 .container {
     display: block;
@@ -173,10 +174,13 @@ $dark: #050505;
         margin-left: 30px;
         border-radius: 5px;
         width: 100%;
+
         .heading {
             margin: 0 0 auto;
             padding: 30px;
             background-color: $dark;
+            border-radius: 5px;
+
             h4 {
                 font-size: 24px;
                 border-radius: 5px;
@@ -193,17 +197,29 @@ import { useMainStore } from "~/store"
 export default defineComponent({
     setup() {
         const mainStore = useMainStore()
-        const userData = mainStore.getUser
-        return { userData, mainStore }
+        return { mainStore }
     },
-    beforeCreate() {
-        console.log('123')
+    data() {
+        return {
+            userData: {}
+        }
+    },
+    async beforeCreate() {
+        await fetch('https://profori.pro/api/users/' + this.$route.params._id, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(async (res) => {
+            let response = await res.json()
+            this.userData = response
+        })
     },
     mounted() {
         this.mainStore.setColorScheme({
             name: 'dark',
             value: 'Темная'
         })
-    }
+    },
 })
 </script>

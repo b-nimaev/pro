@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="login-wrapper">
         <NavbarComponent />
         <main>
             <div class="wrapper">
@@ -52,6 +52,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.login-wrapper {
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+}
 .wrapper {
     // background-color: #fbfbfb;
     border-radius: 5px;

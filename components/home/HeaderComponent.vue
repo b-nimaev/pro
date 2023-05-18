@@ -1,17 +1,20 @@
 <template>
-    <header>
-        <swiper :slides-per-view="1" @swiper="onSwiper" @slideChange="onSlideChange">
-            <swiper-slide>
-                <HomeHeaderSlideComponent></HomeHeaderSlideComponent>
-            </swiper-slide>
-            <swiper-slide>
-                <HomeHeaderSlideComponent></HomeHeaderSlideComponent>
-            </swiper-slide>
-            <swiper-slide>
-                <HomeHeaderSlideComponent></HomeHeaderSlideComponent>
-            </swiper-slide>
-        </swiper>
-    </header>
+    <div class="header-wrapper">
+        <NavbarComponent />
+        <header>
+            <swiper :slides-per-view="1" @swiper="onSwiper" @slideChange="onSlideChange">
+                <swiper-slide>
+                    <HomeHeaderSlideComponent></HomeHeaderSlideComponent>
+                </swiper-slide>
+                <swiper-slide>
+                    <HomeHeaderSlideComponent></HomeHeaderSlideComponent>
+                </swiper-slide>
+                <swiper-slide>
+                    <HomeHeaderSlideComponent></HomeHeaderSlideComponent>
+                </swiper-slide>
+            </swiper>
+        </header>
+    </div>
 </template>
 
 <script>
@@ -42,28 +45,22 @@ export default {
 
 <style lang="scss" scoped>
 header {
-    padding-bottom: 80px;
+    padding-top: 40px;
 }
 
-.pagewrapper.dark {
-    header {
-        background-color: #00000047;
-        color: #fff;
-        background-image: linear-gradient(45deg, black, transparent);
+.swiper {
+    margin: auto;
+}
 
-        .buttons {
-            button.choose {
-                &:hover {
-                    border-color: #FF6610;
-                }
+.header-wrapper {
+    min-height: 100vh;
+    background-image: linear-gradient(77.91deg, rgba(193, 255, 214, 0.2) -13.97%, rgba(61, 79, 243, 0) 25.62%), linear-gradient(104.73deg, rgba(255, 255, 255, 0.35) -13%, rgba(170, 245, 255, 0.196) 21.28%), linear-gradient(254.3deg, rgba(49, 230, 255, 0.01) -15.75%, rgba(255, 255, 255, 0.22) 45.62%);
+}
 
-                &:nth-child(2) {
-                    &:hover {
-                        border-color: #FF6610;
-                    }
-                }
-            }
-        }
+@media screen and (max-width: 992px) {
+    .header-wrapper {
+        border-radius: 0;
+        margin-bottom: 0;
     }
 }
 
@@ -71,4 +68,5 @@ header {
     header {
         padding-bottom: 20px;
     }
-}</style>
+}
+</style>

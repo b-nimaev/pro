@@ -1,6 +1,6 @@
 <template>
-    <footer>
-        <div class="container">
+    <footer :class="{ 'dashboard': isDashbaord}">
+        <div :class="{ 'container': !fluidContainer, 'container-fluid': fluidContainer}">
             <div class="footer-inner">
                 <div class="logotype">
                     <NuxtLink to="/">
@@ -67,7 +67,7 @@
                                     <NuxtLink to="/processing">Обработка персональных данных</NuxtLink>
                                 </li>
                                 <!-- <li> -->
-                                    <!-- <NuxtLink to="/terms">Пользовательское соглашение</NuxtLink> -->
+                                <!-- <NuxtLink to="/terms">Пользовательское соглашение</NuxtLink> -->
                                 <!-- </li> -->
                             </ul>
                         </div>
@@ -84,16 +84,28 @@
     <ModalComponent />
 </template>
 
-<script>
-import { useMainStore } from '~/store'
+<script lang="ts">
+import { useMainStore } from '~/store';
 export default defineComponent({
     setup() {
         const mainStore = useMainStore()
         return { mainStore }
     },
-    data() {
-        return {
-            themeClass: 'light'
+    props: {
+        themeClass: {
+            required: false,
+            default: 'light',
+            type: String
+        },
+        fluidContainer: {
+            required: false,
+            default: false,
+            type: Boolean
+        },
+        isDashbaord: {
+            required: false,
+            default: false,
+            type: Boolean
         }
     },
     methods: {
@@ -115,6 +127,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import '@/assets/css/main.scss';
+
 .telegramLink {
     padding-bottom: 5px;
     // margin-bottom: 40px;
@@ -150,15 +163,34 @@ export default defineComponent({
 
 footer {
     padding: 50px 0 0;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .container {
+        margin: auto auto 0;
+    }
+    &.dashboard {
+        border-radius: 8px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
     .footer-bottom {
-        padding: 15px 0;
+        padding: 30px 0 30px;
+        border-top: 1px solid #eee;
         margin-top: 40px;
-        background-image: linear-gradient(138deg, #302a2a, rgba(40, 43, 43, 0.9411764706), #082625);
+        // background-color: #000000e8;
+
+        // background-image: linear-gradient(138deg, #302a2a, rgba(40, 43, 43, 0.9411764706), #082625);
         p {
-            font-size: 16px;
-            color: #eee;
+            font-size: 20px;
+            // color: #eee;
         }
     }
+
     .footer-inner {
         display: flex;
         width: 100%;
@@ -188,14 +220,17 @@ footer {
                 button {
                     padding: 15px 30px;
                     color: #fff;
-                    background-color: $ohra-primary;
-                    border: 1px solid $ohra-primary;
+                    background-color: #000000e8;
+                    border: 1px solid #000000e8;
                     border-radius: 30px;
                     font-size: 20px;
                     transition: 400ms ease;
+                    position: relative;
+                    top: 0;
+                    transition: 400ms;
 
                     &:hover {
-                        color: $ohra-primary;
+                        color: #000000e8;
                         background-color: #fff;
                     }
                 }
@@ -265,26 +300,34 @@ footer {
         &::before {
             background-color: #fff;
         }
+
         svg {
             path {
                 fill: #fff;
             }
         }
     }
+
     footer {
         color: #fff;
+
         .footer-bottom {
-            background-image: unset;
             background-color: #030203;
         }
+
         .right-side {
             .row__left-side {
                 button {
-                    background-color:rgb(255 102 16);
-                    border: 0;
+                    background-color: transparent;
+                    // background-color:rgb(255 102 16);
+                    border: 1px solid #fff;
+                    color: #fff;
+
                     &:hover {
-                        color: #fff;
-                        background-color: rgb(255 122 47);
+                        color: #eee;
+                        top: -3px;
+                        // background-color: #000000e8;
+                        // background-color: rgb(255 122 47);
                     }
                 }
             }
@@ -327,6 +370,8 @@ footer {
 
 @media screen and (max-width: 1420px) {
     footer {
+        padding-top: 20px;
+
         .logotype {
             margin-bottom: 30px;
         }
@@ -409,4 +454,12 @@ footer {
             .row {}
         }
     }
-}</style>
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        margin-top: 0;
+        border-radius: 0;
+    }
+}
+</style>

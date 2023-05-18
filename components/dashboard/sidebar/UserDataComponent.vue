@@ -1,5 +1,5 @@
 <template>
-    <div class="user-data">
+    <div class="user-data collapsed">
         <DashboardSidebarUserDataAvatarComponent />
         <h4>{{ user.firstName }} {{ user.lastName }}</h4>
         <p v-if="user.position" class="position">{{ user.position }}</p>
@@ -8,7 +8,7 @@
 
 <style lang="scss" scoped>
 .user-data {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 
     h4 {
@@ -20,11 +20,20 @@
         word-break: break-word;
         line-height: 24px;
         margin: auto;   
+        width: 30px;
     }
 
     P {
         font-size: 16px;
         color: #eee;
+    }
+
+    &.collapsed {
+        h4 {
+            display: none;
+            white-space: nowrap;
+            overflow: hidden;
+        }
     }
 }
 

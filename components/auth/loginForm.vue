@@ -65,9 +65,9 @@ export default {
                         this.errMessage = result.message
                     } else if (result._id) {
                         useCookie('id').value = result._id
-                        return this.$router.push('/dashboard')
                         this.mainStore.setUser(result)
                         this.errMessage = ''
+                        this.$router.push('/dashboard')
                     }
                 }
 

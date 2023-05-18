@@ -5,19 +5,25 @@
         <form>
             <div class="input-group">
                 <label for="firstName">Имя</label>
-                <input type="text" id="firstName" v-model="firstName" @input="userwatch">
+                <input type="text" id="firstName" v-model="firstName" placeholder="Jhon" @input="userwatch">
             </div>
             <div class="input-group">
                 <label for="lastName">Фамилия</label>
-                <input type="text" id="lastName" v-model="lastName" @input="userwatch">
+                <input type="text" id="lastName" v-model="lastName" placeholder="Doe" @input="userwatch">
             </div>
             <div class="input-group">
                 <label for="surName">Отчество</label>
-                <input type="text" id="surName" v-model="surName" @input="userwatch">
+                <input type="text" id="surName" v-model="surName" placeholder="Surname" @input="userwatch">
             </div>
         </form>
 
-        <!-- Выбор местоположения -->
+        <form>
+            <div class="input-group">
+                <label for="nickname">Короткая ссылка</label>
+                <input type="text" :placeholder="`@${_id}`" id="nickname" v-model="nickname" @input="userwatch">
+            </div>
+        </form>
+
         <form>
 
             <div class="input-group">
@@ -99,14 +105,15 @@ import { useMainStore } from "~/store";
 export default defineComponent({
     setup() {
         const mainStore = useMainStore()
-        let { firstName, lastName, surName, gender, city, dateOfBirth } = mainStore.getUser
-        return { firstName, lastName, surName, gender, city, mainStore, dateOfBirth }
+        let { firstName, _id, lastName, surName, nickname, gender, city, dateOfBirth } = mainStore.getUser
+        return { firstName, _id, lastName, surName, gender, nickname, city, mainStore, dateOfBirth }
     },
     data() {
         return {
             firstName: this.firstName,
             lastName: this.lastName,
             surName: this.surName,
+            nickname: this.nickname,
             selectedGenderToggler: false,
             selectedCity: this.city,
             selectedCityToggler: false,

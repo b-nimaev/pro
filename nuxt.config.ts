@@ -21,6 +21,10 @@ export default defineNuxtConfig({
         '~/plugins/socket-io.ts'
         
     ],
+
+    css: [
+        '@/assets/css/styles.scss'
+    ],
     image: {
         // dir: 'assets/images',
         // domains: [ '//profori.pro' ]

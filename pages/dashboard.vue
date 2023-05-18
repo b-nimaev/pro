@@ -1,13 +1,15 @@
 <template>
-    <div>
-        <NavbarComponent />
-        <div class="container">
-            <DashboardSidebarComponent />
-            <main>
-                <NuxtPage />
-            </main>
+    <div class="dashboard-wrapper">
+        <NavbarComponent :fluid-container="true" />
+        <div class="container-fluid">
+            <div class="dashboard-content">
+                <DashboardSidebarComponent />
+                <main class="collapsed">
+                    <NuxtPage />
+                </main>
+            </div>
+            <FooterComponent :is-dashbaord="true" :fluid-container="true" />
         </div>
-        <FooterComponent />
     </div>
 </template>
 
@@ -34,8 +36,17 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.container {
-    margin: 50px auto;
+@import '~/assets/css/main.scss';
+.dashboard-wrapper {
+    background-color: #ffffffd0;
+    border-radius: 15px;
+    padding-bottom: 1px;
+    .navbar {
+        padding: 15px;
+    }
+}
+.dashboard-content {
+    display: flex;
 }
 
 main {
@@ -47,15 +58,35 @@ main {
     height: -moz-fit-content;
     height: fit-content;
     position: sticky;
+    overflow: hidden;
     font-family: 'Nunito', sans-serif;
-    // top: 20px;
-    background-image: linear-gradient(138deg, #302a2a, rgba(40, 43, 43, 0.9411764706), #082625);
+    background-color: #ffffffd0;
     height: auto;
-    width: 1230px;
+
+    &.collapsed {
+        padding: 0;
+    }
 }
+
+@media screen and (max-width: 1700px) {
+    main {
+        padding: 0;
+    }
+}
+
 @media screen and (max-width: 1420px) {
     .container {
         margin: 20px auto;
+    }
+
+    main {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .dashboard-content {
+        flex-direction: column;
     }
 }
 </style>

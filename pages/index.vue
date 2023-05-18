@@ -1,12 +1,12 @@
 <template>
     <div>
-        <NavbarComponent />
         <HomeHeaderComponent />
         <HomeAdvantagesComponent></HomeAdvantagesComponent>
         <HomeYouGotComponent></HomeYouGotComponent>
         <HomeReviewsComponent></HomeReviewsComponent>
         <HomeOurConsultants />
-        <HomeBlogComponent></HomeBlogComponent>
+        <HomeChooseConsultantComponent />
+        <HomeBlogComponent />
         <FooterComponent></FooterComponent>
     </div>
 </template>
@@ -37,7 +37,7 @@ export default defineComponent({
                     'Content-Type': 'application/json'
                 }
             }).then(async (res) => {
-                
+
                 if (res.status === 200) {
                     await fetch('https://profori.pro/api/users/' + this.mainStore.getConfirmID, {
                         method: 'GET'
@@ -60,6 +60,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/css/main.scss';
 </style>

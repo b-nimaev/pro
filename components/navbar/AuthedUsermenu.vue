@@ -135,7 +135,7 @@ export default defineComponent({
 
         .left-side {
             display: flex;
-            margin: auto 15px auto 0;
+            margin: auto 0;
 
             .UserAvatar {
                 margin: auto 5px auto 0;

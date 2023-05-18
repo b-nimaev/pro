@@ -20,7 +20,7 @@ svg {
     top: 1px;
     transition: 400ms;
     &:hover {
-        fill: #000;
+        fill: #eee;
     }
     &.small {
         width: 12px;

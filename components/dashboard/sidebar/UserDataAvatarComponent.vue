@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="collapsed">
         <img v-if="user.photo" :src="`https://profori.pro/avatars/${user.photo}`" alt="user-avatar">
         <IconsAvatarEmtyIcon v-if="!user.photo" />
     </div>
@@ -18,7 +18,19 @@ div {
         object-fit: cover;
         object-position: center;
     }
+
+    &.collapsed {
+        width: 120px;
+        height: 120px;
+    }
 }
+
+@media screen and (max-width: 992px) {
+    div {
+        display: none;
+    }
+}
+
 </style>
 <script lang="ts">
 import { useMainStore } from '~/store';

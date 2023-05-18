@@ -20,12 +20,14 @@
     .slide {
         background-color: #0f0e0f;
         box-shadow: 3px 0px 18px -9px rgb(0 0 0);
+
         .content {
             .post-title {
                 h4 {
                     color: #fff;
                 }
             }
+
             .post-meta {
                 .time {
                     span {
@@ -42,6 +44,7 @@
         }
     }
 }
+
 .slide {
     position: relative;
     top: 0;
@@ -107,4 +110,12 @@
             }
         }
     }
-}</style>
+}
+
+@media screen and (max-width: 640px) {
+    .slide {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+</style>

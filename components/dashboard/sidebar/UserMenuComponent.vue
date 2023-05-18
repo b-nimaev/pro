@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="collapsed">
         <ul v-if="!settings">
             <li>
                 <NuxtLink to="/dashboard">
@@ -171,11 +171,12 @@ ul {
 
                 svg {
                     margin: auto;
+                    fill: #000000cc;
                 }
             }
 
             &.acitve {
-                background-color: #333;
+                background-color: #111;
 
                 svg {
 
@@ -197,8 +198,12 @@ ul {
 
             &.router-link-active.router-link-exact-active {
                 left: 5px;
-                background-color: #0000003b;
-                // background-color: #fafafa;
+                background-color: #000000cc;
+                .icon {
+                    svg {
+                        fill: #fff;
+                    }
+                }
             }
         }
 
@@ -208,7 +213,7 @@ ul {
 ul {
     li {
         a {
-            color: #fff;
+            color: #000000cc;
 
             .icon {
                 svg {
@@ -221,7 +226,32 @@ ul {
             }
 
             &:hover {
-                background-color: #0000003b;
+                // background-color: #0000003b;
+            }
+        }
+    }
+}
+
+div {
+    ul {
+        li {
+            a {
+                width: auto;
+                span {
+                    display: none;
+                }
+
+                .icon {
+                    margin: 0 auto;
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+
+                &.router-link-active.router-link-exact-active {
+                    left: 0;
+                }
             }
         }
     }
@@ -245,6 +275,14 @@ ul {
             &:hover {
                 background-color: #0000003b;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    div {
+        ul {
+            display: flex;
         }
     }
 }

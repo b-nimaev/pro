@@ -1,9 +1,12 @@
- <template>
+<template>
     <section id="blog">
-        <div class="container">
+        <div class="blog-wrapper">
             <div class="heading">
                 <p class="description">Блог</p>
                 <h2>Наши <span>авторы</span></h2>
+                <div class="line">
+                    <IconsLineComponent />
+                </div>
             </div>
             <div class="container">
                 <swiper :slides-per-view="1" :space-between="50" @swiper="onSwiper" @slideChange="onSlideChange"
@@ -18,7 +21,7 @@
                         '1100': {
                             slidesPerView: 3,
                         },
-                        '760': {
+                        '640': {
                             slidesPerView: 2
                         }
                     }">
@@ -44,6 +47,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
 
 .pagewrapper.dark {
     #blog {
@@ -57,6 +61,7 @@
         }
     }
 }
+
 .swiper-slide {
     overflow: hidden;
 }
@@ -69,6 +74,11 @@
 #blog {
     background-color: #fff;
     padding: 100px 0;
+    border-radius: 15px;
+
+    .container {
+        margin: auto;
+    }
 }
 
 .heading {
@@ -93,6 +103,8 @@
     .line {
         display: flex;
         justify-content: flex-end;
+        width: 130px;
+        margin: auto 0 auto auto;
     }
 }
 
@@ -108,6 +120,16 @@
 @media screen and (max-width: 1100px) {
     #blog {
         padding: 50px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #blog {
+        border-radius: 0;
+
+        .container {
+            padding: 0 15px;
+        }
     }
 }
 </style>

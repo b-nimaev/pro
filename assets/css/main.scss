@@ -1,13 +1,20 @@
 $primary: #444;
 $orange: #FF6610;
 $ohra-primary: #452921;
-$h1-size: 42px;
+$h1-size: 60px;
 
 .container {
     width: 1600px;
+    max-width: 100%;
     margin: auto;
-    padding: 0 30px;
-    display: flex;
+    padding: 0 15px;
+}
+
+.container-fluid {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 15px;
 }
 
 @media screen and (max-width: 1700px) {
@@ -16,25 +23,25 @@ $h1-size: 42px;
     }
 }
 
-@media screen and (max-width: 1420px) {
+@media screen and (max-width: 1500px) {
     .container {
-        width: 980px;
+        width: 1200px;
     }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1300px) {
     .container {
-        width: 720px
+        width: 980px
     }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 992px) {
     .container {
-        width: 560px;
+        width: 740px
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     .container {
         width: 100%;
     }

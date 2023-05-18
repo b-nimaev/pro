@@ -1,5 +1,5 @@
 <template>
-    <aside>
+    <aside class="">
         <DashboardSidebarUserDataComponent />
         <DashboardSidebarUserMenuComponent />
     </aside>
@@ -22,19 +22,22 @@ aside {
     // background-color: #fffafa;
     // background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
     border-radius: 8px;
-    margin-right: 30px;
+    margin-right: 15px;
     height: fit-content;
     position: sticky;
     top: 20px;
-    background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
+    background-color: #ffffffd0;
+    // background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
     
-    &.dark {
-        background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
+    &.collapsed {
+        padding: 20px;
+        margin-right: 20px;
     }
 }
 @media screen and (max-width: 1420px) {
     aside {
         padding: 30px 20px;
+        margin-right: 15px;
     }
     ul {
         li {
@@ -45,6 +48,19 @@ aside {
                 width: 178px;       
             }
         }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    aside {
+        display: flex;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    aside {
+        margin-right: 15px;
     }
 }
 </style>

@@ -89,6 +89,10 @@ export default defineComponent({
     position: relative;
     padding: 0;
 
+    &.collapsed {
+        margin-right: 20px;
+    }
+
     img {
         cursor: pointer;
         width: 100%;

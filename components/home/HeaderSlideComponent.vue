@@ -1,77 +1,78 @@
 <template>
     <div class="slide">
         <div class="container">
-            <div class="left-side">
-                <h1>Экспертная помощь <br><span>в достижении</span> карьерных целей</h1>
-                <p>Найдите идеальную профессию и достигните успеха в карьере с помощью наших <br> экспертов в
-                    профориентации и карьерном консультировании</p>
-                <div class="buttons">
-                    <button>
-                        <span>Пройти тест</span>
-                        <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_36_1735)">
-                                <path
-                                    d="M9.66358 0.478837L9.34791 0.669019C9.13872 0.795071 9.13872 0.999456 9.34791 1.12554L17.3164 5.92699H0.535715C0.239866 5.92699 0 6.07152 0 6.24979V6.51879C0 6.69705 0.239866 6.84158 0.535715 6.84158H17.3164L9.34791 11.643C9.13872 11.7691 9.13872 11.9735 9.34791 12.0996L9.66358 12.2897C9.87278 12.4158 10.212 12.4158 10.4212 12.2897L19.8431 6.61253C20.0523 6.48648 20.0523 6.2821 19.8431 6.15602L10.4212 0.478837C10.212 0.352757 9.87278 0.352757 9.66358 0.478837Z"
-                                    fill="#452921" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_36_1735">
-                                    <rect width="20" height="12" fill="white" transform="translate(0 0.384277)" />
-                                </clipPath>
-                            </defs>
-                        </svg>
+            <div class="wrapper">
+                <div class="left-side">
+                    <h1>Выберите <br><span>лучшую</span> профессию с нами.</h1>
+                    <p>Найдите идеальную профессию и достигните успеха в карьере с помощью наших <br> экспертов в
+                        профориентации и карьерном консультировании</p>
+                    <div class="buttons">
+                        <button>
+                            <span>Пройти тест</span>
+                        </button>
 
-                    </button>
-
-                    <button class="choose" @click="chooseConsultant()">
-                        <span>Выбрать консультанта</span>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="right-side">
-                <div class="users-grid">
-                    <div class="row">
-                        <div class="user">
-                            <nuxt-img width="183" height="138" src="/assets/images/realuser.jpg" alt="" />
-                        </div>
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser2.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser3.jpg" alt="" />
-                        </div>
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser4.jpg" alt="" />
-                        </div>
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser5.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser6.jpg" alt="" />
-                        </div>
-                        <div class="user">
-                            <nuxt-img width="183" height="138" format="webp" quality="80" src="/assets/images/realuser7.jpg" alt="" />
-                        </div>
+                        <button class="choose" @click="chooseConsultant()">
+                            <span>Заказать консультацию</span>
+                        </button>
                     </div>
                 </div>
-                <nuxt-img format="webp" quality="80" src="/assets/images/bgi.png" class="bgi" alt="" />
+
+                <div class="right-side">
+                    <div class="users-grid">
+                        <div class="row">
+                            <div class="user">
+                                <nuxt-img width="183" height="138" src="/assets/images/realuser.jpg" alt="" />
+                            </div>
+                            <div class="user">
+                                <nuxt-img width="183" height="138" format="webp" quality="80"
+                                    src="/assets/images/realuser2.jpg" alt="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="user">
+                                <nuxt-img width="183" height="138" format="webp" quality="80"
+                                    src="/assets/images/realuser3.jpg" alt="" />
+                            </div>
+                            <div class="user">
+                                <nuxt-img width="183" height="138" format="webp" quality="80"
+                                    src="/assets/images/realuser4.jpg" alt="" />
+                            </div>
+                            <div class="user">
+                                <nuxt-img width="183" height="138" format="webp" quality="80"
+                                    src="/assets/images/realuser5.jpg" alt="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="user">
+                                <nuxt-img width="183" height="138" format="webp" quality="80"
+                                    src="/assets/images/realuser6.jpg" alt="" />
+                            </div>
+                            <div class="user">
+                                <nuxt-img width="183" height="138" format="webp" quality="80"
+                                    src="/assets/images/realuser7.jpg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <nuxt-img format="webp" quality="80" src="/assets/images/bgi.png" class="bgi" alt="" />
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
+import { useMainStore } from '~/store';
 export default {
+    setup() {
+        const mainStore = useMainStore()
+        return { mainStore }
+    },
     methods: {
         chooseConsultant() {
-            const consultantsElement = document.getElementById("our-consultants");
-            if (consultantsElement) {
-                consultantsElement.scrollIntoView({ behavior: 'smooth' });
-            }
+            this.mainStore.setStatusModal(true)
+            // const consultantsElement = document.getElementById("our-consultants");
+            // if (consultantsElement) {
+            //     consultantsElement.scrollIntoView({ behavior: 'smooth' });
+            // }
         }
     }
 }
@@ -80,6 +81,11 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/css/main.scss';
 $ohra-primary: #452921;
+
+.wrapper {
+    display: flex;
+}
+
 .pagewrapper.dark {
     .buttons {
         button.choose {
@@ -89,6 +95,7 @@ $ohra-primary: #452921;
         }
     }
 }
+
 .slide {
     // padding: 0 50px 0 150px;
     display: flex;
@@ -120,8 +127,9 @@ header {
 h1 {
     font-size: $h1-size;
     color: $primary;
-    line-height: 52px;
+    line-height: 64px;
     margin-bottom: 20px;
+    font-weight: 300;
 
     span {
         color: $ohra-primary;
@@ -139,7 +147,7 @@ p {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: -1;
+    z-index: 0;
 }
 
 .buttons {
@@ -199,7 +207,7 @@ p {
 
         span {
             margin: auto;
-            margin-right: 10px;
+            // margin-right: 10px;
         }
 
         svg {
@@ -228,6 +236,8 @@ p {
     margin-left: auto;
 
     .users-grid {
+        z-index: 1;
+        position: relative;
 
         .row {
             display: flex;
@@ -265,11 +275,12 @@ p {
     }
 }
 
-@media screen and (max-width: 1420px) {
+@media screen and (max-width: 1500px) {
+
     h1 {
-        font-size: 36px;
+        font-size: 46px;
         margin-bottom: 20px;
-        line-height: 42px;
+        line-height: 54px;
     }
 
     p {
@@ -278,10 +289,6 @@ p {
         br {
             display: none
         }
-    }
-
-    .container {
-        flex-direction: column;
     }
 
     .right-side {
@@ -300,7 +307,6 @@ p {
     }
 
     .slide {
-        width: 980px;
         padding: 0;
         margin: auto;
         flex-direction: column;
@@ -340,16 +346,29 @@ p {
     }
 }
 
-@media screen and (max-width: 1100px) {
-    .slide {
-        width: 720px;
+@media screen and (max-width: 1300px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .right-side {
+        img {
+            margin: auto;
+            display: block;
+            width: 60%;
+            left: 0;
+            height: auto;
+            top: 0%;
+        }
+
+        .bgi {
+            display: none;
+        }
     }
 }
 
 @media screen and (max-width: 760px) {
-    .slide {
-        width: 560px
-    }
 
     .slide {
         .left-side {
@@ -377,12 +396,44 @@ p {
     }
 
     h1 {
-        font-size: 32px;
+        font-size: 40px;
+        line-height: 48px;
+
         br {
-            // display: none;
+            display: none;
         }
+
         span {
             margin: 0;
+        }
+    }
+
+    p {
+        line-height: 28px;
+        font-weight: 300;
+    }
+
+    .slide {
+        .left-side {
+            padding: 0;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .right-side {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        justify-content: center;
+
+        .users-grid {
+            .row {
+                .user {
+                    width: 110px;
+                    height: 80px;
+                }
+            }
         }
     }
 }
@@ -391,4 +442,5 @@ p {
     .slide {
         width: 100%;
     }
-}</style>
+}
+</style>

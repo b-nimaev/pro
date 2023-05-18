@@ -1,23 +1,23 @@
 <template>
     <div class="slide">
         <div class="user-avatar">
-            <nuxt-img quality="80" width="128" height="128" format="webp" :src="`https://profori.pro/avatars/${photo}`"
+            <nuxt-img quality="80" width="128" height="128" format="webp" :src="`https://profori.pro/avatars/${user.photo}`"
                 alt="user-avatar" />
         </div>
         <div class="user-data">
             <div class="user-name">
-                <h4>Новикова Мария</h4>
+                <h4>{{ user.firstName }} {{ user.lastName }}</h4>
                 <div class="status">Pro</div>
             </div>
             <div class="user-meta">
-                <div class="user-nickname"><span>@marianovikova</span></div>
-                <div class="user-exp"><span>5 лет на сервисе</span></div>
+                <div class="user-nickname" v-if="user.nickname"><span>{{ user.nickname }}</span></div>
+                <div class="user-exp"><span>{{ hours }} {{ name }} на сервисе</span></div>
             </div>
             <div class="user-position">
                 <p>Профориентолог</p>
             </div>
         </div>
-        <button @click="goToUser(id)">Перейти</button>
+        <button @click="goToUser(user._id)">Перейти</button>
     </div>
 </template>
 
@@ -30,18 +30,38 @@ export default defineComponent({
         return { mainStore }
     },
     props: {
-        photo: {
-            type: String
-        },
-        id: {
-            type: String,
-            required: true
+        user: {
+            type: Object
+        }
+    },
+    data () {
+        return {
+            hours: 0,
+            days: 0,
+            name: 'часов'
         }
     },
     methods: {
         goToUser (id: string) {
             this.$router.push(`/users/${id}`)
         }
+    },
+    mounted () {
+        const createdAt = new Date(this.user.createdAt)
+        const now = new Date()
+        const timed = now - createdAt
+        const seconds = Math.floor(timed / 1000);
+        const minutes = Math.floor(seconds / 60);
+        this.hours = Math.floor(minutes / 60);
+        this.days = Math.floor(this.hours / 24);
+        if (this.hours === 1) {
+            this.name = "час";
+        } else if (this.hours >= 2 && this.hours <= 4) {
+            this.name = "часа";
+        } else {
+            this.name = "часов";
+        }
+
     }
 })
 </script>
@@ -125,8 +145,9 @@ export default defineComponent({
 
         img {
             object-position: center;
-            width: 100%;
+            width: 128px;
             height: 128px;
+            border-radius: 50%;
             object-fit: cover;
             object-position: center;
         }
@@ -138,11 +159,14 @@ export default defineComponent({
 
         .user-name {
             display: flex;
-
+            margin: 0 auto 5px;
             h4 {
                 font-size: 20px;
                 color: #0A0E10E5;
-                margin-right: 10px
+                margin-right: 10px;
+                max-width: 180px;
+                overflow: hidden;
+                white-space: nowrap;
             }
 
             .status {

@@ -4,6 +4,9 @@
             <div class="heading">
                 <p class="description">Ваш шанс</p>
                 <h2>С нами <span>вы получите</span></h2>
+                <div class="line">
+                    <IconsLineComponent />
+                </div>
             </div>
 
             <div class="content">
@@ -62,7 +65,7 @@
 @import '@/assets/css/main.scss';
 
 #you_got {
-    padding: 100px 0;
+    padding: 200px 0 100px;
     background-color: #fff;
 }
 
@@ -72,24 +75,32 @@
     margin-bottom: 80px;
 
     p.description {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         font-size: 18px;
         color: #99DCD5;
         opacity: 0.9;
     }
 
     h2 {
-        font-size: $h1-size;
-        font-weight: 300;
-        color: $ohra-primary;
+        font-size: 42px;
+        color: #444;
+
         span {
-            color: $orange;
+            color: #FF6610;
         }
     }
 
     .line {
         display: flex;
         justify-content: flex-end;
+        margin-right: 10px;
+        margin-top: 0;
+
+        svg {
+            height: auto;
+            width: 220px;
+            margin: 5px 0 0 0;
+        }
     }
 }
 
@@ -99,9 +110,18 @@
 }
 
 article {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     margin-bottom: 100px;
+
+    &:hover {
+        .right-side {
+            img {
+                filter: grayscale(.3);
+            }
+        }
+    }
 
     &:last-child {
         margin-bottom: 0;
@@ -124,20 +144,27 @@ article {
 
         .left-side__heading {
             h4 {
-                font-size: 24px;
+                font-size: 26px;
                 font-weight: 400;
-                line-height: 32px;
-                color: $ohra-primary;
+                line-height: 38px;
+                color: #111;
             }
 
             .left-side__description {
                 font-size: 18px;
-                line-height: 27.5px;
-                // font-weight: 500;
-                margin-top: 15px;   
+                line-height: 28px;
+                font-weight: 300;
+                margin-top: 15px;
                 color: $primary;
             }
         }
+    }
+}
+
+.right-side {
+    img {
+        filter: grayscale(1);
+        transition: 400ms;
     }
 }
 
@@ -181,7 +208,7 @@ article {
     }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1300px) {
     #you_got {
         padding: 50px 0;
     }
@@ -192,14 +219,41 @@ article {
                 h4 {
                     font-size: 24px;
                 }
+
+                .left-side__description {
+                    font-size: 16px;
+                    line-height: 24px;
+
+                    br {
+                        display: none;
+                    }
+                }
             }
         }
     }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 992px) {
+    article {
+        .left-side {
+            .left-side__heading {
+                h4 {
+                    line-height: 36px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #you_got {
+        margin: 0;
+        padding: 50px 20px;
+        border-radius: 0;
+    }
+
     .heading {
-        margin: 0 0 50px;
+        margin: 0 0 40px;
     }
 
     article {
@@ -208,18 +262,23 @@ article {
         .left-side {
             .left-side__heading {
                 h4 {
-                    font-size: 20px;
+
+                    // font-size: 24px;
+                    br {
+                        display: none
+                    }
+                }
+
+                .left-side__description {
+                    font-size: 18px;
+                    line-height: 26px;
+
+                    br {
+                        display: none
+                    }
                 }
             }
 
-            .left-side__description {
-                font-size: 16px;
-                line-height: 24px;
-
-                br {
-                    display: none
-                }
-            }
 
             &.mr-50,
             &.mr-40 {
@@ -237,6 +296,7 @@ article {
 
             img {
                 margin: auto;
+                filter: grayscale(0);
             }
         }
     }
@@ -244,4 +304,5 @@ article {
     img {
         width: 75%;
     }
-}</style>
+}
+</style>
