@@ -190,7 +190,7 @@ export default defineComponent({
                     })
                 }
 
-                this.close()
+                this.mainStore.setStatusModal(false)
 
             } catch (err) {
                 this.close()
