@@ -1,5 +1,5 @@
 <template>
-    <div class="collapsed">
+    <div class="ul-wrapper">
         <ul v-if="!settings">
             <li>
                 <NuxtLink to="/dashboard">
@@ -198,10 +198,11 @@ ul {
 
             &.router-link-active.router-link-exact-active {
                 left: 5px;
-                background-color: #000000cc;
+                background-color: #f3f3f3;
+
                 .icon {
                     svg {
-                        fill: #fff;
+                        fill: rgba(0, 0, 0, 0.8);
                     }
                 }
             }
@@ -236,17 +237,20 @@ div {
     ul {
         li {
             a {
-                width: auto;
-                span {
-                    display: none;
-                }
+                span {}
 
                 .icon {
-                    margin: 0 auto;
+                    // margin: 0 auto;
+                    margin: 0 15px 0 0;
+
                     svg {
                         width: 24px;
                         height: 24px;
                     }
+                }
+
+                span {
+                    margin: auto 0;
                 }
 
                 &.router-link-active.router-link-exact-active {
@@ -284,6 +288,28 @@ div {
         ul {
             display: flex;
         }
+    }
+
+    .ul-wrapper {
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #e2dbdb;
+            border-radius: 2px;
+            width: 2px;
+            height: 2px;
+        }
+    
+        &::-webkit-scrollbar-track{
+            background: #eee;
+            height: 1px;
+            display: block;
+        }
+        
     }
 }
 </style>

@@ -5,9 +5,6 @@
             <h6 class="edity">
                 <p class="small"><span class="static">@</span><span>{{ user._id ? user._id : user.nickname }}</span>
                 </p>
-                <div class="edit-icon">
-                    <edit-icon size="small" />
-                </div>
             </h6>
         </div>
     </div>
@@ -15,6 +12,8 @@
 
 <style lang="scss" scoped>
 @import '~/assets/css/dashboard.scss';
+$dark: rgba(0, 0, 0, 0.8);
+$primary: $dark;
 .userdata {
     margin: 0;
     display: flex;
@@ -24,12 +23,12 @@
     h4 {
         font-size: 26px;
         margin-bottom: 5px;
-        color: $primary-color;
+        color: $primary;
     }
 
     h6 {
         font-size: 12px;
-        color: $primary-color;
+        color: $primary;
     }
 
     .change {

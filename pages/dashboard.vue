@@ -1,14 +1,14 @@
 <template>
     <div class="dashboard-wrapper">
-        <NavbarComponent :fluid-container="true" />
-        <div class="container-fluid">
+        <NavbarComponent />
+        <div class="container">
             <div class="dashboard-content">
                 <DashboardSidebarComponent />
-                <main class="collapsed">
+                <main class="">
                     <NuxtPage />
                 </main>
             </div>
-            <FooterComponent :is-dashbaord="true" :fluid-container="true" />
+            <FooterComponent :is-dashbaord="true" />
         </div>
     </div>
 </template>

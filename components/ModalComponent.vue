@@ -172,26 +172,30 @@ export default defineComponent({
     },
     methods: {
         async order(e) {
-            e.preventDefault()
-            if (this.privacy) {
-                await fetch('https://profori.pro/api/users/order', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name: this.name,
-                        phone: this.phone,
-                        ref: this.mainStore.getReferral
+            try {
+
+                e.preventDefault()
+
+                if (this.privacy) {
+                    await fetch('https://profori.pro/api/users/order', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: this.name,
+                            phone: this.phone,
+                            ref: this.mainStore.getReferral
+                        })
                     })
-                }).then(response => {
-                    console.log(response)
-                }).catch(error => {
-                    console.error(error)
-                })
-                // send & clear data
+                }
+
+                this.close()
+
+            } catch (err) {
+                this.close()
+                this.mainStore.setStatusModal(false)
             }
-            this.mainStore.setStatusModal(false)
         },
         close() {
             this.mainStore.setStatusModal(false)

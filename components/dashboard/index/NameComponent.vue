@@ -1,9 +1,9 @@
 <template>
     <h4 class="edity">
         <span>{{ user.firstName }} {{ user.lastName }}</span>
-        <div class="edit-icon" @click="edit">
+        <!-- <div class="edit-icon" @click="edit">
             <edit-icon size="normal" />
-        </div>
+        </div> -->
     </h4>
 </template>
 

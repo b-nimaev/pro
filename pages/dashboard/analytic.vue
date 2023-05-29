@@ -1,7 +1,7 @@
 <template>
-    <div class="dashboard-content">
+    <section>
         <DashboardSettingsSectionHeadingComponent title="Аналитика" />
-    </div>
+    </section>
 </template>
 
 <style lang="scss" scoped>

@@ -210,7 +210,7 @@ article {
 
 @media screen and (max-width: 1300px) {
     #you_got {
-        padding: 50px 0;
+        padding: 100px 0;
     }
 
     article {

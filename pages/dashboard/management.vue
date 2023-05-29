@@ -1,5 +1,5 @@
 <template>
-    <div class="dashboard-content">
+    <section>
         <DashboardSettingsSectionHeadingComponent title="Реферальные ссылки" />
         <ul>
             <li v-for="link of links" :key="link.value">
@@ -30,13 +30,19 @@
             </li>
         </ul>
         <button @click="create_referal_link">Создать ссылку</button>
-    </div>
+    </section>
 </template>
 
 <style lang="scss" scoped>
-@import '~/assets/css/dashboard.scss';
-@import '@/assets/css/main.scss';
+@import '@/assets/css/dashboard.scss';
 
+section {
+    display: block;
+}
+
+// @import '@/assets/css/main.scss';
+$dark: rgba(0, 0, 0, 0.8);
+$primary: $dark;
 .headertop {
     display: flex;
 }
@@ -54,7 +60,7 @@
         li {
             margin-right: 10px;
             margin-bottom: 10px;
-            color: #eee;
+            color: $primary;
             &:last-child {
                 margin-right: 0;
             }
@@ -82,13 +88,13 @@
 
             path {
                 transition: 400ms;
-                fill: #eee
+                fill: #444
             }
         }
 
         &:hover {
             svg path {
-                fill: #fff;
+                fill: #333;
             }
         }
     }
@@ -96,13 +102,13 @@
 
 h4 {
     font-size: 26px;
-    color: #eee;
+    color: $primary;
     margin-bottom: 30px;
 }
 
 button {
     padding: 10px 20px;
-    background-color: $ohra-primary;
+    background-color: $primary;
     color: #fff;
     border-radius: 30px;
     font-size: 20px;
@@ -119,7 +125,7 @@ ul {
 
         span {
             font-size: 16px;
-            color: #eee;
+            color: #666;
             cursor: pointer;
 
             &.muted {

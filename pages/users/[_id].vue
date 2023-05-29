@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarComponent themeClass="dark" />
+        <NavbarComponent themeClass="light" />
         <main>
             <div class="container">
                 <div class="card-header">
@@ -58,14 +58,14 @@ $dark: #07020263;
 }
 
 .card-header {
-    background-color: $dark;
+    background-color: #fff;
     width: 100%;
     border-radius: 5px;
     padding: 30px 0;
     margin-top: 50px;
     margin-bottom: 0;
     padding: 30px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    // box-shadow: 0px 4px 4px rgb(225 225 225 / 7%);
     display: flex;
 
     .user-avatar {
@@ -84,7 +84,7 @@ $dark: #07020263;
     }
 
     .user-data {
-        color: #E0E0E0;
+        color: #444;
         margin: auto 0 auto 30px;
 
         h3 {
@@ -143,7 +143,7 @@ $dark: #07020263;
 
     .left-side {
         button {
-            background-color: #070707;
+            background-color: #222;
             width: 250px;
             display: flex;
             padding: 15px;
@@ -152,11 +152,11 @@ $dark: #07020263;
             transition: 400ms;
 
             &:hover {
-                background-color: #0c0b0b;
+                background-color: #333;
             }
 
             &:active {
-                background-color: #080707;
+                background-color: #222;
             }
 
             &:last-child {
@@ -177,14 +177,13 @@ $dark: #07020263;
 
         .heading {
             margin: 0 0 auto;
-            padding: 30px;
-            background-color: $dark;
+            padding: 0 30px;
+            // background-color: #eee;
             border-radius: 5px;
-
             h4 {
                 font-size: 24px;
                 border-radius: 5px;
-                color: #E0E0E0;
+                color: #444;
             }
         }
     }
@@ -216,10 +215,10 @@ export default defineComponent({
         })
     },
     mounted() {
-        this.mainStore.setColorScheme({
-            name: 'dark',
-            value: 'Темная'
-        })
+        // this.mainStore.setColorScheme({
+        // name: 'dark',
+        // value: 'Темная'
+        // })
     },
 })
 </script>

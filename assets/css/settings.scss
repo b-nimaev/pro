@@ -2,6 +2,8 @@ $dark-color: #eee;
 $light-color: #111;
 $border-radius: 5px;
 $input-bg-image: linear-gradient(45deg, black, transparent);
+$dark: rgba(0, 0, 0, 0.8);
+$primary: $dark;
 
 main {
     font-family: 'Nunito', sans-serif;
@@ -49,7 +51,7 @@ main {
 
     input {
         color: #444;
-        background-color: #FDFDFD;
+        background-color:#f3f3f3;
         // background-color: #fff;
         padding: 10px 15px;
         border-radius: 5px;

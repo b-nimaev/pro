@@ -16,24 +16,22 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+
 aside {
     padding: 30px;
     border-radius: 5px;
-    // background-color: #fffafa;
-    // background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
     border-radius: 8px;
-    margin-right: 15px;
     height: fit-content;
     position: sticky;
     top: 20px;
     background-color: #ffffffd0;
-    // background-image: linear-gradient(138deg, #302a2a, #282b2bf0, #082625);
     
     &.collapsed {
         padding: 20px;
         margin-right: 20px;
     }
 }
+
 @media screen and (max-width: 1420px) {
     aside {
         padding: 30px 20px;

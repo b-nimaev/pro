@@ -15,12 +15,11 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import '~/assets/css/settings.scss';
+
 h4 {
     margin-bottom: 30px;
-    
     font-size: 26px;
-    color: #eee;
-    font-weight: 500;
+    color: $primary;
     width: fit-content;
     cursor: pointer;
 }

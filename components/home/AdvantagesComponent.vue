@@ -351,7 +351,7 @@ aside {
 
 @media screen and (max-width: 1300px) {
     .advantages {
-        padding: 50px;
+        padding: 120px 0;
     }
 
     .container {

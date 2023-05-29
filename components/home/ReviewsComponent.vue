@@ -46,6 +46,25 @@
                                 </div>
                             </article>
                         </div>
+                        <div class="column mobile">
+                            <article class="mt-30">
+                                <div class="user-avatar">
+                                    <nuxt-img format="webp" quality="80" src="/assets/images/user-avatar-for-review.png"
+                                        alt="user-avatar" />
+                                </div>
+                                <div class="user-review">
+                                    <p>Я получила незаменимую помощь в определении своей карьерной стратегии благодаря
+                                        карьерным
+                                        консультантам. Рекомендую!</p>
+
+                                </div>
+                                <ReviewsUserRatingComponent :rating=5 />
+                                <div class="user-data">
+                                    <div class="username"><span>Анна Николаевна</span></div>
+                                    <div class="userpos"><span>Ui/Ux Designer</span></div>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
                 <div class="right-side">
@@ -214,6 +233,10 @@ export default defineComponent({
             flex-direction: column;
             margin-right: 20px;
 
+            &.mobile {
+                display: none;
+            }
+
             &:last-child {
                 margin-right: 0;
             }
@@ -324,16 +347,29 @@ article {
 }
 
 @media screen and (max-width: 1300px) {
+    .wrapper {
+        flex-wrap: wrap;
+    }
+
     .container {
         flex-direction: column;
 
         .left-side {
-            order: 2
+            margin: 30px 0 0;
+            order: 2;
+            .columns {
+                flex-wrap: wrap;
+            }
+            .column {
+                &.mobile {
+                    display: flex;
+                }
+            }
         }
 
         .right-side {
+            margin: 0;
             order: 1;
-            margin-bottom: 30px;
         }
     }
 }
