@@ -261,4 +261,38 @@ h2 {
     display: flex;
     justify-content: flex-end;
 }
+
+@media screen and (max-width: 992px) {
+    form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    form {
+        .form-row {
+            flex-direction: column;
+            margin-bottom: 0;
+            // margin-bottom: 15px;
+
+            &:last-child {
+                margin-top: 40px;
+            }
+
+            .input-group {
+                margin-bottom: 30px;
+                margin-right: 0;
+
+                label {
+                    margin-bottom: 20px;
+                }
+
+                label[for="price"] {
+                    margin-bottom: 40px
+                }
+            }
+        }
+    }
+}
+
 </style>

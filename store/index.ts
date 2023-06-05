@@ -46,6 +46,7 @@ export const useMainStore = defineStore('main', {
         referral: '',
         isDashboardSettings: false,
         fillLink: '',
+        menuShow: false,
         confirmID: '',
         userData: {
             _id: '',
@@ -124,9 +125,15 @@ export const useMainStore = defineStore('main', {
         },
         getLoginStatus(state) {
             return state.loginStatus
+        },
+        menuShowStatus(state) {
+            return state.menuShow
         }
     },
     actions: {
+        setMenuStatus(value: boolean) {
+            return this.menuShow = value
+        },
         setLinkStatus(value: boolean) {
             return this.link = value
         },

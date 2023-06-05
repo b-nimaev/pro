@@ -77,7 +77,7 @@
         </div>
         <div class="footer-bottom">
             <div class="container">
-                <p>© 2023 Profori.com. Все права защищены.</p>
+                <p>© 2023 Profori.pro. Все права защищены.</p>
             </div>
         </div>
     </footer>

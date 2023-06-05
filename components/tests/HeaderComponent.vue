@@ -74,6 +74,7 @@
 
 <style lang="scss" scoped>
 @import '@/assets/css/main.scss';
+
 .buttons {
     display: flex;
     margin-top: 40px;
@@ -89,20 +90,24 @@
         border-radius: 50px;
         position: relative;
         top: 0;
+
         span {
             margin: auto;
             font-size: 24px;
         }
+
         &:hover {
             // background-color: #FBFBFB;
             // border-color: #FBFBFB;
             // color: #FF6610;
             top: -5px;
             background: transparent;
+
             span {
                 color: $ohra-primary;
             }
         }
+
         &:active {
             top: -3px;
         }
@@ -112,10 +117,12 @@
         }
     }
 }
+
 header {
     // background-image: url('~/assets/images/header.jpg');
     background-size: cover;
     padding: 0 0 150px;
+
     .left-side {
         margin-top: 150px;
     }
@@ -134,11 +141,13 @@ ul {
     list-style-type: disc;
     display: flex;
     flex-direction: column;
+
     li {
         color: #444;
         font-size: 18px;
         line-height: 26px;
         margin-bottom: 5px;
+
         &:last-child {
             margin-bottom: 0;
         }
@@ -161,6 +170,7 @@ ul {
 
     .icon {
         margin-right: 10px;
+
         svg {
             path {
                 fill: #333;
@@ -174,12 +184,27 @@ ul {
 }
 
 h1 {
-    width: 826px;
-    font-size: $h1-size;
+
+    width: auto;
+    font-size: 60px;
     margin-bottom: 40px;
     color: #444;
-    line-height: 52px;
+    line-height: 64px;
+    font-weight: 300;
 }
+
+@media screen and (max-width: 1600px) {
+    header {
+        .left-side {
+            margin-top: 120px;
+        }
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+}
+
 </style>
 
 <script lang="ts">

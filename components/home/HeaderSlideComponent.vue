@@ -275,6 +275,13 @@ p {
     }
 }
 
+@media screen and (max-width: 1600px) {
+    h1 {
+        font-size: 48px;
+    }
+}
+
+
 @media screen and (max-width: 1500px) {
 
     h1 {

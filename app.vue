@@ -2,11 +2,78 @@
   <div class="pagewrapper"
     :class="{ 'mobile-menu-active': mobileMenu, 'dark': colorScheme.name === 'dark', 'light': colorScheme.name === 'light' }">
     <NuxtPage />
+    <div class="menu" :class="{ 'active': menuStatus }">
+      <div class="container">
+        <div class="row">
+          <NuxtLink to="/">
+            <LogotypeComponent themeClass="very-light" />
+          </NuxtLink>
+        </div>
+        <div class="toggler-closer show">
+        </div>
+        <ul>
+          <li>
+            <NuxtLink to="/">Главная</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/tests">Тесты</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/proforientation">Профориентация</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/career">Карьера</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/for-consultants">Консультантам</NuxtLink>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import '@/assets/css/styles.scss';
+
+.menu {
+  position: fixed;
+  left: 100%;
+  top: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fff;
+  z-index: 99;
+  padding: 50px;
+  transition: 400ms;
+
+  &.active {
+    left: 0;
+  }
+
+  ul {
+    li {
+      a {
+        font-size: 3.5rem;
+        padding: .8rem 1rem;
+        display: block;
+        width: fit-content;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        position:relative;
+        left: 0;
+        transition: 400ms;
+        &:hover {
+          left: 5px;
+        }
+      }
+    }
+  }
+}
+
+.pagewrapper {
+  // display: flex;
+}
 </style>
 
 <script lang="ts">
@@ -34,6 +101,9 @@ export default defineComponent({
     },
     colorScheme() {
       return this.mainStore.getUser.colorScheme
+    },
+    menuStatus: function () {
+      return this.mainStore.menuShowStatus
     }
   },
   beforeCreate() {
@@ -49,7 +119,7 @@ export default defineComponent({
     //     }).then(async (res) => {
     //       // @ts-ignore
     //       if (await res.json().message) {
-          
+
     //       } else {
     //         this.mainStore.setUser(await res.json())
     //       }

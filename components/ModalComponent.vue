@@ -177,6 +177,7 @@ export default defineComponent({
                 e.preventDefault()
 
                 if (this.privacy) {
+                    this.close()
                     await fetch('https://profori.pro/api/users/order', {
                         method: 'POST',
                         headers: {
@@ -188,9 +189,8 @@ export default defineComponent({
                             ref: this.mainStore.getReferral
                         })
                     })
-                }
 
-                this.mainStore.setStatusModal(false)
+                }
 
             } catch (err) {
                 this.close()
