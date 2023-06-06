@@ -3,7 +3,8 @@
         <div class="container">
             <h1>Хотите определить свои профессиональные цели? <br>Наш сервис вам поможет.</h1>
             <div class="description">
-                <p class="primary_description">Получите доступ к базе профессионалов и выбору того, <br> с кем вам будет максимально комфортно находить свое призвание.</p>
+                <p class="primary_description">Получите доступ к базе профессионалов и выбору того, <br> с кем вам будет
+                    максимально комфортно находить свое призвание.</p>
                 <p class="secondary_description">Вы сами выбираете стоимость консультирования, формат и время встречи</p>
             </div>
             <button @click="contactModal">Заказать консультацию</button>
@@ -33,22 +34,28 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import '@/assets/css/main.scss';
+
 header {
     padding: 150px 0;
 }
+
 .container {
     display: block;
 }
+
 h1 {
     font-size: 42px;
-    line-height: 52px;
+    line-height: 60px;
     margin-bottom: 40px;
+    font-weight: 300;
 }
+
 .primary_description {
     font-size: 20px;
     line-height: 34px;
     color: #0A0E10;
 }
+
 .secondary_description {
     font-size: 20px;
     line-height: 26px;
@@ -56,6 +63,7 @@ h1 {
     color: #0A0E10;
     margin-top: 30px;
 }
+
 button {
     padding: 12px 30px;
     color: #fff;
@@ -68,12 +76,14 @@ button {
     transition: 400ms;
     position: relative;
     top: 0;
+
     &:hover {
         background-color: transparent;
         color: $ohra-primary;
         padding: 15px 31px;
         top: -5px;
     }
+
     &:active {
         top: -3px;
     }
@@ -83,31 +93,37 @@ button {
     header {
         padding: 60px 0
     }
+
     h1 {
         font-size: 36px;
         line-height: 46px;
     }
 }
+
 @media screen and (max-width: 1100px) {
     p {
         font-size: 18px;
         line-height: 32px !important;
+
         br {
             display: none
         }
     }
+
     button {
         padding: 16px 28px;
         font-size: 20px;
     }
+
     header {
         padding: 30px 0
     }
+
     h1 {
         font-size: 32px;
+
         br {
             display: none;
         }
     }
-}
-</style>
+}</style>

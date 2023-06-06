@@ -8,7 +8,10 @@ import AdvantagesComponent from '~/components/home/AdvantagesComponent.vue';
     <div>
         <NavbarComponent />
         <ForConsultantsHeaderComponent />
-        <!-- <ForConsultantsAdvantagesComponent /> -->
         <FooterComponent />
     </div>
 </template>
+
+<style lang="scss" scoped>
+@import '@/assets/css/main.scss';
+</style>

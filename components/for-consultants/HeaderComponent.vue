@@ -2,7 +2,7 @@
     <header>
         <div class="container">
             <div class="inner">
-                <h1>Присоединяйтесь к нашей команде консультантов</h1>
+                <h1>Современная платформа для поиска решений </h1>
                 <ButtonsSendOrderComponent />
             </div>
         </div>
@@ -12,7 +12,7 @@
 <style lang="scss" scoped>
 @import '@/assets/css/main.scss';
 header {
-    padding: 70px 0;
+    padding: 70px 0 300px;
 
     .inner {
         display: flex;
@@ -21,9 +21,10 @@ header {
 }
 
 h1 {
-    font-size: $h1-size;
-    line-height: 52px;
+    font-size: 42px;
+    line-height: 60px;
     color: $ohra-primary;
+    font-weight: 300;
 }
 
 @media screen and (max-width: 1420px) {

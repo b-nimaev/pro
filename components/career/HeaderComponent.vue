@@ -39,9 +39,9 @@ header {
     justify-content: center;
 
     h2 {
-        font-size: 60px;
+        font-size: 42px;
         color: #444;
-        line-height: 64px;
+        line-height: 60px;
         font-weight: 300;
         margin-bottom: 20px;
     }
@@ -49,7 +49,7 @@ header {
     p {
         font-size: 18px;
         color: #444;
-        line-height: 26px;
+        line-height: 34px
     }
 }
 

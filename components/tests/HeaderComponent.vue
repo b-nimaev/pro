@@ -184,13 +184,11 @@ ul {
 }
 
 h1 {
-
-    width: auto;
-    font-size: 60px;
+    font-size: 42px;
+    line-height: 60px;
     margin-bottom: 40px;
-    color: #444;
-    line-height: 64px;
     font-weight: 300;
+    width: 80%;
 }
 
 @media screen and (max-width: 1600px) {
@@ -204,7 +202,6 @@ h1 {
         font-size: 48px;
     }
 }
-
 </style>
 
 <script lang="ts">
