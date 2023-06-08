@@ -21,7 +21,7 @@
                     <div class="users-grid">
                         <div class="row">
                             <div class="user">
-                                <nuxt-img width="183" height="138" src="/assets/images/realuser.jpg" alt="" />
+                                <nuxt-img width="183" height="138" src="/assets/images/Frame-107.jpg" alt="" />
                             </div>
                             <div class="user">
                                 <nuxt-img width="183" height="138" format="webp" quality="80"
@@ -31,11 +31,11 @@
                         <div class="row">
                             <div class="user">
                                 <nuxt-img width="183" height="138" format="webp" quality="80"
-                                    src="/assets/images/realuser3.jpg" alt="" />
+                                    src="/assets/images/realuser4.jpg" alt="" />
                             </div>
                             <div class="user">
                                 <nuxt-img width="183" height="138" format="webp" quality="80"
-                                    src="/assets/images/realuser4.jpg" alt="" />
+                                    src="/assets/images/realuser3.jpg" alt="" />
                             </div>
                             <div class="user">
                                 <nuxt-img width="183" height="138" format="webp" quality="80"

@@ -3,7 +3,7 @@
     :class="{ 'mobile-menu-active': mobileMenu, 'dark': colorScheme.name === 'dark', 'light': colorScheme.name === 'light' }">
     <NuxtPage />
     <div class="menu" :class="{ 'active': menuStatus }">
-      <button @click="close()" class="close">Закрыть</button>
+      <button @click="closeMenu()" class="close">Закрыть</button>
       <div class="container">
         <div class="row">
           <NuxtLink to="/">
@@ -127,9 +127,9 @@ export default defineComponent({
     menuStatus: function () {
       return this.mainStore.menuShowStatus
     },
-    close() {
+    closeMenu: function () {
       document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
-      return this.mainStore.setMenuStatus(false)
+      this.mainStore.setMenuStatus(false)
     }
   },
   beforeCreate() {
