@@ -130,10 +130,6 @@ export default defineComponent({
         toShow() {
 
            this.mainStore.setMenuStatus(true)
-
-            // this.toggled = false
-            // this.show = true
-            // this.mainStore.setMobileMenu(true)
             document.getElementsByTagName("body")[0].classList.add('mobile-menu-active')
         },
         close() {

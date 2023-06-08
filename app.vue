@@ -3,6 +3,7 @@
     :class="{ 'mobile-menu-active': mobileMenu, 'dark': colorScheme.name === 'dark', 'light': colorScheme.name === 'light' }">
     <NuxtPage />
     <div class="menu" :class="{ 'active': menuStatus }">
+      <button @click="close()" class="close">Закрыть</button>
       <div class="container">
         <div class="row">
           <NuxtLink to="/">
@@ -36,6 +37,26 @@
 <style lang="scss" scoped>
 @import '@/assets/css/styles.scss';
 
+.close {
+  padding: 10px 15px;
+  background: #333;
+  color: #eee;
+  font-size: 18px;
+  line-height: 18px;
+  border-radius: 3px;
+  transition: 400ms;
+  position: relative;
+  left: 0;
+
+  &:hover {
+    left: 5px
+  }
+
+  &:active {
+    left: 7px;
+  }
+}
+
 .menu {
   position: fixed;
   left: 100%;
@@ -60,9 +81,10 @@
         width: fit-content;
         font-family: 'Raleway', sans-serif;
         font-weight: 200;
-        position:relative;
+        position: relative;
         left: 0;
         transition: 400ms;
+
         &:hover {
           left: 5px;
         }
@@ -104,6 +126,10 @@ export default defineComponent({
     },
     menuStatus: function () {
       return this.mainStore.menuShowStatus
+    },
+    close() {
+      document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
+      return this.mainStore.setMenuStatus(false)
     }
   },
   beforeCreate() {
