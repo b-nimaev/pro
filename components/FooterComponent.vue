@@ -176,7 +176,7 @@ footer {
     &.dashboard {
         border-radius: 8px;
         margin-top: 15px;
-        margin-bottom: 15px;
+        padding: 30px 30px 0;
     }
     .footer-bottom {
         padding: 30px 0 30px;

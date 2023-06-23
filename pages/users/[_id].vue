@@ -1,51 +1,57 @@
 <template>
-    <div>
-        <NavbarComponent themeClass="light" />
-        <main>
-            <div class="container">
-                <div class="card-header">
-                    <div class="user-avatar">
-                        <nuxt-img quality="80" width="150" height="150" format="webp"
-                            :src="`https://profori.pro/avatars/${userData.photo}`" alt="user-avatar" />
-                    </div>
+    <div class="single-user">
+        <div class="single-user-content">
+            <NavbarComponent :is-dashboard="true" :fluid-container="true" />
+            <main>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="right-side">
+                            <div class="card-header">
+                                <div class="user-avatar">
+                                    <nuxt-img quality="80" width="150" height="150" format="webp"
+                                        :src="`https://profori.pro/avatars/${userData.photo}`" alt="user-avatar" />
+                                </div>
 
-                    <div class="user-data">
-                        <h3>{{ userData.firstName }} {{ userData.lastName }}</h3>
-                        <p>@balzhinimaev 22 лет, Улан-Удэ</p>
-                        <p>3 дня в сервисе</p>
-                        <p class="last-seen">был 29 минут назад</p>
-                        <div class="reviews">
-                            <div class="stars">
-                                <IconsStarsIcon />
-                                <IconsStarsIcon />
-                                <IconsStarsIcon />
-                                <IconsStarsIcon />
-                                <IconsStarsIcon />
-                            </div>
-                            <div class="count">
-                                <span>114 отзывов</span>
-                            </div>
+                                <div class="user-data">
+                                    <h3>{{ userData.firstName }} {{ userData.lastName }}</h3>
+                                    <p>@balzhinimaev 22 лет, Улан-Удэ</p>
+                                    <p>3 дня в сервисе</p>
+                                    <p class="last-seen">был 29 минут назад</p>
+                                    <div class="reviews">
+                                        <div class="stars">
+                                            <IconsStarsIcon />
+                                            <IconsStarsIcon />
+                                            <IconsStarsIcon />
+                                            <IconsStarsIcon />
+                                            <IconsStarsIcon />
+                                        </div>
+                                        <div class="count">
+                                            <span>114 отзывов</span>
+                                        </div>
 
-                            <div class="latest">
-                                <span>21 новых</span>
+                                        <div class="latest">
+                                            <span>21 новых</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="left-side">
+                                    <button><span>Предложить заказ</span></button>
+                                    <button><span>Отправить сообщение</span></button>
+                                </div>
+                                <div class="reviews">
+                                    <div class="heading">
+                                        <h4>Отзывы клиентов</h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-content">
-                    <div class="left-side">
-                        <button><span>Предложить заказ</span></button>
-                        <button><span>Отправить сообщение</span></button>
-                    </div>
-                    <div class="reviews">
-                        <div class="heading">
-                            <h4>Отзывы клиентов</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <FooterComponent themeClass="light" />
+            </main>
+            <FooterComponent themeClass="light" />
+        </div>
     </div>
 </template>
 
@@ -53,8 +59,22 @@
 @import '@/assets/css/main.scss';
 $dark: #07020263;
 
-.container {
-    display: block;
+.single-user {
+    padding: 15px;
+}
+
+.single-user-content {
+    padding: 15px;
+    background-color: #f6f6f6;
+    border-radius: 8px;
+}
+
+.container-fluid {
+    padding: 0;
+
+    .row {
+        display: flex;
+    }
 }
 
 .card-header {
@@ -62,10 +82,7 @@ $dark: #07020263;
     width: 100%;
     border-radius: 5px;
     padding: 30px 0;
-    margin-top: 50px;
-    margin-bottom: 0;
     padding: 30px;
-    // box-shadow: 0px 4px 4px rgb(225 225 225 / 7%);
     display: flex;
 
     .user-avatar {
@@ -122,19 +139,29 @@ $dark: #07020263;
                 margin: auto 0;
 
                 span {
-                    color: #FFD600;
+                    color: #d9c146;
                     font-size: 16px;
-                    text-shadow: 0 0px 3px #FFD600;
+                    font-size: 18px;
+                    // text-shadow: 0 0px 3px #FFD600;
                 }
             }
 
             .latest {
                 margin: auto 0 auto 10px;
-                color: #67FF4F;
-                text-shadow: 0 0px 3px #67FF4F;
+                color: #2abac1;
+                font-size: 18px;
+                // text-shadow: 0 0px 3px #67FF4F;
             }
         }
     }
+}
+
+.right-side {
+    background-color: #fff;
+    padding: 30px;
+    width: 100%;
+    border-radius: 8px;
+
 }
 
 .card-content {
@@ -143,20 +170,22 @@ $dark: #07020263;
 
     .left-side {
         button {
-            background-color: #222;
             width: 250px;
             display: flex;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 15px;
             transition: 400ms;
-
+            border: 1px solid #2ce5bf;
+            background-color: #2ce5bf;
             &:hover {
-                background-color: #333;
+                background-color: #30cbab;
+                border: 1px solid #30cbab;
             }
-
+            
             &:active {
-                background-color: #222;
+                background-color: #40e5c3;
+                border: 1px solid #40e5c3;
             }
 
             &:last-child {
@@ -180,6 +209,7 @@ $dark: #07020263;
             padding: 0 30px;
             // background-color: #eee;
             border-radius: 5px;
+
             h4 {
                 font-size: 24px;
                 border-radius: 5px;

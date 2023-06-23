@@ -12,7 +12,7 @@
         </div>
         <div class="toggler-closer show">
         </div>
-        <ul>
+        <ul v-if="menuStatus">
           <li>
             <NuxtLink to="/">Главная</NuxtLink>
           </li>
@@ -24,6 +24,9 @@
           </li>
           <li>
             <NuxtLink to="/career">Карьера</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/for-consultants">Консультантам</NuxtLink>
           </li>
           <li>
             <NuxtLink to="/for-consultants">Консультантам</NuxtLink>
@@ -73,10 +76,12 @@
   }
 
   ul {
+    margin-top: .5rem;
+
     li {
       a {
-        font-size: 3.5rem;
-        padding: .8rem 1rem;
+        font-size: 2rem;
+        padding: .8rem 0;
         display: block;
         width: fit-content;
         font-family: 'Raleway', sans-serif;
@@ -127,38 +132,12 @@ export default defineComponent({
     menuStatus: function () {
       return this.mainStore.menuShowStatus
     },
+  },
+  methods: {
     closeMenu: function () {
       document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
-      this.mainStore.setMenuStatus(false)
+      return this.mainStore.setMenuStatus(false)
     }
-  },
-  beforeCreate() {
-    const id: CookieRef<string | null | undefined> = useCookie('id')
-    // if (id.value) {
-    //   // this.mainStore.setSessionID = id.value
-    //   (async () => {
-    //     await fetch('https://profori.pro/api/users/' + id.value, {
-    //       method: 'GET',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       }
-    //     }).then(async (res) => {
-    //       // @ts-ignore
-    //       if (await res.json().message) {
-
-    //       } else {
-    //         this.mainStore.setUser(await res.json())
-    //       }
-    //     }).catch(err => {
-    //       console.log(err)
-    //     })
-    //   })();
-    // }
-  },
-  mounted() {
-    // let user = this.mainStore.getUser
-    // const cookie = useCookie('id')
-    // cookie.value = user._id
   }
 })
 </script>

@@ -159,7 +159,6 @@ aside {
 
         .heading {
             h2 {
-                font-size: 36px;
                 color: $primary;
                 margin-bottom: 20px;
                 text-shadow: 0 0 3px $primary;
@@ -290,10 +289,6 @@ aside {
 
             .heading {
                 width: fit-content;
-
-                h2 {
-                    font-size: 36px
-                }
 
                 p {
                     font-size: 18px;

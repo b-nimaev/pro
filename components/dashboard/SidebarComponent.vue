@@ -25,7 +25,8 @@ aside {
     position: sticky;
     top: 20px;
     background-color: #ffffffd0;
-    
+    margin-right: 15px;
+    height: auto;
     &.collapsed {
         padding: 20px;
         margin-right: 20px;

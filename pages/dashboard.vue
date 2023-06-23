@@ -1,8 +1,8 @@
 <template>
     <div class="dashboard-wrapper">
-        <NavbarComponent />
-        <div class="container">
-            <div class="dashboard-content">
+        <div class="dashboard-content">
+            <NavbarComponent :is-dashboard="true" :fluidContainer="true" />
+            <div class="row">
                 <DashboardSidebarComponent />
                 <main class="">
                     <NuxtPage />
@@ -37,16 +37,26 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import '~/assets/css/main.scss';
+
 .dashboard-wrapper {
-    background-color: #ffffffd0;
-    border-radius: 15px;
-    padding-bottom: 1px;
+    background-color: #fff;
+    border-radius: 0;
+    padding: 15px;
     .navbar {
         padding: 15px;
     }
 }
+
 .dashboard-content {
     display: flex;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f6f6f6; // light
+    flex-direction: column;
+
+    .row {
+        display: flex;
+    }
 }
 
 main {

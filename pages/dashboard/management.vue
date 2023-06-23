@@ -1,48 +1,75 @@
 <template>
     <section>
         <DashboardSettingsSectionHeadingComponent title="Реферальные ссылки" />
-        <ul>
-            <li v-for="link of links" :key="link.value">
-                <div class="headertop">
-                    <div class="icons">
-                        <a @click="removeLink" :data-id="link._id" href="javascript:void(0)">
-                            <svg :data-id="link._id" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path :data-id="link._id"
-                                    d="M296 432h16a8 8 0 0 0 8-8V152a8 8 0 0 0-8-8h-16a8 8 0 0 0-8 8v272a8 8 0 0 0 8 8zm-160 0h16a8 8 0 0 0 8-8V152a8 8 0 0 0-8-8h-16a8 8 0 0 0-8 8v272a8 8 0 0 0 8 8zM440 64H336l-33.6-44.8A48 48 0 0 0 264 0h-80a48 48 0 0 0-38.4 19.2L112 64H8a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h24v368a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V96h24a8 8 0 0 0 8-8V72a8 8 0 0 0-8-8zM171.2 38.4A16.1 16.1 0 0 1 184 32h80a16.1 16.1 0 0 1 12.8 6.4L296 64H152zM384 464a16 16 0 0 1-16 16H80a16 16 0 0 1-16-16V96h320zm-168-32h16a8 8 0 0 0 8-8V152a8 8 0 0 0-8-8h-16a8 8 0 0 0-8 8v272a8 8 0 0 0 8 8z" />
-                            </svg>
-                        </a>
-                        <a @click="copy" href="javascript:void(0)" :data-id="link._id">
-                            <svg :data-id="link._id" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path :data-id="link._id"
-                                    d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM352 32.491a15.88 15.88 0 0 1 7.431 4.195l51.882 51.883A15.885 15.885 0 0 1 415.508 96H352V32.491zM288 464c0 8.822-7.178 16-16 16H48c-8.822 0-16-7.178-16-16V144c0-8.822 7.178-16 16-16h80v240c0 26.51 21.49 48 48 48h112v48zm128-96c0 8.822-7.178 16-16 16H176c-8.822 0-16-7.178-16-16V48c0-8.822 7.178-16 16-16h144v72c0 13.2 10.8 24 24 24h72v240z" />
-                            </svg>
-                        </a>
+        <div class="primary-link">
+            <h4>Основная ссылка</h4>
+            <span class="muted">https://profori.pro/</span><span>64619e127196dbb103f0f11a</span>
+        </div>
+        <div class="custom-links">
+            <ul>
+                <li v-for="link of links" :key="link.value">
+                    <div class="headertop">
+                        <div class="icons">
+                            <a @click="removeLink" :data-id="link._id" href="javascript:void(0)">
+                                <svg :data-id="link._id" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path :data-id="link._id"
+                                        d="M296 432h16a8 8 0 0 0 8-8V152a8 8 0 0 0-8-8h-16a8 8 0 0 0-8 8v272a8 8 0 0 0 8 8zm-160 0h16a8 8 0 0 0 8-8V152a8 8 0 0 0-8-8h-16a8 8 0 0 0-8 8v272a8 8 0 0 0 8 8zM440 64H336l-33.6-44.8A48 48 0 0 0 264 0h-80a48 48 0 0 0-38.4 19.2L112 64H8a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h24v368a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V96h24a8 8 0 0 0 8-8V72a8 8 0 0 0-8-8zM171.2 38.4A16.1 16.1 0 0 1 184 32h80a16.1 16.1 0 0 1 12.8 6.4L296 64H152zM384 464a16 16 0 0 1-16 16H80a16 16 0 0 1-16-16V96h320zm-168-32h16a8 8 0 0 0 8-8V152a8 8 0 0 0-8-8h-16a8 8 0 0 0-8 8v272a8 8 0 0 0 8 8z" />
+                                </svg>
+                            </a>
+                            <a @click="copy" href="javascript:void(0)" :data-id="link._id">
+                                <svg :data-id="link._id" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path :data-id="link._id"
+                                        d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM352 32.491a15.88 15.88 0 0 1 7.431 4.195l51.882 51.883A15.885 15.885 0 0 1 415.508 96H352V32.491zM288 464c0 8.822-7.178 16-16 16H48c-8.822 0-16-7.178-16-16V144c0-8.822 7.178-16 16-16h80v240c0 26.51 21.49 48 48 48h112v48zm128-96c0 8.822-7.178 16-16 16H176c-8.822 0-16-7.178-16-16V48c0-8.822 7.178-16 16-16h144v72c0 13.2 10.8 24 24 24h72v240z" />
+                                </svg>
+                            </a>
+                        </div>
+                        <span @click="copy" :data-id="link._id" class="muted">https://profori.pro/</span><span @click="copy"
+                            :data-id="link._id">{{ link._id }}</span>
                     </div>
-                    <span @click="copy" :data-id="link._id" class="muted">https://profori.pro/</span><span @click="copy"
-                        :data-id="link._id">{{ link._id }}</span>
-                </div>
-                <div class="statistic" v-if="link.users.length">
-                    <ul>
-                        <li>Присоединилось: {{ link.users.length }}</li>
-                        <!-- <li v-for="linkItem of link.users" :key="linkItem">{{ linkItem }}</li> -->
-                    </ul>
-                </div>
-            </li>
-        </ul>
+                    <div class="statistic" v-if="link.users.length">
+                        <ul>
+                            <li>Присоединилось: {{ link.users.length }}</li>
+                            <!-- <li v-for="linkItem of link.users" :key="linkItem">{{ linkItem }}</li> -->
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
         <button @click="create_referal_link">Создать ссылку</button>
     </section>
 </template>
 
 <style lang="scss" scoped>
 @import '@/assets/css/dashboard.scss';
+@import '@/assets/scss/_variables.scss';
+
+.primary-link, .custom-links {
+    margin-bottom: calc($spacer*2);
+    padding: calc($spacer*2);
+    border-radius: 15px;
+    background-color: #eee;
+
+    h4 {
+        margin-bottom: $spacer;
+    }
+}
 
 section {
     display: block;
 }
 
+h4 {
+    font-size: $h4-font-size;
+}
+
+h5 {
+    font-size: $h5-font-size;
+}
+
 // @import '@/assets/css/main.scss';
 $dark: rgba(0, 0, 0, 0.8);
 $primary: $dark;
+
 .headertop {
     display: flex;
 }
@@ -52,15 +79,18 @@ $primary: $dark;
     flex-wrap: wrap;
     padding: 10px;
     margin-top: 10px;
+
     ul {
         width: 100%;
         margin-bottom: 0;
         display: flex;
         flex-wrap: wrap;
+
         li {
             margin-right: 10px;
             margin-bottom: 10px;
             color: $primary;
+
             &:last-child {
                 margin-right: 0;
             }
@@ -100,12 +130,6 @@ $primary: $dark;
     }
 }
 
-h4 {
-    font-size: 26px;
-    color: $primary;
-    margin-bottom: 30px;
-}
-
 button {
     padding: 10px 20px;
     background-color: $primary;
@@ -117,6 +141,7 @@ button {
 ul {
     margin-bottom: 30px;
     width: 100%;
+
     li {
         display: flex;
         flex-direction: column;

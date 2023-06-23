@@ -74,17 +74,17 @@
 
 <style lang="scss" scoped>
 @import '@/assets/css/main.scss';
-
+@import '@/assets/scss/_variables.scss';
 .buttons {
     display: flex;
-    margin-top: 40px;
+    margin-top: 45px;
 
     button {
         border-radius: 5px;
         color: #FBFBFB;
         background-color: $ohra-primary;
         border: 1px solid $ohra-primary;
-        padding: 20px 50px;
+        padding: 15px 50px;
         transition: 400ms;
         display: flex;
         border-radius: 50px;
@@ -93,7 +93,7 @@
 
         span {
             margin: auto;
-            font-size: 24px;
+            font-size: $font-size-lg;
         }
 
         &:hover {
@@ -130,13 +130,13 @@ header {
 
 p {
     color: #444;
-    font-size: 18px;
-    line-height: 26px;
+    font-size: $font-size-lg;
+    line-height: $line-height-lg;
     margin-top: 30px;
 }
 
 ul {
-    margin: 30px 0 30px;
+    margin: 15px 0 26px;
     padding-left: 30px;
     list-style-type: disc;
     display: flex;
@@ -144,8 +144,8 @@ ul {
 
     li {
         color: #444;
-        font-size: 18px;
-        line-height: 26px;
+        font-size: $font-size-lg;
+        line-height: $line-height-base;
         margin-bottom: 5px;
 
         &:last-child {
@@ -184,11 +184,11 @@ ul {
 }
 
 h1 {
-    font-size: 42px;
-    line-height: 60px;
+    font-size: $h1-font-size;
+    line-height: $line-height-base;
     margin-bottom: 40px;
     font-weight: 300;
-    width: 80%;
+    width: 60%;
 }
 
 @media screen and (max-width: 1600px) {
@@ -197,9 +197,35 @@ h1 {
             margin-top: 120px;
         }
     }
+}
+
+@media screen and (max-width: 1480px) {
+    header {
+        padding-bottom: 0;
+        .left-side {
+            margin-top: 80px
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    header {
+        .left-side {
+            margin: 0;
+            padding: 40px 0;
+            // margin-top: 40px;
+        }
+    }
 
     h1 {
-        font-size: 48px;
+        width: unset;
+        line-height: $line-height-sm;
+    }
+
+    ul {
+        li {
+            line-height: $line-height-sm;
+        }
     }
 }
 </style>

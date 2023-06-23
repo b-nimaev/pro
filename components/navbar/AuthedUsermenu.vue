@@ -106,6 +106,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/_variables.scss';
+
 .UservAatar {
     width: 40px;
     height: 40px;
@@ -126,7 +128,7 @@ export default defineComponent({
 .user-controller {
     cursor: pointer;
     // background-color: #333;
-    margin: auto 0 auto 60px;
+    margin: auto 0 auto calc($spacer*1.5);
     position: relative;
 
     .real-user-controller {

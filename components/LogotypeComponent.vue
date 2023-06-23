@@ -208,4 +208,9 @@ export default {
 .small {
     height: 54px
 }
+
+svg {
+    width: 180px;
+}
+
 </style>

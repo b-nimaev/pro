@@ -3,10 +3,10 @@
         <div class="container">
             <div class="heading">
                 <p class="description">Ваш шанс</p>
-                <h2>С нами <span>вы получите</span></h2>
-                <div class="line">
+                <h1>С нами <span>вы получите</span></h1>
+                <!-- <div class="line">
                     <IconsLineComponent />
-                </div>
+                </div> -->
             </div>
 
             <div class="content">
@@ -78,12 +78,14 @@
         margin-bottom: 10px;
         font-size: 18px;
         color: #99DCD5;
+        line-height: 1;
         opacity: 0.9;
     }
 
-    h2 {
-        font-size: 42px;
+    h1 {
+        // font-size: 42px;
         color: #444;
+        font-weight: 300;
 
         span {
             color: #FF6610;

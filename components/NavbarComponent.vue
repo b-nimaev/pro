@@ -1,5 +1,5 @@
 <template>
-    <nav :class="{ 'small': fluidContainer }">
+    <nav :class="{ 'small': fluidContainer, 'dashboard': isDashboard }">
         <div :class="{ 'container': !fluidContainer, 'container-fluid': fluidContainer }">
             <div class="navbar">
 
@@ -119,6 +119,11 @@ export default defineComponent({
             required: false,
             default: false,
             type: Boolean
+        },
+        isDashboard: {
+            required: false,
+            default: false,
+            type: Boolean
         }
     },
     computed: {
@@ -129,7 +134,7 @@ export default defineComponent({
     methods: {
         toShow() {
 
-           this.mainStore.setMenuStatus(true)
+            this.mainStore.setMenuStatus(true)
             document.getElementsByTagName("body")[0].classList.add('mobile-menu-active')
         },
         close() {
@@ -146,6 +151,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/variables';
+@import '@/assets/css/main.scss';
+
 .UserAvatar {
     display: none;
     margin: auto 5px auto 30px;
@@ -172,15 +180,40 @@ export default defineComponent({
     margin: auto 0;
 }
 
-@import '@/assets/css/main.scss';
 $paddings: 10px 20px;
 
 nav {
-    padding: 20px 0;
+    padding: $spacer 0;
     position: relative;
 
     &.small {
         padding: 15px 0;
+    }
+
+    &.dashboard {
+        margin-bottom: 15px;
+        padding: 0;
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .navbar {
+            .right-side {
+                .my-profori {
+                    margin: auto 0;
+                    padding: 10px 20px;
+                    background-color: #f6f6f6;
+                    border: 1px solid transparent;
+                    font-size: 16px;
+                    border-radius: 30px;
+                    margin-right: 1.5rem;
+                    transition: 400ms;
+                    color: #000000;
+                    font-weight: 400;
+                }
+            }
+        }
     }
 }
 
@@ -212,7 +245,7 @@ nav {
             border: 1px solid transparent;
             font-size: 16px;
             border-radius: 30px;
-            margin-right: 30px;
+            margin-right: calc($spacer*1.5);
             transition: 400ms;
             color: #fff;
 
@@ -223,20 +256,20 @@ nav {
 
         ul {
             display: flex;
-            margin: auto -15px;
+            margin: auto;
 
             li {
-                margin: 0 15px;
+                margin: auto calc($spacer/1.5);
 
                 a {
                     color: $ohra-primary;
-                    font-size: 18px
+                    font-size: $font-size-base;
                 }
             }
         }
 
         .navbar-login {
-            margin: auto 0 auto 30px;
+            margin: auto 0 auto calc($spacer*1.5);
             border-radius: 30px;
             padding: $paddings;
             background-color: $ohra-primary;
@@ -344,7 +377,7 @@ nav.dark,
     }
 }
 
-@media screen and (max-width: 1420px) {
+@media screen and (max-width: 1200px) {
     .UserAvatar {
         display: flex;
     }
@@ -460,5 +493,4 @@ nav.dark,
             }
         }
     }
-}
-</style>
+}</style>

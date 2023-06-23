@@ -72,6 +72,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/main.scss';
 .pagewrapper.dark {
     section {
         background-color: #00000087;
@@ -125,7 +126,7 @@ section {
 }
 
 .swiper {
-    overflow: visible !important;
+    overflow: hidden;
 
     .swiper-slide {
         width: fit-content !important;

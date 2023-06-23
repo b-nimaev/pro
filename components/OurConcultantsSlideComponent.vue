@@ -1,7 +1,9 @@
 <template>
     <div class="slide">
         <div class="user-avatar">
-            <nuxt-img quality="80" width="128" height="128" format="webp" :src="`https://profori.pro/avatars/${user.photo}`"
+            <nuxt-img v-if="user.photo" quality="80" width="128" height="128" format="webp" :src="`https://profori.pro/avatars/${user.photo}`"
+                alt="user-avatar" />
+            <nuxt-img v-else="user.photo" quality="80" width="128" height="128" format="webp" :src="`https://profori.pro/avatars/avatar-6436a9f703f00b8300b7a84a.png`"
                 alt="user-avatar" />
         </div>
         <div class="user-data">
@@ -71,6 +73,7 @@ export default defineComponent({
     .slide {
         background-color: #1a19193b;
         box-shadow: -1px 1px 20px 0px rgb(0 0 0 / 21%);
+        // width: 300px;
         .user-data {
             .user-name {
                 h4 {
@@ -118,7 +121,7 @@ export default defineComponent({
     position: relative;
     top: 0;
     margin: 15px 0;
-    width: fit-content;
+    // width: fit-content;
     cursor: pointer;
     width: fit-content !important;
     margin-right: 15px;

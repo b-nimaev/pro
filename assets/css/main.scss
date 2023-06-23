@@ -3,46 +3,60 @@ $orange: #FF6610;
 $ohra-primary: #452921;
 $h1-size: 60px;
 
+$h1-lg-size: 3rem;
+@import '../scss/variables';
+
 .container {
-    width: 1600px;
+    width: 100%;
     max-width: 100%;
     margin: auto;
-    padding: 0 15px;
+    padding: 0 calc($spacer/2);
 }
 
 .container-fluid {
     width: 100%;
     max-width: 100%;
+    padding: 0 calc($spacer/2);
     margin: 0;
-    padding: 0 15px;
 }
 
-@media screen and (max-width: 1700px) {
+h2 {
+    font-size: $h2-font-size;
+    line-height: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        width: 980px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1180px;
+    }
+}
+
+@media screen and (min-width: 1480px) {
     .container {
         width: 1400px;
     }
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (min-width: 1600px) {
     .container {
-        width: 1200px;
+        width: 1580px
     }
 }
 
-@media screen and (max-width: 1300px) {
-    .container {
-        width: 980px
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .container {
-        width: 740px
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        width: 100%;
-    }
+@media screen and (min-width: 1920px) {
+   .container {
+    width: 1800px
+   } 
 }

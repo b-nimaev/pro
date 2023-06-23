@@ -24,7 +24,9 @@ export default defineNuxtConfig({
     ],
 
     css: [
-        '@/assets/css/styles.scss'
+        '@/assets/css/styles.scss',
+        '@/assets/scss/_variables.scss'
+
     ],
     image: {
         // dir: 'assets/images',

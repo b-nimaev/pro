@@ -1,3 +1,5 @@
+@import '../scss/variables';
+
 .swiper-slide {
     padding: 10px 0;
 }
@@ -587,7 +589,7 @@ body {
 }
 
 .pagewrapper {
-    border-radius: 15px;
+    // border-radius: 15px;
     overflow: hidden;
     background-color: #fff;
     // background-image: linear-gradient(53deg, #fcfcfc, #ffffff63, #fcfcfc);
@@ -684,6 +686,16 @@ body {
         height: 72px;
         opacity: 0;
     }
+}
+
+h1 {
+    font-size: $h1-font-size;
+    font-weight: 300;
+    line-height: $line-height-sm;
+}
+p {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
 }
 
 @media screen and (max-width: 768px) {

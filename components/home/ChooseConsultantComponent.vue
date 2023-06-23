@@ -175,6 +175,7 @@ export default {
     font-size: 13px;
 }
 
+
 form {
     margin: 0 auto;
     width: 960px;
