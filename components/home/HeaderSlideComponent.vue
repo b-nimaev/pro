@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <nuxt-img format="webp" quality="80" src="/assets/images/bgi.png" class="bgi" alt="" />
+                    <!-- <nuxt-img format="webp" quality="80" src="/assets/images/bgi.png" class="bgi" alt="" /> -->
                 </div>
 
             </div>
@@ -97,7 +97,7 @@ header {
             flex-direction: column;
             justify-content: center;
             height: 100%;
-            margin: auto 0;
+            margin: auto;
 
             h1 {
                 margin-bottom: $spacer;
@@ -194,10 +194,10 @@ header {
 
         .right-side {
 
-            display: none;
+            // display: none;
             position: relative;
             padding: 30px 0;
-            margin-left: 100px;
+            margin: auto;
             .users-grid {
                 z-index: 1;
                 position: relative;

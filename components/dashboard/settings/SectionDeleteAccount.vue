@@ -6,6 +6,7 @@
                 <label for="passwordForDelete">Введите текущий пароль</label>
                 <input type="password" name="passwordForDelete" id="passwordForDelete" v-model="password">
             </div>
+            <button>Удалить аккаунт</button>
         </form>
         <p class="errMessage" v-if="errMessage">{{ errMessage }}</p>
         <p class="response" v-if="response">{{ response }}</p>
@@ -14,6 +15,23 @@
 
 <style lang="scss" scoped>
 @import '~/assets/css/settings.scss';
+button {
+    padding: 15px 20px;
+    background: #f54b4b;
+    color: #fff;
+    margin: auto 0 0;
+    border-radius: 5px;
+    transition: 400ms;
+    top: 0;
+    transform: scale(1);
+    position: relative;
+    &:hover {
+        top: -3px;
+    }
+    &:active {
+        transform: scale(.97);
+    }
+}
 form {
     display: flex;
 }
@@ -46,7 +64,7 @@ export default defineComponent({
     },
     methods: {
         deleteAccount: function () {
-            console.log('delete')
+            console.log(this.password)
         }
     }
 })
