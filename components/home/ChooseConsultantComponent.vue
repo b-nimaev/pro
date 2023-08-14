@@ -4,10 +4,9 @@
             <div class="heading">
                 <p class="description">Фильтр</p>
                 <h2>Выберите <span>консультанта</span></h2>
-                <div class="line">
+                <!-- <div class="line">
                     <IconsLineComponent />
-                </div>
-
+                </div> -->
             </div>
             <form @submit.prevent="submitForm">
                 <div class="form-row">
@@ -157,7 +156,8 @@ export default {
             margin: 0 auto 60px;
 
             h2 {
-                text-align: center
+                text-align: center;
+
             }
         }
     }
@@ -251,7 +251,8 @@ form {
 
 h2 {
     font-size: 36px;
-    color: #222;
+    font-weight: 300;
+    color: #444;
 
     span {
         color: #FF6610;

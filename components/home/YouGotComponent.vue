@@ -146,16 +146,16 @@ article {
 
         .left-side__heading {
             h4 {
-                font-size: 26px;
-                font-weight: 400;
-                line-height: 38px;
-                color: #111;
+                font-size: 24px;
+                font-weight: 300;
+                line-height: 36px;
+                color: #222;
             }
 
             .left-side__description {
-                font-size: 18px;
-                line-height: 28px;
-                font-weight: 300;
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: 400;
                 margin-top: 15px;
                 color: $primary;
             }

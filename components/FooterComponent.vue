@@ -164,12 +164,12 @@ export default defineComponent({
 footer {
     padding: 50px 0 0;
     background-color: #fff;
-    border-radius: 20px;
-    margin-top: 20px;
+    border-radius: 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    // border-top: 1px solid #eee;
     .container {
         margin: auto auto 0;
     }

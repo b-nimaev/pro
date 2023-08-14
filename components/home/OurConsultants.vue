@@ -4,10 +4,9 @@
             <div class="heading">
                 <p class="description">Наша команда</p>
                 <h2><span>Эксперты</span> консультанты</h2>
-                <div class="line">
+                <!-- <div class="line">
                     <IconsLineComponent />
-                </div>
-
+                </div> -->
             </div>
             <swiper :slides-per-view="1" :space-between="0" @swiper="onSwiper" @slideChange="onSlideChange" :breakpoints="{
                 '1700': {
@@ -98,7 +97,7 @@ section {
 
     .heading {
         width: fit-content;
-        margin: 0 auto 30px;
+        margin: 0 auto 60px;
         text-align: center;
 
         .description {
@@ -108,9 +107,10 @@ section {
         }
 
         h2 {
-            color: #222222;
+            color: #444;
+            font-size: 400;
+            font-weight: 300;
             font-size: 36px;
-
             span {
                 color: #FF6610;
             }

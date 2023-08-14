@@ -1,9 +1,9 @@
 <template>
-    <div class="slide">
+    <div class="slide" v-if="user">
         <div class="user-avatar">
             <nuxt-img v-if="user.photo" quality="80" width="128" height="128" format="webp" :src="`https://profori.pro/avatars/${user.photo}`"
                 alt="user-avatar" />
-            <nuxt-img v-else="user.photo" quality="80" width="128" height="128" format="webp" :src="`https://profori.pro/avatars/avatar-6436a9f703f00b8300b7a84a.png`"
+            <nuxt-img v-else quality="80" width="128" height="128" format="webp" :src="`https://profori.pro/avatars/avatar-6436a9f703f00b8300b7a84a.png`"
                 alt="user-avatar" />
         </div>
         <div class="user-data">
@@ -49,21 +49,28 @@ export default defineComponent({
         }
     },
     mounted () {
-        const createdAt = new Date(this.user.createdAt)
-        const now = new Date()
-        const timed = now - createdAt
-        const seconds = Math.floor(timed / 1000);
-        const minutes = Math.floor(seconds / 60);
-        this.hours = Math.floor(minutes / 60);
-        this.days = Math.floor(this.hours / 24);
-        if (this.hours === 1) {
-            this.name = "час";
-        } else if (this.hours >= 2 && this.hours <= 4) {
-            this.name = "часа";
-        } else {
-            this.name = "часов";
-        }
 
+        if (this.user) {
+
+            const createdAt: any = new Date(this.user.createdAt)
+            const now: any = new Date()
+
+            const timed = now - createdAt
+            const seconds = Math.floor(timed / 1000);
+            const minutes = Math.floor(seconds / 60);
+
+            this.hours = Math.floor(minutes / 60);
+            this.days = Math.floor(this.hours / 24);
+            
+            if (this.hours === 1) {
+                this.name = "час";
+            } else if (this.hours >= 2 && this.hours <= 4) {
+                this.name = "часа";
+            } else {
+                this.name = "часов";
+            }
+
+        }
     }
 })
 </script>

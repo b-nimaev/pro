@@ -70,19 +70,14 @@
                 <div class="right-side">
                     <div class="heading">
                         <p class="description">Отзывы</p>
-                        <h2>О чем пишут <span>наши клиенты</span></h2>
-                        <div class="line">
+                        <h2><i><span>Ода</span></i> о наших клиентах</h2>
+                        <!-- <div class="line">
                             <IconsLineComponent />
-                        </div>
+                        </div> -->
                     </div>
                     <div class="content">
-                        <p>Многие из наших клиентов пишут отзывы после консультирования с нашими консультантами и
-                            профориентологами, потому что они получили незаменимую помощь в определении своей карьерной
-                            стратегии и достижении успеха в работе. Наша команда специалистов не только обладает высокой
-                            квалификацией и опытом, но и умеет находить индивидуальный подход к каждому клиенту, помогая им
-                            развиваться и реализовывать свой потенциал. Мы ценим каждый отзыв и всегда рады получить
-                            обратную
-                            связь от наших клиентов, чтобы продолжать улучшать качество наших услуг.</p>
+                        <p>
+                            <i>Наши клиенты — наши отзывчивые партнеры.</i> <br><i>С их отзывами мы растем и совершенствуемся. <br>Вместе мы определяем карьерные стратегии, <br>достигаем успехов и раскрываем потенциал.</i></p>
                     </div>
                     <button v-if="!isReviewSingle" @click="allReviews"><span>Посмотреть все отзывы</span></button>
                 </div>
@@ -163,6 +158,8 @@ export default defineComponent({
 
 .wrapper {
     display: flex;
+    margin: auto;
+    justify-content: center;
 }
 
 .right-side {
@@ -179,14 +176,15 @@ export default defineComponent({
         }
 
         p.description {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #99DCD5;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         h2 {
-            font-size: 36px;
-            color: #222;
+            font-size: 40px;
+            color: #444;
+            font-weight: 300;
 
             span {
                 color: #FF6610;
@@ -195,12 +193,10 @@ export default defineComponent({
     }
 
     .content {
-        width: 796px;
-
         p {
-            font-size: 18px;
-            line-height: 28px;
-            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
             margin-top: 15px;
             color: #444;
         }

@@ -129,7 +129,7 @@ aside {
 
 .advantages {
     padding: 200px 0;
-    background-color: $dark;
+    // background-color: ;
     border-radius: 0;
 
     .container {
@@ -145,7 +145,7 @@ aside {
     }
 
     .right-side {
-        margin: auto auto auto 50px;
+        margin: auto auto auto 60px;
 
         .description {
             margin-bottom: 15px;
@@ -159,14 +159,14 @@ aside {
 
         .heading {
             h2 {
-                color: $primary;
+                color: #444;
                 margin-bottom: 20px;
-                text-shadow: 0 0 3px $primary;
-
+                // text-shadow: 0 0 3px $primary;
+                font-weight: 300;
                 span {
                     filter: blur(.5px);
-                    color: #38ffe4;
-                    text-shadow: 0 0 20px #2adbf0;
+                    color: #FF6610;
+                    // text-shadow: 0 0 20px #2adbf0;
                 }
             }
 
@@ -179,7 +179,7 @@ aside {
             p {
                 font-size: 18px;
                 line-height: 30px;
-                color: #888;
+                color: #333;
                 margin-bottom: 30px;
                 font-weight: 100;
             }
@@ -211,13 +211,13 @@ aside {
                 height: 70px;
                 display: flex;
                 justify-content: center;
-                border: 1px solid $ohra-primary;
+                border: 1px solid #555;
 
                 svg {
                     margin: auto;
 
                     path {
-                        fill: $ohra-primary;
+                        fill: #555;
                     }
                 }
             }
@@ -225,9 +225,9 @@ aside {
             .content {
                 h4 {
                     margin-bottom: 10px;
-                    font-size: 20px;
-                    color: #eee;
-                    font-weight: 400;
+                    font-size: 24px;
+                    color: #222;
+                    font-weight: 300;
                     display: flex;
 
                     span {
@@ -237,20 +237,20 @@ aside {
 
                     svg {
                         margin-left: 10px;
-                        height: 24px;
-                        width: 24px;
+                        height: 16px;
+                        width: 16px;
 
                         path {
-                            fill: $ohra-primary;
+                            fill: #222;
                         }
                     }
                 }
 
                 p {
-                    font-size: 18px;
-                    color: $ohra-primary;
+                    font-size: 16px;
+                    color: #444;
                     // font-weight: 300;
-                    line-height: 26px;
+                    line-height: 24px;
                 }
             }
         }

@@ -123,6 +123,7 @@ header {
                 display: flex;
                 flex-direction: column;
                 margin-top: $spacer;
+                margin-top: 1.5rem;
 
                 button {
                     margin: 0;
@@ -249,6 +250,7 @@ header {
                     display: none
                 }
             }
+
         }
     }
 }

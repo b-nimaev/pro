@@ -50,6 +50,7 @@
                     </div>
                 </div>
             </main>
+            <hr/>
             <FooterComponent themeClass="light" />
         </div>
     </div>
@@ -61,6 +62,10 @@ $dark: #07020263;
 
 .single-user {
     padding: 15px;
+}
+
+hr {
+    border-color: #eee
 }
 
 .single-user-content {
@@ -218,6 +223,7 @@ $dark: #07020263;
         }
     }
 }
+
 </style>
 
 <script>
