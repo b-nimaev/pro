@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="right-side">
-                    <NuxtLink class="my-profori" to="/my-profori">MyProfori</NuxtLink>
+                    <!-- <NuxtLink class="my-profori" to="/my-profori">MyProfori</NuxtLink> -->
                     <ul>
                         <li>
                             <NuxtLink to="/tests">Тесты</NuxtLink>
@@ -64,15 +64,20 @@
                         </li>
                     </ul>
 
-                    <NuxtLink class="navbar-login" to="/login" v-if="!userData._id">
+                    <!-- <NuxtLink class="navbar-login" to="/login" v-if="!userData._id">
                         <span>Вход</span>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M5.03125 2.2832L9.5293 6.76758C9.65781 6.89609 9.65781 7.10391 9.5293 7.23242L5.03125 11.7168C4.90273 11.8453 4.69492 11.8453 4.56641 11.7168L4.37227 11.5227C4.24375 11.3941 4.24375 11.1863 4.37227 11.0578L7.98164 7.46484H0.328125C0.147656 7.46484 0 7.31719 0 7.13672V6.86328C0 6.68281 0.147656 6.53516 0.328125 6.53516H7.98164L4.375 2.94219C4.24648 2.81367 4.24648 2.60586 4.375 2.47734L4.56914 2.2832C4.69492 2.15469 4.90273 2.15469 5.03125 2.2832ZM14 10.9375V3.0625C14 2.33789 13.4121 1.75 12.6875 1.75H9.07812C8.89766 1.75 8.75 1.89766 8.75 2.07812V2.29688C8.75 2.47734 8.89766 2.625 9.07812 2.625H12.6875C12.9281 2.625 13.125 2.82187 13.125 3.0625V10.9375C13.125 11.1781 12.9281 11.375 12.6875 11.375H9.07812C8.89766 11.375 8.75 11.5227 8.75 11.7031V11.9219C8.75 12.1023 8.89766 12.25 9.07812 12.25H12.6875C13.4121 12.25 14 11.6621 14 10.9375Z"
                                 fill="white" fill-opacity="0.9" />
                         </svg>
+                    </NuxtLink> -->
+                    <NuxtLink class="dashboard-link" to="/login">
+                        <span>Войти</span>
                     </NuxtLink>
-
+                    <button class="choose_profori">
+                        <span>Подобрать консультанта</span>
+                    </button>
                     <NavbarAuthedUsermenu :themeClass="themeClass" v-if="userData._id" />
                 </div>
 
@@ -154,6 +159,38 @@ export default defineComponent({
 @import '@/assets/scss/variables';
 @import '@/assets/css/main.scss';
 
+.choose_profori {
+    padding: 12px 18px;
+    // background-color: $ohra-primary;
+    border: 1px solid #452921a8;
+    margin: auto 0 auto 24px;
+    border-radius: 8px;
+    transition: 400ms;
+    position: relative;
+    top: 0;
+
+    span {
+        color: $ohra-primary;
+        font-size: 16px;
+    }
+
+    &:hover {
+        top: -1px;
+        background-color: #452921;
+        border-color: #452921;
+
+        span {
+            color: #fff;
+        }
+    }
+
+    &:active {
+        top: 0;
+        background-color: #3a211a;
+    }
+
+}
+
 .UserAvatar {
     display: none;
     margin: auto 5px auto 30px;
@@ -183,11 +220,47 @@ export default defineComponent({
 $paddings: 10px 20px;
 
 nav {
-    padding: $spacer 0;
-    position: relative;
-
+    padding: 5px 0;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999;
+    top: 0;
     &.small {
         padding: 15px 0;
+    }
+
+    .dashboard-link {
+        margin: auto 0 auto 30px;
+        display: block;
+        position: relative;
+        padding: 0 5px;
+        
+        &:hover {
+            span {
+                &::after {
+                    left: 0;
+                }
+            }
+        }
+
+        span {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            padding: 10px 0;
+            &:after {
+                content: '';
+                display: block;
+                height: 1px;
+                width: 100%;
+                transition: 400ms;
+                background-color: #000;
+                position: absolute;
+                bottom: 0;
+                left: -100%;
+            }
+        }
     }
 
     &.dashboard {

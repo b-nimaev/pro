@@ -48,6 +48,7 @@ export const useMainStore = defineStore('main', {
         fillLink: '',
         menuShow: false,
         confirmID: '',
+        goto: '',
         userData: {
             _id: '',
             nickname: '',
@@ -87,6 +88,9 @@ export const useMainStore = defineStore('main', {
         },
     }),
     getters: {
+        getGoTo(state) {
+            return state.goto
+        },
         getUserRole(state) {
             return state.userRole
         },
@@ -131,6 +135,9 @@ export const useMainStore = defineStore('main', {
         }
     },
     actions: {
+        setGoTo(value: any) {
+            return this.goto = value
+        },
         setMenuStatus(value: boolean) {
             return this.menuShow = value
         },

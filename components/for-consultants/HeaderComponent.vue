@@ -12,7 +12,7 @@
 <style lang="scss" scoped>
 @import '@/assets/css/main.scss';
 header {
-    padding: 70px 0 300px;
+    padding: 100px 0;
 
     .inner {
         display: flex;
@@ -21,8 +21,8 @@ header {
 }
 
 h1 {
-    font-size: 42px;
-    line-height: 60px;
+    font-size: 2.5rem;
+    // line-height: 60px;
     color: $ohra-primary;
     font-weight: 300;
 }

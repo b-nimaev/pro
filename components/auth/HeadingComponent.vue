@@ -10,10 +10,10 @@ div {
     text-align: center;
 
     h4 {
-        font-weight: 700;
-        font-size: 28px;
+        font-weight: 400;
+        font-size: 24px;
         // color: $ohra-primary;
-        color: #fff;
+        color: #333;
         text-align: center;
         // margin-bottom: 20px;
         display: block;

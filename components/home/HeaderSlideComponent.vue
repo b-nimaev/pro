@@ -14,7 +14,7 @@
                         </button>
 
                         <button class="choose" @click="chooseConsultant()">
-                            <span>Заказать консультацию</span>
+                            <span>Подобрать консультанта</span>
                         </button>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     <div class="users-grid">
                         <div class="row">
                             <div class="user">
-                                <nuxt-img width="183" height="138" src="/assets/images/Frame-107.jpg" alt="" />
+                                <nuxt-img width="183" height="138" src="/assets/images/primary.jpg" alt="" />
                             </div>
                             <div class="user">
                                 <nuxt-img width="183" height="138" format="webp" quality="80"
@@ -90,7 +90,7 @@ header {
     .wrapper {
         display: flex;
         flex-direction: row;
-        padding: 100px 0 160px;
+        padding: 200px 0 160px;
         // justify-content: center;
         .left-side {
             display: flex;
@@ -121,7 +121,7 @@ header {
 
             .buttons {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 margin-top: $spacer;
                 margin-top: 1.5rem;
 
@@ -130,7 +130,7 @@ header {
                     padding: 12px 25px;
                     display: flex;
                     border: 1px solid $ohra-primary;
-                    border-radius: 30px;
+                    border-radius: 8px;
                     transition: 400ms;
                     width: fit-content;
 
@@ -157,14 +157,15 @@ header {
                     }
 
                     &:nth-child(2) {
-                        margin-top: 5px;
+                        margin: auto 15px;
                         position: relative;
-                        top: 5px;
 
                         &:hover {
                             color: #fff;
-                            border-color: #fff;
-                            padding: 16px 31px;
+                            background-color: transparent;
+                            color: $ohra-primary;
+                            border-color: $ohra-primary;
+                            // padding: 16px 31px;
                         }
                     }
 
@@ -208,8 +209,8 @@ header {
                     justify-content: center;
 
                     .user {
-                        margin: 15px;
-                        border-radius: 20px;
+                        margin: 7.5px;
+                        border-radius: 8px;
                         overflow: hidden;
                         width: 183px;
                         height: 138px;
@@ -238,12 +239,33 @@ header {
     }
 }
 
+@media screen and (max-width: 1200px) {
+    header {
+        .wrapper {
+            padding: 160px 0 0;
+            flex-direction: column;
+
+            .right-side {
+                margin: 30px 0 0;
+                .users-grid {
+                    .row {
+                        .user {
+                            width: 160px;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 768px) {
     header {
         padding: 0 0;
     }
     header .wrapper {
-        padding: 30px 0 60px;
+        padding: 140px 0 0;
         .left-side {
             p {
                 br {

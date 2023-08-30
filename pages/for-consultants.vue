@@ -1,13 +1,12 @@
-
-import AdvantagesComponent from '~/components/for-consultants/AdvantagesComponent.vue';
-
-
-import AdvantagesComponent from '~/components/home/AdvantagesComponent.vue';
-
 <template>
     <div>
         <NavbarComponent />
         <ForConsultantsHeaderComponent />
+        <section>
+            <div class="container">
+                
+            </div>
+        </section>
         <FooterComponent />
     </div>
 </template>

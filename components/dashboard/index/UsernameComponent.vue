@@ -3,7 +3,7 @@
         <div class="top-side">
             <DashboardIndexNameComponent />
             <h6 class="edity">
-                <p class="small"><span class="static">@</span><span>{{ user._id ? user._id : user.nickname }}</span>
+                <p class="small"><span class="static">@</span><span>{{ user.nickname ? user.nickname : user._id }}</span>
                 </p>
             </h6>
         </div>
@@ -11,17 +11,17 @@
 </template>
 
 <style lang="scss" scoped>
-@import '~/assets/css/dashboard.scss';
-$dark: rgba(0, 0, 0, 0.8);
+@import '@/assets/css/dashboard.scss';
+$dark: #333;
 $primary: $dark;
 .userdata {
-    margin: 0;
+    margin: auto 0;
     display: flex;
     flex-direction: column;
     padding: 15px 0;
 
     h4 {
-        font-size: 26px;
+        font-size: 20px;
         margin-bottom: 5px;
         color: $primary;
     }

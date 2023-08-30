@@ -14,13 +14,13 @@
     h4 {
         font-weight: 600;
         font-size: 18px;
-        color: #eee;
+        color: #333;
         font-family: 'Nunito', sans-serif;
         max-width: 200px;
         word-break: break-word;
         line-height: 24px;
         margin: auto;   
-        width: 30px;
+        // width: 30px;
     }
 
     P {
@@ -30,7 +30,7 @@
 
     &.collapsed {
         h4 {
-            display: none;
+            // display: none;
             white-space: nowrap;
             overflow: hidden;
         }

@@ -5,7 +5,20 @@
             <h4>Основная ссылка</h4>
             <span class="muted">https://profori.pro/</span><span>64619e127196dbb103f0f11a</span>
         </div>
-        <div class="custom-links">
+        <div class="name-link">
+            <form @submit.prevent="nextstep">
+                <h5><label for="name-link">Введите название ссылки</label></h5>
+                <div class="row">
+                    <div class="input-group">
+                        <input type="text" id="name-link" :class="{ 'not-null': nameLink }" v-model="nameLink">
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" value="Сохранить">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="custom-links" v-if="links.length > 0">
             <ul>
                 <li v-for="link of links" :key="link.value">
                     <div class="headertop">
@@ -43,11 +56,54 @@
 @import '@/assets/css/dashboard.scss';
 @import '@/assets/scss/_variables.scss';
 
-.primary-link, .custom-links {
+.name-link {
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #ff7b56;
+    color: #fff;
+    margin-bottom: 50px;
+
+    h5 {
+        margin-bottom: 15px;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .input-group {
+        input {
+            color: #222;
+            display: block;
+            padding: 15px 20px;
+            background-color: #f6f6f6;
+            border-radius: 5px;
+            border: 1px solid #f6f6f6;
+            transition: 400ms;
+
+            &.not-null {
+                background-color: #fff;
+            }
+
+            &[type="submit"] {
+                &:hover {
+                    background-color: #fff;
+                }
+            }
+        }
+
+        &:first-child {
+            margin-right: 15px;
+        }
+    }
+}
+
+.primary-link,
+.custom-links {
     margin-bottom: calc($spacer*2);
     padding: calc($spacer*2);
     border-radius: 15px;
-    background-color: #eee;
+    // background-color: #eee;
 
     h4 {
         margin-bottom: $spacer;
@@ -190,10 +246,31 @@ export default defineComponent({
     },
     computed: {
         links() {
-            return this.mainStore.getUser.ref_links
+            let links: any = this.mainStore.getUser.ref_links
+            return links
         }
     },
+    data() {
+        return {
+            nameLink: ''
+        }
+    },
+
     methods: {
+        async nextstep() {
+
+            if (this.nameLink.length > 20) {
+                alert('Слишком длинное название, максимум 20 символов')
+            } else if (this.nameLink) {
+                
+                let nameLink: string = this.nameLink
+
+                
+            } else if (!this.nameLink) {
+                alert('Введите название создаваемой ссылки!')
+            }
+
+        },
         async create_referal_link() {
             let user = this.mainStore.getUser
             user.ref_links.push({
@@ -216,7 +293,7 @@ export default defineComponent({
             let id = e.target.getAttribute('data-id')
             console.log(id)
             let user = this.mainStore.getUser
-            let ref_links = user.ref_links
+            let ref_links: any = user.ref_links
             for (let i = 0; i < ref_links.length; i++) {
                 if (id === ref_links[i]._id) {
                     console.log(ref_links[i])
@@ -238,7 +315,7 @@ export default defineComponent({
         async copy(e: any) {
             let id = e.target.getAttribute('data-id')
             let user = this.mainStore.getUser
-            let ref_links = user.ref_links
+            let ref_links: any = user.ref_links
             for (let i = 0; i < ref_links.length; i++) {
                 if (id === ref_links[i]._id) {
                     copyTextToClipboard(`https://profori.pro?ref=${user._id}_${ref_links[i]._id}`);

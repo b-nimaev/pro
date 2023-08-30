@@ -218,12 +218,12 @@ footer {
 
             .row__left-side {
                 button {
-                    padding: 15px 30px;
+                    padding: 14px 25px;
                     color: #fff;
                     background-color: #000000e8;
                     border: 1px solid #000000e8;
-                    border-radius: 30px;
-                    font-size: 20px;
+                    border-radius: 8px;
+                    font-size: 18px;
                     transition: 400ms ease;
                     position: relative;
                     top: 0;

@@ -8,12 +8,12 @@
         </div>
         <div class="user-data">
             <div class="user-name">
-                <h4>{{ user.firstName }} {{ user.lastName }}</h4>
+                <h4>{{ user.firstName }}</h4>
                 <div class="status">Pro</div>
             </div>
             <div class="user-meta">
-                <div class="user-nickname" v-if="user.nickname"><span>{{ user.nickname }}</span></div>
-                <div class="user-exp"><span>{{ hours }} {{ name }} на сервисе</span></div>
+                <div class="user-nickname" v-if="user.nickname"><span>@{{ user.nickname }}</span></div>
+                <div class="user-exp"><span>Опыт 5 лет</span></div>
             </div>
             <div class="user-position">
                 <p>Профориентолог</p>
@@ -45,6 +45,7 @@ export default defineComponent({
     },
     methods: {
         goToUser (id: string) {
+            this.$store.setGoTo(id)
             this.$router.push(`/users/${id}`)
         }
     },
@@ -171,7 +172,7 @@ export default defineComponent({
             display: flex;
             margin: 0 auto 5px;
             h4 {
-                font-size: 20px;
+                font-size: 14px;
                 color: #0A0E10E5;
                 margin-right: 10px;
                 max-width: 180px;
@@ -180,11 +181,12 @@ export default defineComponent({
             }
 
             .status {
-                padding: 1px 8px;
+                padding: 1px 5px;
                 border-radius: 3px;
                 background-color: #FF6610;
                 color: #fff;
                 margin: auto 0;
+                font-size: 8px;
             }
         }
 

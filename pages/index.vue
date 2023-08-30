@@ -1,12 +1,27 @@
 <template>
     <div>
+        <!-- УТП -->
         <HomeHeaderComponent />
+        
+        <!-- Мы предоставляем возможности -->
         <HomeAdvantagesComponent></HomeAdvantagesComponent>
+        
+        <!-- С нами вы получите -->
         <HomeYouGotComponent></HomeYouGotComponent>
+        
+        <!-- Наши отзывы -->
         <HomeReviewsComponent></HomeReviewsComponent>
+        
+        <!-- Наши консультанты -->
         <HomeOurConsultants />
+        
+        <!-- Выберите консультанта -->
         <HomeChooseConsultantComponent />
+        
+        <!-- Наши авторы -->
         <HomeBlogComponent />
+
+        <!-- Футер -->
         <FooterComponent></FooterComponent>
     </div>
 </template>

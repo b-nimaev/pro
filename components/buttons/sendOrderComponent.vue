@@ -1,5 +1,7 @@
 <template>
-    <button @click="contactModal">Заказать консультацию</button>
+    <button @click="contactModal">
+        <span>Подать заявку</span>
+    </button>
 </template>
 
 <script>
@@ -26,18 +28,20 @@ export default defineComponent({
 @import '@/assets/css/main.scss';
 
 button {
-    padding: 12px 30px;
     color: #fff;
-    padding: 16px 32px;
-    border-radius: 30px;
-    background-color: $ohra-primary;
+    padding: 12px 32px;
+    border-radius: 8px;
+    // background-color: $ohra-primary;
     border: 1px solid $ohra-primary;
-    font-size: 24px;
+    // font-size: 24px;
     transition: 400ms;
     position: relative;
     top: 0;
-    margin: 40px auto 0 0;
-
+    margin: 20px auto 0 0;
+    span {
+        color: $ohra-primary;
+        font-size: 1.2rem;
+    }
     &:hover {
         background-color: transparent;
         color: #000;

@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="registration">
         <AuthHeadingComponent message="Регистрация" style="margin-bottom: 20px" />
-        <div class="input-group" id="role">
+        <!-- <div class="input-group" id="role">
             <label for="role" class="icon">
                 <IconsFormUserIcon />
             </label>
@@ -18,7 +18,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <AuthInputGroupComponent input-name="name" input-type="text">
             <IconsFormUserIcon />
@@ -27,6 +27,9 @@
             <IconsEnvelopeIcon />
         </AuthInputGroupComponent>
         <AuthInputGroupComponent input-name="password" input-type="password">
+            <IconsLockIcon />
+        </AuthInputGroupComponent>
+        <AuthInputGroupComponent input-name="password-confirm" input-type="password">
             <IconsLockIcon />
         </AuthInputGroupComponent>
         <input type="submit" value="Создать аккаунт">
@@ -130,8 +133,10 @@ $input-bg-image: linear-gradient(45deg, black, transparent);
 form {
     padding: 50px;
     border-radius: 5px;
+    background: #fff;
     // background-image: linear-gradient(104deg, #fffbfb, #ffffff);
-    background-image: linear-gradient(104deg, #422f2f, #383232);
+    // background-image: linear-gradient(104deg, #422f2f, #383232);
+    box-shadow: 0 0 5px 3px #f6f6f626;
 
     p {
         margin-bottom: 10px;

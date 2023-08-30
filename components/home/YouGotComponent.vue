@@ -25,7 +25,7 @@
                     <div class="left-side mr-40">
                         <div class="left-side__heading">
                             <h4>Надёжный выбор подходящей <br>современной профессии</h4>
-                            <p class="left-side__description">Доверьте свою профессиональную будущую нашим <br>экспертам</p>
+                            <p class="left-side__description">Доверьте своё профессиональное будущее нашим <br>экспертам</p>
                         </div>
                     </div>
                     <div class="right-side">
@@ -210,28 +210,80 @@ article {
     }
 }
 
-@media screen and (max-width: 1300px) {
-    #you_got {
-        padding: 100px 0;
+// @media screen and (max-width: 1300px) {
+//     #you_got {
+//         padding: 100px 0;
+//     }
+
+//     article {
+//         .left-side {
+//             .left-side__heading {
+//                 h4 {
+//                     font-size: 24px;
+//                 }
+
+//                 .left-side__description {
+//                     font-size: 16px;
+//                     line-height: 24px;
+
+//                     br {
+//                         display: none;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+@media screen and (max-width: 1200px) {
+    .heading {
+        margin: 0 0 30px;
+
+        h1 {
+            font-size: 32px;
+        }
+    }
+
+    .wrapper {
+        flex-direction: column;
     }
 
     article {
+        justify-content: start;
+
         .left-side {
+
+            .columns {
+                width: 100%;
+                flex-direction: column;
+                .column {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    width: 100%;
+                }
+            }
+
             .left-side__heading {
                 h4 {
-                    font-size: 24px;
+                    font-size: 20px;
+                    line-height: 28px;
+                    color: #444;
+                    font-weight: 400;
                 }
+            }
 
-                .left-side__description {
-                    font-size: 16px;
-                    line-height: 24px;
-
-                    br {
-                        display: none;
+            .left-side {
+                .column {
+                    .mobile {
+                        width: 715px
                     }
                 }
             }
         }
+    }
+
+    #you_got {
+        padding: 0 0 100px;
     }
 }
 

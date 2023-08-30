@@ -25,64 +25,52 @@ export default defineComponent({
             errorMessage: ''
         }
     },
-    computed: {
-        user: function () {
-            return this.mainStore.getUser
-        }
-    },
+    props: ['user'],
     methods: {
-        jackclick: function () {
-            let input = document.getElementById('photo_input')
-            if (input) {
-                input.click()
-            }
-        },
-        previewFile(event: any) {
+        jackclick: async () => await jackclick(),
+        previewFile: async function previewfile(event: any) {
+            
+            // получаем файл
             const file = event.target.files[0]
-            console.log(file)
-            const formData = new FormData()
-            formData.append('avatar', file)
-            fetch(`https://profori.pro/api/users/${this.user._id}/avatar`, {
+
+            // создаем данные формы, и подгружаем файл в качестве аватарки
+            const formdata = new FormData()
+            formdata.append('avatar', file)
+
+            // выполняем POST запрос по апи
+            await fetch(`https://profori.pro/api/users/${this.user._id}/avatar`, {
                 method: 'POST',
-                body: formData
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to upload avatar')
-                    }
-                    return response.json()
-                })
-                .then(async (data) => {
-                    // обновляем данные пользователя на фронтенде
-                    let user = this.mainStore.getUser
-                    await fetch('https://profori.pro/api/users/' + user._id)
-                        .then(response => response.json())
-                        .then(async (user) => {
-                            this.mainStore.setUser(user)
-                        })
-                })
-                .catch(error => {
-                    console.error(error)
-                    // выводим сообщение об ошибке на фронтенде
-                    this.errorMessage = 'Failed to upload avatar'
-                })
+                body: formdata
+            }).then(async (response) => { if (!response.ok) { throw new Error('Failed to upload avatar')  } else { return response.json() }
+            }).then(async (resjson) => {
+                
+                console.log(resjson)
+                this.mainStore.setUser(resjson)
+
+                // let user = this.user
+                // await fetch('https://profori.pro/api/users/' + user._id)
+                    // .then(async (response) => await (response.json()))
+                    // .then(async (resjson) => {  })
+                
+            }).catch(async (error) => { console.error(error) })
         }
-    },
-    mounted() {
-        document.getElementById('photo_input')?.addEventListener("change", function (e) {
-            // @ts-ignore
-            console.log(e.target.files[0])
-        })
     }
 })
+
+async function jackclick() {
+    let input = document.getElementById('photo_input')
+    if (input) {
+        input.click()
+    }
+}
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/css/dashboard.scss';
 
 .avatar {
-    height: 160px;
-    width: 160px;
+    height: 120px;
+    width: 120px;
     border-radius: 50%;
     overflow: hidden;
     margin-right: 15px;
@@ -104,8 +92,8 @@ export default defineComponent({
     .icon {
         background-color: #000000a1;
         position: absolute;
-        height: 160px;
-        width: 160px;
+        height: 120px;
+        width: 120px;
         top: 0;
         left: 0;
         display: flex;

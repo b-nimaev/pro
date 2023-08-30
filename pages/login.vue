@@ -1,22 +1,28 @@
 <template>
-    <div class="login-wrapper">
+    <div class="login-page">
         <NavbarComponent />
-        <main>
-            <div class="wrapper">
-                <div class="items">
-                    <AuthLoginForm v-if="status == 'login'" />
-                    <div class="right-side" v-if="status === 'login'">
-                        <h3>Приветствуем!</h3>
-                        <p>Создайте аккаунт и присоединяйтесь <br>к нам, и получите консультацию</p>
-                        <button @click="register()">Создать аккаунт</button>
+        <main class="registration">
+            <div class="container">
+                <form @submit.prevent="authuser">
+                    <h2>Авторизация</h2>
+                    <div class="input-group">
+                        <label for="username">Имя пользователя</label>
+                        <input type="text" id="username">
                     </div>
-                    <div class="right-side" v-if="status === 'register'" :class="status">
-                        <h3>Добро пожаловать!</h3>
-                        <p>Создай аккаунт и присоединяйтесь к нам, <br>и получите консультацию</p>
-                        <button @click="login()">Войти</button>
+
+                    <div class="input-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password">
                     </div>
-                    <AuthRegistrationForm v-if="status === 'register'" />
-                </div>
+
+                    <div class="input-group reset-password">
+                        <NuxtLink to="reset">
+                            <span>Забыли пароль?</span>
+                        </NuxtLink>
+                    </div>
+
+                    <input type="submit" value="Войти">
+                </form>
             </div>
         </main>
         <FooterComponent />
@@ -52,11 +58,110 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.login-wrapper {
-    padding: 15px;
-    border-radius: 15px;
-    background-color: #fff;
+.container {
+    width: 1200px;
+    margin: 50px auto;
 }
+.login-page {
+    background-color: #fdfdfd;
+}
+
+form {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 8px;
+
+    h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #444;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        &.reset-password {
+            display: flex;
+            margin-bottom: 45px;
+            a {
+                margin: 0 auto 0 0;
+                display: block;
+                span {
+                    position: relative;
+                    display: block;
+                    padding: 15px 0;
+                    margin: -15px 0;
+                    overflow: hidden;
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: -100%;
+                        top: calc(100% - 5px);
+                        background-color: #444;
+                        width: 100%;
+                        height: 1px;
+
+                        transition: 400ms ease;
+                    }
+                }
+
+                &:hover {
+                    span {
+                        &::before {
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        input {
+            padding: 18px 20px;
+            // box-shadow: 0 2px 0px 2px #ededed;
+
+            border: 1px solid #efefef;
+            border-radius: 0;
+            font-size: 18px;
+            color: #222;
+            cursor: pointer;
+            transition: 400ms ease;
+            
+            border-radius: 8px;
+
+            &:hover {
+                border-color: #42a4ff88;
+            }
+
+            &:active, &:focus {
+                border-color: #42a3ff
+            }
+        }
+    }
+
+    input[type="submit"] {
+        padding: 14px 24px;
+        font-size: 18px;
+        background-color: #42a3ff;
+        color: #fff;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        transition: 400ms ease;
+
+        &:hover {
+            background-color: transparent;
+            border-color: #42a3ff;
+            color: #42a3ff;
+        }
+    }
+}
+
 .wrapper {
     // background-color: #fbfbfb;
     border-radius: 5px;

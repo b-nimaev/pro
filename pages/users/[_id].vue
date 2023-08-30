@@ -7,15 +7,17 @@
                     <div class="row">
                         <div class="right-side">
                             <div class="card-header">
-                                <div class="user-avatar">
-                                    <nuxt-img quality="80" width="150" height="150" format="webp"
+                                <div class="user-avatar" :class="{ 'hasnt-photo': !userData.photo }">
+                                    <nuxt-img v-if="userData.photo" quality="80" width="128" height="128" format="webp"
                                         :src="`https://profori.pro/avatars/${userData.photo}`" alt="user-avatar" />
+                                    <nuxt-img v-else quality="80" width="128" height="128" format="webp"
+                                        :src="`https://profori.pro/avatars/avatar-6436a9f703f00b8300b7a84a.png`"
+                                        alt="user-avatar" />
                                 </div>
-
                                 <div class="user-data">
-                                    <h3>{{ userData.firstName }} {{ userData.lastName }}</h3>
-                                    <p>@balzhinimaev 22 лет, Улан-Удэ</p>
-                                    <p>3 дня в сервисе</p>
+                                    <h4>{{ userData.firstName }} {{ userData.lastName }}</h4>
+                                    <p>@{{ userData.nickname }}</p>
+                                    <!-- <p>3 дня в сервисе</p> -->
                                     <p class="last-seen">был 29 минут назад</p>
                                     <div class="reviews">
                                         <div class="stars">
@@ -50,7 +52,7 @@
                     </div>
                 </div>
             </main>
-            <hr/>
+            <hr />
             <FooterComponent themeClass="light" />
         </div>
     </div>
@@ -61,7 +63,9 @@
 $dark: #07020263;
 
 .single-user {
-    padding: 15px;
+    margin: 15px;
+    // padding: 15px;
+    // background: #aaa;
 }
 
 hr {
@@ -70,7 +74,8 @@ hr {
 
 .single-user-content {
     padding: 15px;
-    background-color: #f6f6f6;
+    background-image: linear-gradient(45deg, #ffffffc9, #fdfdfd);
+    // background-color: #ececec;
     border-radius: 8px;
 }
 
@@ -103,19 +108,25 @@ hr {
             object-fit: cover;
             object-position: center;
         }
+
+        &.hasnt-photo {
+            box-shadow: none;
+        }
     }
 
     .user-data {
         color: #444;
         margin: auto 0 auto 30px;
 
-        h3 {
-            font-size: 28px;
+        h4 {
+            font-size: 20px;
             margin-bottom: 10px;
         }
 
         p {
             font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
             margin-bottom: 10px;
 
             &.last-seen {
@@ -175,22 +186,23 @@ hr {
 
     .left-side {
         button {
-            width: 250px;
+            width: 220px;
             display: flex;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 15px;
             transition: 400ms;
-            border: 1px solid #2ce5bf;
-            background-color: #2ce5bf;
+            // border: 1px solid #2ce5bf;
+            background-color: #08a284;
+
             &:hover {
                 background-color: #30cbab;
-                border: 1px solid #30cbab;
+                // border: 1px solid #30cbab;
             }
-            
+
             &:active {
-                background-color: #40e5c3;
-                border: 1px solid #40e5c3;
+                background-color: #258f7a;
+                // border: 1px solid #40e5c3;
             }
 
             &:last-child {
@@ -223,7 +235,6 @@ hr {
         }
     }
 }
-
 </style>
 
 <script>

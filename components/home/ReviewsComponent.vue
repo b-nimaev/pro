@@ -77,7 +77,10 @@
                     </div>
                     <div class="content">
                         <p>
-                            <i>Наши клиенты — наши отзывчивые партнеры.</i> <br><i>С их отзывами мы растем и совершенствуемся. <br>Вместе мы определяем карьерные стратегии, <br>достигаем успехов и раскрываем потенциал.</i></p>
+                            <i>Наши клиенты — наши отзывчивые партнеры.</i> <br><i>С их отзывами мы растем и
+                                совершенствуемся. <br>Вместе мы определяем карьерные стратегии, <br>достигаем успехов и
+                                раскрываем потенциал.</i>
+                        </p>
                     </div>
                     <button v-if="!isReviewSingle" @click="allReviews"><span>Посмотреть все отзывы</span></button>
                 </div>
@@ -287,7 +290,7 @@ article {
         p {
             text-align: center;
             font-size: 18px;
-            color: rgba(0, 0, 0, 0.2);
+            color: #00000080;
             line-height: 120%;
         }
     }
@@ -342,9 +345,14 @@ article {
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1200px) {
     .wrapper {
         flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .columns {
+        flex-direction: column;
     }
 
     .container {
@@ -353,9 +361,11 @@ article {
         .left-side {
             margin: 30px 0 0;
             order: 2;
+
             .columns {
                 flex-wrap: wrap;
             }
+
             .column {
                 &.mobile {
                     display: flex;
@@ -367,6 +377,11 @@ article {
             margin: 0;
             order: 1;
         }
+    }
+
+    article {
+        width: 300px;
+        margin: 15px auto;
     }
 }
 
@@ -435,5 +450,4 @@ article {
             }
         }
     }
-}
-</style>
+}</style>

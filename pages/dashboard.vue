@@ -1,12 +1,14 @@
 <template>
     <div class="dashboard-wrapper">
         <div class="dashboard-content">
-            <NavbarComponent :is-dashboard="true" :fluidContainer="true" />
-            <div class="row">
-                <DashboardSidebarComponent />
-                <main class="">
-                    <NuxtPage />
-                </main>
+            <NavbarComponent />
+            <div class="container">
+                <div class="row">
+                    <DashboardSidebarComponent />
+                    <main class="">
+                        <NuxtPage />
+                    </main>
+                </div>
             </div>
             <FooterComponent :is-dashbaord="true" />
         </div>
@@ -39,9 +41,9 @@ export default defineComponent({
 @import '~/assets/css/main.scss';
 
 .dashboard-wrapper {
-    background-color: #fff;
+    // background-color: #fff;
     border-radius: 0;
-    padding: 15px;
+
     .navbar {
         padding: 15px;
     }
@@ -49,9 +51,9 @@ export default defineComponent({
 
 .dashboard-content {
     display: flex;
-    padding: 15px;
+    // padding: 15px;
     border-radius: 8px;
-    background-color: #f6f6f6; // light
+    // background-color: #f6f6f6; // light
     flex-direction: column;
 
     .row {

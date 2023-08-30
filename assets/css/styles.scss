@@ -579,12 +579,12 @@ body {
 
 body {
     transition: 400ms;
-    background-image: linear-gradient(270deg, #f6edff 0%, rgba(251, 241, 223, 0.979688) 23.44%, rgb(255 248 230 / 94%) 56.77%, rgba(230, 224, 209, 0.94) 89.58%);
+    // background-image: linear-gradient(270deg, #f6edff 0%, rgba(251, 241, 223, 0.979688) 23.44%, rgb(255 248 230 / 94%) 56.77%, rgba(230, 224, 209, 0.94) 89.58%);
     // padding: 15px;
 
     &.dark {
-        background-color: #000000;
-        background-image: linear-gradient(262.6deg, #1E1E1E 30.22%, rgba(34, 17, 25, 0.36) 87.46%);
+        // background-color: #000000;
+        // background-image: linear-gradient(262.6deg, #1E1E1E 30.22%, rgba(34, 17, 25, 0.36) 87.46%);
     }
 }
 
