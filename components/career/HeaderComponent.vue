@@ -29,7 +29,8 @@
 }
 
 header {
-    margin: 100px 0;
+    // margin: 100px 0;
+    padding: 160px 0;
 }
 
 .left-side {

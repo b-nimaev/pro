@@ -222,7 +222,7 @@ export default defineComponent({
 .modal-window {
     background-color: #000000de;
     background-image: linear-gradient(45deg, black, transparent);
-    z-index: 1;
+    z-index: 22222222;
     padding: 200px;
     position: fixed;
     top: 0;
