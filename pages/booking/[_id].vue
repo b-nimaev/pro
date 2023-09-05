@@ -1,6 +1,28 @@
 <template>
-    {{ id }}
+    <div class="page-booking">
+        <NavbarComponent />
+        <main>
+            <section class="booking-header">
+                <div class="container">
+                    <h3>Запись к консультанту</h3>
+                </div>
+            </section>
+        </main>
+        <FooterComponent />
+    </div>
 </template>
+
+<style lang="scss" scoped>
+@import '@/assets/css/main.scss';
+h3 {
+    font-size: 28px
+}
+main {
+    padding: 0;
+    margin-top: 0;
+    background: #eee;
+}
+</style>
 
 <script>
 import { useMainStore } from "~/store"

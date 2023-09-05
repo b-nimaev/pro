@@ -92,6 +92,9 @@ textarea {
     width: 220px;
     position: relative;
     font-size: 18px;
+    border: 1px solid #aaa;
+    padding: 15px;
+    margin-top: 10px;
 
     .select-dropmenu {
         position: absolute;
@@ -193,6 +196,16 @@ textarea {
     flex-direction: column;
     margin-right: 15px;
     user-select: none;
+
+    label {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    input {
+        padding: 8px;
+        border: 1px solid #eee;
+    }
 
     &:last-child {
         margin-right: 0;

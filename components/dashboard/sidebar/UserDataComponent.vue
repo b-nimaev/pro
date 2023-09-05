@@ -1,7 +1,7 @@
 <template>
     <div class="user-data collapsed">
         <DashboardSidebarUserDataAvatarComponent />
-        <h4>{{ user.firstName }} {{ user.lastName }}</h4>
+        <h4>{{ user.firstName }}</h4>
         <p v-if="user.position" class="position">{{ user.position }}</p>
     </div>
 </template>

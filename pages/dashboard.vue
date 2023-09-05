@@ -1,7 +1,7 @@
 <template>
     <div class="dashboard-wrapper">
+        <NavbarComponent />
         <div class="dashboard-content">
-            <NavbarComponent />
             <div class="container">
                 <div class="row">
                     <DashboardSidebarComponent />
@@ -42,7 +42,6 @@ export default defineComponent({
 .dashboard-wrapper {
     // background-color: #fff;
     border-radius: 0;
-    padding: 140px 0 0;
 
     .navbar {
         padding: 15px;
@@ -50,6 +49,7 @@ export default defineComponent({
 }
 
 .dashboard-content {
+    margin-top: 30px;
     display: flex;
     // padding: 15px;
     border-radius: 8px;

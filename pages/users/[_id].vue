@@ -69,13 +69,13 @@
 $dark: #07020263;
 
 main {
-    margin-top: 60px;
+    // margin-top: 60px;
 }
 
 .single-user {
-    margin: 15px;
-    // padding: 15px;
-    // background: #aaa;
+    // margin: 15px;
+    padding: 15px;
+    background:#fffbfb;
 }
 
 hr {
@@ -84,9 +84,9 @@ hr {
 
 .single-user-content {
     padding: 15px;
-    background-image: linear-gradient(45deg, #ffffffc9, #fdfdfd);
+    background-image: linear-gradient(45deg, rgb(241 241 241), #f6f6f6);
     // background-color: #ececec;
-    border-radius: 8px;
+    // border-radius: 8px;
 }
 
 .container-fluid {
@@ -280,7 +280,7 @@ export default defineComponent({
             console.log('123')
             const id = 123
             // this.$router.push("/booking?id=123")
-            this.$router.push(`/users/booking?id=123`)
+            this.$router.push(`/booking/${id}`)
         }
     },
     async beforeCreate() {

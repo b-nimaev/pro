@@ -231,7 +231,7 @@ $paddings: 10px 20px;
 
 nav {
     padding: 5px 0;
-    position: fixed;
+    // position: fixed;
     width: 100%;
     background-color: #fff;
     z-index: 999;

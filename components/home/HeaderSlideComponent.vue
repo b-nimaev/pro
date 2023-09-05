@@ -90,7 +90,7 @@ header {
     .wrapper {
         display: flex;
         flex-direction: row;
-        padding: 200px 0 160px;
+        padding: 100px 0 160px;
         // justify-content: center;
         .left-side {
             display: flex;

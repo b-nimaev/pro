@@ -24,6 +24,18 @@
                     </div>
 
                     <div class="input-line">
+
+                        <div class="input-group">
+                            <label for="gender">Пол</label>
+                            <div class="input-wrapper">
+                                <select name="gender" id="gender" v-model="gender">
+                                    <option value="">Указать пол</option>
+                                    <option value="male">Мужской</option>
+                                    <option value="female">Женский</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="input-group" :class="{ 'notNull': old }">
                             <label for="old">Возраст</label>
                             <input type="number" id="old" v-model="old">
@@ -119,6 +131,7 @@ export default defineComponent({
             price: 0,
             workFormat: [],
             whatishelp: '',
+            gender: '',
             result: '',
             whos: '',
             aboutMe: '',
@@ -144,6 +157,7 @@ export default defineComponent({
                 result: this.result,
                 whos: this.whos,
                 aboutMe: this.aboutMe,
+                gender: this.gender,
                 experience: this.experience,
             }
 
@@ -175,7 +189,7 @@ export default defineComponent({
         }
     },
     watch: {
-        firstName () {
+        firstName() {
             // console.log(this.firstName)
         }
     }
@@ -262,18 +276,28 @@ form {
         flex-direction: column;
         margin-bottom: 45px;
 
+        .input-wrapper {
+            width: 100%;
+            select {
+                width: 100%;
+            }
+        }
+
         .checkbox-wrapper {
             display: flex;
+
             .checkbox {
                 margin: 10px 15px;
                 display: flex;
                 border-radius: 8px;
                 // border: 1px solid #555;
                 padding: 15px;
+
                 label {
                     font-size: 20px;
                     margin: auto;
                 }
+
                 input {
                     display: flex;
                     margin: auto 0 auto 15px;
@@ -464,5 +488,4 @@ form {
             display: none;
         }
     }
-}
-</style>
+}</style>

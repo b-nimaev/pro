@@ -199,8 +199,11 @@ export default defineComponent({
             margin: 0 auto 15px;
             display: flex;
             font-size: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
             .user-nickname {
                 margin-right: 10px;
+                margin-left: auto;
 
                 span {
                     color: #1d0f0fb5
@@ -209,13 +212,15 @@ export default defineComponent({
 
             .user-exp {
                 display: block;
-                margin: auto;
+                margin-right: auto;
+                margin-left: 0;
                 span {
                     color: #1d0f0fb5;
                 }
             }
 
             .price {
+                width: 100%;
                 display: block;
                 // width: 100%;
                 margin: auto 15px;

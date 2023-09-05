@@ -5,86 +5,33 @@
         <form>
             <div class="input-group">
                 <label for="firstName">Имя</label>
-                <input type="text" id="firstName" v-model="firstName" placeholder="Jhon" @input="userwatch">
+                <input type="text" id="firstName" v-model="userData.firstName" placeholder="Jhon" @input="userwatch">
             </div>
             <div class="input-group">
-                <label for="lastName">Фамилия</label>
-                <input type="text" id="lastName" v-model="lastName" placeholder="Doe" @input="userwatch">
+                <label for="surName">Фамилия</label>
+                <input type="text" id="surName" v-model="userData.lastName" placeholder="Doe" @input="userwatch">
             </div>
             <div class="input-group">
                 <label for="surName">Отчество</label>
-                <input type="text" id="surName" v-model="surName" placeholder="Surname" @input="userwatch">
+                <input type="text" id="surName" v-model="userData.surName" placeholder="" @input="userwatch">
             </div>
         </form>
 
         <form>
             <div class="input-group">
                 <label for="nickname">Короткая ссылка</label>
-                <input type="text" :placeholder="`@${_id}`" id="nickname" v-model="nickname" @input="userwatch">
+                <input v-if="userData.nickname" type="text" :placeholder="`@${userData._id}`" id="nickname" v-model="nickname" @input="userwatch">
+                <input v-else type="text" :placeholder="`@${userData._id}`" id="nickname" v-model="nickname" @input="userwatch">
             </div>
         </form>
 
-        <form>
 
-            <div class="input-group">
 
-                <label for="dateOfBirth">Дата рождения</label>
-                <input type="text" id="dateOfBirth" v-model="dateOfBirth" @input="dateOfBirthhandler">
-            </div>
-
-            <div class="input-group">
-
-                <!-- Заголовок -->
-                <label for="city">Город</label>
-
-                <!-- inputWrapper -->
-                <div class="input-wrapper">
-                    <div class="selected" @click="toggleSelectCity" :data-value="selectedCity.nameEn">{{ selectedCity.nameRu
-                    }}</div>
-                    <div class="select-dropmenu">
-                        <div class="wrapper-search" :class="{ 'show': selectedCityToggler }">
-                            <input type="text" placeholder="Поиск" v-model="searchData" @input="searchCity">
-                        </div>
-
-                        <ul :class="{ 'active': selectedCityToggler }" v-if="!searchData">
-                            <li :data-value="city.nameEn" @click="cityClick" class="item-city" v-for="city in cities"
-                                :key="city.nameEn"> {{ city.nameRu }} </li>
-                        </ul>
-
-                        <ul :class="{ 'active': selectedCityToggler }" v-if="findedCities && searchData">
-                            <li v-for="city in findedCities" @click="cityClick" class="item-city" :key="city.nameEn"
-                                :data-value="city.nameEn"> {{ city.nameRu }} </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-        <!-- Выбор принадлежности к гендеру -->
-        <form>
-            <div class="input-group">
-
-                <!-- Заголовок -->
-                <label for="gender">Пол</label>
-
-                <!-- inputWrapper -->
-                <div class="input-wrapper">
-                    <div class="selected" @click="toggleSelectGender" :data-value="selectedGender.name">{{
-                        selectedGender.value }}</div>
-                    <div class="select-dropmenu">
-                        <ul :class="{ 'active': selectedGenderToggler }">
-                            <li @click="selectGender" :data-gender-name="gender.name" v-for="gender in genders"
-                                :key="gender.name">{{ gender.value }}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </form>
 
     </aside>
 </template>
 <style lang="scss" scoped>
-@import '~/assets/css/settings.scss';
+@import '@/assets/css/settings';
 
 aside {
     width: 100%;
@@ -105,8 +52,7 @@ import { useMainStore } from "~/store";
 export default defineComponent({
     setup() {
         const mainStore = useMainStore()
-        let { firstName, _id, lastName, surName, nickname, gender, city, dateOfBirth } = mainStore.getUser
-        return { firstName, _id, lastName, surName, gender, nickname, city, mainStore, dateOfBirth }
+        return { mainStore }
     },
     data() {
         return {
@@ -115,7 +61,10 @@ export default defineComponent({
             surName: this.surName,
             nickname: this.nickname,
             selectedGenderToggler: false,
-            selectedCity: this.city,
+            selectedCity: {
+                nameEn: 'Moscow',
+                nameRu: 'Москва'
+            },
             selectedCityToggler: false,
             cities: [
                 { nameEn: 'Moscow', nameRu: 'Москва' },
@@ -254,14 +203,26 @@ export default defineComponent({
                 { nameEn: 'Bugulma', nameRu: 'Бугульма' }
 
             ],
-            findedCities: [],
+            city: { nameRu: '', nameEn: '' },
+            findedCities: [{
+                nameRu: '',
+                nameEn: ''
+            }],
             searchData: '',
             dateOfBirth: '',
-            selectedGender: this.gender,
+            selectedGender: {
+                value: '',
+                name: ''
+            },
             genders: [
                 { name: 'male', value: 'Мужской' },
                 { name: 'female', value: 'Женский' }
             ]
+        }
+    },
+    computed: {
+        userData () {
+            return this.mainStore.getUser
         }
     },
     methods: {
