@@ -17,14 +17,13 @@
 
 <script lang="ts">
 import { useMainStore } from "~/store"
-definePageMeta({
-    middleware: [
-        'dashboard'
-    ]
-})
 export default defineComponent({
     async setup() {
         const mainStore = useMainStore()
+
+        definePageMeta({
+            middleware: 'dashboard'
+        })
 
         return { mainStore }
     },
@@ -43,6 +42,7 @@ export default defineComponent({
 .dashboard-wrapper {
     // background-color: #fff;
     border-radius: 0;
+    padding: 140px 0 0;
 
     .navbar {
         padding: 15px;

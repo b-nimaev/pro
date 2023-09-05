@@ -1,8 +1,6 @@
 <template>
-  <div class="pagewrapper"
-    :class="{ 'mobile-menu-active': mobileMenu, 'dark': colorScheme.name === 'dark', 'light': colorScheme.name === 'light' }">
+  <div class="pagewrapper">
     <NuxtPage />
-    
   </div>
 </template>
 
@@ -74,39 +72,38 @@
 
 <script lang="ts">
 
-import { CookieRef } from 'nuxt/app';
 import { useMainStore } from '~/store';
 export default defineComponent({
   setup() {
-    const mainStore = useMainStore()
-    const userData = mainStore.getUser
-    return { userData, mainStore }
+    // const mainStore = useMainStore()
+    // const userData = mainStore.getUser
+    // return { userData, mainStore }
   },
   data() {
     return {
-      preloader: false,
-      userData: this.userData
+      // preloader: false,
+      // userData: this.userData
     }
   },
   computed: {
-    mobileMenu: function () {
-      return this.mainStore.mobileMenu
-    },
-    loggedStatus: function () {
-      return this.mainStore.getSessionID
-    },
-    colorScheme() {
-      return this.mainStore.getUser.colorScheme
-    },
-    menuStatus: function () {
-      return this.mainStore.menuShowStatus
-    },
+    // mobileMenu: function () {
+    //   return this.mainStore.mobileMenu
+    // },
+    // loggedStatus: function () {
+    //   return this.mainStore.getSessionID
+    // },
+    // colorScheme() {
+    //   return this.mainStore.getUser.colorScheme
+    // },
+    // menuStatus: function () {
+    //   return this.mainStore.menuShowStatus
+    // },
   },
   methods: {
-    closeMenu: function () {
-      document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
-      return this.mainStore.setMenuStatus(false)
-    }
+    // closeMenu: function () {
+    //   document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
+    //   return this.mainStore.setMenuStatus(false)
+    // }
   }
 })
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="single-user">
         <div class="single-user-content">
-            <NavbarComponent :is-dashboard="true" :fluid-container="true" />
+            <NavbarComponent />
             <main>
                 <div class="container-fluid">
                     <div class="row">
@@ -15,10 +15,16 @@
                                         alt="user-avatar" />
                                 </div>
                                 <div class="user-data">
-                                    <h4>{{ userData.firstName }} {{ userData.lastName }}</h4>
-                                    <p>@{{ userData.nickname }}</p>
+                                    <h4>{{ userData.firstName }} {{ userData.surName }}</h4>
+                                    <p v-if="userData.nickname">@{{ userData.nickname }}</p>
+                                    <p class="id" v-if="!userData.nickname">#{{ userData._id }}</p>
+                                    <p class="role" v-if="userData.role"><b>Роль:</b> {{ 'consultant' === userData.role ? 'Консультант' : 'Профориентолог' }}</p>
+                                    <div class="user-meta2">
+                                        <p class="exp" v-if="userData.experience2"><b>Опыт работы:</b> {{ userData.experience2 }} {{ userData.experience2 > 4 ? 'лет опыта' : 'года опыта' }}</p>
+                                        <p class="exp" v-if="userData.old"><b>Возраст:</b> {{ userData.old }} {{ userData.old > 4 ? 'лет' : 'года' }}</p>
+                                    </div>
                                     <!-- <p>3 дня в сервисе</p> -->
-                                    <p class="last-seen">был 29 минут назад</p>
+                                    <!-- <p class="last-seen">был 29 минут назад</p> -->
                                     <div class="reviews">
                                         <div class="stars">
                                             <IconsStarsIcon />
@@ -39,7 +45,7 @@
                             </div>
                             <div class="card-content">
                                 <div class="left-side">
-                                    <button><span>Предложить заказ</span></button>
+                                    <button @click="calendarshow"><span>Посмотреть время</span></button>
                                     <button><span>Отправить сообщение</span></button>
                                 </div>
                                 <div class="reviews">
@@ -61,6 +67,10 @@
 <style lang="scss" scoped>
 @import '@/assets/css/main.scss';
 $dark: #07020263;
+
+main {
+    margin-top: 60px;
+}
 
 .single-user {
     margin: 15px;
@@ -116,7 +126,17 @@ hr {
 
     .user-data {
         color: #444;
-        margin: auto 0 auto 30px;
+        margin: 15px 0 0 30px;
+        // margin: auto 0 auto 30px;
+
+        .user-meta2 {
+            display: flex;
+            margin: 0 -7.5px;
+            p {
+                display: block;
+                margin: 5px 7.5px;
+            }
+        }
 
         h4 {
             font-size: 20px;
@@ -132,6 +152,11 @@ hr {
             &.last-seen {
                 margin-bottom: 0;
             }
+        }
+
+        .id {
+            font-size: 13px;
+            color: #999;
         }
 
         .reviews {
@@ -250,6 +275,14 @@ export default defineComponent({
             userData: {}
         }
     },
+    methods: {
+        calendarshow: async function () {
+            console.log('123')
+            const id = 123
+            // this.$router.push("/booking?id=123")
+            this.$router.push(`/users/booking?id=123`)
+        }
+    },
     async beforeCreate() {
         await fetch('https://profori.pro/api/users/' + this.$route.params._id, {
             method: 'GET',
@@ -258,7 +291,15 @@ export default defineComponent({
             }
         }).then(async (res) => {
             let response = await res.json()
-            this.userData = response
+            if (response) {
+                if (response._id) {
+                    this.userData = response
+                } else {
+                    this.$router.push('/')
+                }
+            } else {
+                this.$router.push('/')
+            }
         })
     },
     mounted() {

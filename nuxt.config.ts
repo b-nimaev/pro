@@ -14,13 +14,13 @@ export default defineNuxtConfig({
     },
     modules: [
         '@pinia/nuxt',
-        '@nuxt/image-edge'
+        '@nuxt/image-edge',
+        // '@sidebase/nuxt-auth'
     ],
 
     plugins: [
         '~/plugins/pinia.js',
-        '~/plugins/socket-io.ts'
-        
+        '~/plugins/socket-io.ts',        
     ],
 
     css: [

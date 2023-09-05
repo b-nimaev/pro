@@ -2,22 +2,22 @@
     <div>
         <!-- УТП -->
         <HomeHeaderComponent />
-        
+
         <!-- Мы предоставляем возможности -->
         <HomeAdvantagesComponent></HomeAdvantagesComponent>
-        
+
         <!-- С нами вы получите -->
         <HomeYouGotComponent></HomeYouGotComponent>
-        
+
         <!-- Наши отзывы -->
         <HomeReviewsComponent></HomeReviewsComponent>
-        
+
         <!-- Наши консультанты -->
         <HomeOurConsultants />
-        
+
         <!-- Выберите консультанта -->
         <HomeChooseConsultantComponent />
-        
+
         <!-- Наши авторы -->
         <HomeBlogComponent />
 
@@ -27,11 +27,6 @@
 </template>
 <script>
 import { useMainStore } from "~/store"
-definePageMeta({
-    middleware: [
-        'named-test'
-    ]
-})
 export default defineComponent({
     setup() {
         const mainStore = useMainStore()
@@ -44,6 +39,19 @@ export default defineComponent({
     },
     async beforeCreate() {
         console.log(this.mainStore.getConfirmID)
+
+        const id = useCookie("id")
+        if (id) {
+            await fetch(`https://profori.pro/api/users/${id.value}`).then(async (response) => {
+                
+                const data = await response.json()
+                await this.mainStore.setUser(data)
+                
+            }).catch(async (error) => {
+                cosole.error(error)
+            })
+        }
+
         if (this.mainStore.getConfirmID.length > 0) {
             // console.log(this.mainStore.getConfirmID)
             await fetch('https://profori.pro/api/users/confirm/' + this.mainStore.getConfirmID, {

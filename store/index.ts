@@ -1,35 +1,4 @@
 import { defineStore } from 'pinia'
-interface user {
-    _id: string;
-    nickname: string;
-    email: string;
-    firstName: string;
-    lastName: string;
-    surName: string;
-    position: string;
-    photo100: string;
-    password: string;
-    gender: {};
-    role: string;
-    referral: string;
-    colorScheme: {
-        name: string;
-        value: string
-    };
-    photo: string;
-    experience: never[];
-    dateOfBirth: string;
-    city: {
-        nameEn: string;
-        nameRu: string
-    };
-    confirmID: any;
-    isDashboardSettings: boolean;
-    subscriptionStatus: string;
-    fullLink: string;
-    ref: string;
-    ref_links: { value: string; users: [] }[]
-}
 
 export const useMainStore = defineStore('main', {
     state: () => ({
@@ -65,8 +34,9 @@ export const useMainStore = defineStore('main', {
                 name: 'light',
                 value: 'Светлая'
             },
+            experience2: 0,
             photo: '',
-            experience: [],
+            experience: 0,
             dateOfBirth: '',
             city: {
                 nameEn: 'Moscow',
@@ -166,7 +136,7 @@ export const useMainStore = defineStore('main', {
         setFirstName(value: string) {
             return this.userData.firstName = value
         },
-        setUser(value: user) {
+        setUser(value: any) {
             return this.userData = value
         },
         setRegistrationData(registrationData: { name: string; email: string; role: string; password: string; ref: string }) {

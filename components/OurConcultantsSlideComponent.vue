@@ -13,10 +13,13 @@
             </div>
             <div class="user-meta">
                 <div class="user-nickname" v-if="user.nickname"><span>@{{ user.nickname }}</span></div>
-                <div class="user-exp"><span>Опыт 5 лет</span></div>
+                <div class="user-exp" v-if="user.experience2"><span>Опыт {{ user.experience2 }} лет</span></div>
+                <div class="user-exp" v-if="!user.experience2"><span>Опыт не указан</span></div>
+                <div class="price" v-if="user.price"><span>{{ user.price }} ₽ в час</span></div>
             </div>
             <div class="user-position">
-                <p>Профориентолог</p>
+                <p v-if="user.role === 'career' || 'consultant'">Карьерный консультант</p>
+                <p v-if="user.role === 'profori'">Профориентолог</p>
             </div>
         </div>
         <button @click="goToUser(user._id)">Перейти</button>
@@ -101,6 +104,8 @@ export default defineComponent({
                         color: #bbb;
                     }
                 }
+
+
             }
         }
 
@@ -194,7 +199,6 @@ export default defineComponent({
             margin: 0 auto 15px;
             display: flex;
             font-size: 12px;
-
             .user-nickname {
                 margin-right: 10px;
 
@@ -204,9 +208,18 @@ export default defineComponent({
             }
 
             .user-exp {
+                display: block;
+                margin: auto;
                 span {
                     color: #1d0f0fb5;
                 }
+            }
+
+            .price {
+                display: block;
+                // width: 100%;
+                margin: auto 15px;
+                font-size: 14px
             }
         }
 

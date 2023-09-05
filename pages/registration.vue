@@ -3,8 +3,19 @@
         <NavbarComponent />
         <main class="registration">
             <div class="container">
-                <form @submit.prevent="registrationUser">
+                <form @submit.prevent="registrationUser" v-if="status !== 200">
                     <h2>Создание аккаунта</h2>
+
+                    <div class="input-group" :class="{ 'notNull': role, 'error': roleError }">
+                        <label for="role">Роль</label>
+                        <select name="role" id="role" v-model="role">
+                            <option value="">Выбрать роль</option>
+                            <option value="client">Клиент</option>
+                            <option value="profori">Профориентолог</option>
+                            <option value="career">Карьерный консультант</option>
+                        </select>
+                    </div>
+
                     <div class="input-group" :class="{ 'notNull': email }">
                         <label for="email">Электронная почта</label>
                         <input type="email" id="email" v-model="email">
@@ -15,7 +26,8 @@
                         <input type="password" id="password" v-model="password">
                     </div>
 
-                    <div class="input-group" :class="{ 'notNull': confirmPassword, 'error': ((password !== confirmPassword) && (confirmPassword.length > 0)) }">
+                    <div class="input-group"
+                        :class="{ 'notNull': confirmPassword, 'error': ((password !== confirmPassword) && (confirmPassword.length > 0)) }">
                         <label for="password-confirm">Подтвердите пароль</label>
                         <input type="password" id="password-confirm" v-model="confirmPassword">
                     </div>
@@ -24,9 +36,21 @@
                         <p>{{ error }}</p>
                     </div>
 
+                    <div class="error-div" v-if="roleError">
+                        <p>Укажите роль</p>
+                    </div>
+
                     <input type="submit" value="Создать аккаунт">
                     <div class="create-account">
                         <NuxtLink to="login">Войти</NuxtLink>
+                    </div>
+                </form>
+                <form v-else>
+                    <div class="success">
+                        <h2>Письмо с подтверждением отправлено на указанную почту</h2>
+                        <p class="email">{{ email }}</p>
+                        <nuxt-img width="79" height="79" format="webp" quality="80" src="/assets/images/check-image.png"
+                            alt="check" />
                     </div>
                 </form>
             </div>
@@ -37,46 +61,63 @@
 
 <script>
 import { useMainStore } from '~/store';
-definePageMeta({
-    middleware: [
-        'login'
-    ]
-})
 export default defineComponent({
-    setup() {
-        const mainStore = useMainStore()
-        return { mainStore }
-    },
     data() {
         return {
-            email: '',
+            email: 'asdfa@mail.ru',
             password: '',
             confirmPassword: '',
-            error: ''
+            error: '',
+            role: '',
+            status: 0,
+            roleError: false
         }
     },
     methods: {
-        async registrationUser () {
+        async registrationUser() {
 
             this.error = ``
+
+            if (this.role.length === 0) {
+
+                this.roleError = true
+                return false
+
+            }
 
             if (this.password.length > 6) {
 
                 if (this.password === this.confirmPassword) {
+                    const userData = {
+                        email: this.email,
+                        password: this.password,
+                        role: this.role
+                    }
+
+                    console.log(JSON.stringify(userData))
 
                     await fetch('https://profori.pro/api/users/register', {
                         method: 'POST',
-                        body: {
-                            email: this.email,
-                            password: this.password
-                        }
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(userData),
                     }).then(async (res) => {
-                        console.log(res)
+
+                        if (res.status === 200) {
+
+                            this.status = 200
+                            // this.$router.push('/')
+
+                        }
+
                         // if (res.status === 200) {
-                            // this.mainStore.setUser(await res.json())
-                            // useCookie('id').value = this.mainStore.getConfirmID
-                            // this.$router.push('/dashboard')
+                        // this.mainStore.setUser(await res.json())
+                        // useCookie('id').value = this.mainStore.getConfirmID
+                        // this.$router.push('/dashboard')
                         // }
+                    }).catch(async (error) => {
+                        console.error(error)
                     })
 
                 }
@@ -86,17 +127,15 @@ export default defineComponent({
                 this.error = `Длина пароля должна составлять не менее 6 знаков`
 
             }
-        },
-        register() {
-            this.mainStore.setLoginStatus('register')
-        },
-        login() {
-            this.mainStore.setLoginStatus('login')
         }
     },
-    computed: {
-        status() {
-            return this.mainStore.getLoginStatus
+    watch: {
+        role () {
+            if (this.role) {
+                this.roleError = false
+            } else {
+                this.roleError = true
+            }
         }
     }
 })
@@ -106,10 +145,25 @@ export default defineComponent({
 $green: #8efb8a;
 $red: #f01e1e;
 
+.success {
+    img {
+        margin: 0 auto 30px;
+        display: block;
+    }
+
+    .email {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+}
+
 .error-div {
     margin-bottom: 30px;
+
     p {
-        color: $red 
+        color: $red
     }
 }
 
@@ -197,7 +251,8 @@ form {
             margin-bottom: 15px;
         }
 
-        input {
+        input,
+        select {
             padding: 18px 20px;
             // box-shadow: 0 2px 0px 2px #ededed;
 
@@ -214,22 +269,22 @@ form {
                 border-color: #42a4ff88;
             }
 
-            &:active,
-            &:focus,
-            {
-            border-color: #42a3ff
+            &:active, &:focus { 
+                border-color: #42a3ff
         }
     }
 }
 
-.notNull input {
+.notNull input,
+.notNull select {
     border-color: #42a3ff;
     color: #0d2944;
     // color: #fff;
     // background-color: #42a3ff;
 }
 
-.notNull.error input, .error input {
+.notNull.error input,
+.error input, .error select {
     border-color: #f01e1e;
     color: #f01e1e;
     // color: #fff;

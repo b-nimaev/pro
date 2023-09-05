@@ -44,10 +44,10 @@ export default {
     },
     setup() {
         const onSwiper = (swiper) => {
-            console.log(swiper);
+            // console.log(swiper);
         };
         const onSlideChange = () => {
-            console.log('slide change');
+            // console.log('slide change');
         };
         return {
             onSwiper,
@@ -64,7 +64,7 @@ export default {
             method: 'GET'
         }).then(async (result) => {
             this.users = await result.json()
-            console.log(this.users)
+            // console.log(this.users)
         })
     }
 };

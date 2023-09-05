@@ -1,6 +1,6 @@
 <template>
     <h4 class="edity">
-        <span>{{ user.firstName }} {{ user.lastName }}</span>
+        <span>{{ user.firstName }} {{ user.surName }}</span>
         <!-- <div class="edit-icon" @click="edit">
             <edit-icon size="normal" />
         </div> -->

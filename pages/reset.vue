@@ -4,31 +4,17 @@
         <main class="registration">
             <div class="container">
                 <form @submit.prevent="authuser">
-                    <h2>Авторизация</h2>
+                    <h2>Сброс пароля</h2>
                     <div class="input-group">
-                        <label for="username">Имя пользователя</label>
-                        <input type="text" id="username" v-model="email">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="password">Пароль</label>
-                        <input type="password" id="password" v-model="password">
+                        <label for="username">Электронная почта </label>
+                        <input type="email" placeholder="e-mail" id="username" v-model="email">
                     </div>
 
                     <div class="message" v-if="message">
                         <p>{{ message }}</p>
                     </div>
 
-                    <div class="input-group reset-password">
-                        <NuxtLink to="reset">
-                            <span>Забыли пароль?</span>
-                        </NuxtLink>
-                    </div>
-
-                    <input type="submit" value="Войти">
-                    <div class="create-account">
-                        <NuxtLink to="registration">Создать аккаунт</NuxtLink>
-                    </div>
+                    <input type="submit" value="Отправить письмо">
                 </form>
             </div>
         </main>
@@ -36,18 +22,16 @@
     </div>
 </template>
 
-<script lang="ts">
-
+<script>
 import { useMainStore } from '~/store';
 export default defineComponent({
-    async setup() {
-
-        const mainStore = useMainStore()
+    setup() {
         definePageMeta({
             middleware: [
                 'login'
             ]
         })
+        const mainStore = useMainStore()
         return { mainStore }
     },
     data() {
@@ -78,14 +62,6 @@ export default defineComponent({
                     const res = await response.json()
 
                     if (res) {
-
-                        if (res._id) {
-
-                            useCookie('id').value = res._id
-                            this.mainStore.setUser(res)
-                            this.$router.push("/dashboard")
-
-                        }
 
                         if (res.message) {
 
@@ -332,5 +308,4 @@ form {
             display: none;
         }
     }
-}
-</style>
+}</style>

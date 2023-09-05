@@ -72,10 +72,10 @@
                                 fill="white" fill-opacity="0.9" />
                         </svg>
                     </NuxtLink> -->
-                    <NuxtLink class="dashboard-link" to="/login">
+                    <NuxtLink class="dashboard-link" to="/login" v-if="!userData._id">
                         <span>Войти</span>
                     </NuxtLink>
-                    <button class="choose_profori">
+                    <button class="choose_profori" v-if="!userData._id">
                         <span>Подобрать консультанта</span>
                     </button>
                     <NavbarAuthedUsermenu :themeClass="themeClass" v-if="userData._id" />
@@ -91,7 +91,7 @@
         </div>
     </nav>
 </template>
-<script>
+<script lang="ts">
 import { useMainStore } from '~/store';
 export default defineComponent({
 
@@ -103,7 +103,8 @@ export default defineComponent({
     data() {
         return {
             toggled: true,
-            show: false
+            show: false,
+            authed: false
         }
     },
 
@@ -152,6 +153,15 @@ export default defineComponent({
     beforeMount: async function () {
         document.getElementsByTagName("body")[0].classList.remove('mobile-menu-active')
     },
+    beforeCreate: async function () {
+        const id = useCookie("id")
+        if (id) {
+            console.log('authed')
+            this.authed = true
+        } else {
+            this.authed = false
+        }
+    }
 })
 </script>
 
@@ -226,6 +236,7 @@ nav {
     background-color: #fff;
     z-index: 999;
     top: 0;
+
     &.small {
         padding: 15px 0;
     }
@@ -235,7 +246,7 @@ nav {
         display: block;
         position: relative;
         padding: 0 5px;
-        
+
         &:hover {
             span {
                 &::after {
@@ -249,6 +260,7 @@ nav {
             overflow: hidden;
             display: block;
             padding: 10px 0;
+
             &:after {
                 content: '';
                 display: block;
@@ -566,4 +578,5 @@ nav.dark,
             }
         }
     }
-}</style>
+}
+</style>
