@@ -63,7 +63,27 @@ export default {
         await fetch('https://profori.pro/api/users', {
             method: 'GET'
         }).then(async (result) => {
+            
             this.users = await result.json()
+            let active_users = []
+            
+            for (let i=0; i < this.users.length; i++) {
+
+                if (this.users[i].firstName) {
+
+                    active_users.push(this.users[i])
+
+                }
+
+            }
+
+            this.users = active_users
+
+            // this.users.forEach(async (user) => {
+                // if (user.firstName) {
+                    // 
+                // }
+            // })
             // console.log(this.users)
         })
     }
