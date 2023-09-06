@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <NuxtLink to="http://localhost:3000/users/64f8265661feffd619458e0f" class="user">
+                            <NuxtLink to="/users/64f8265661feffd619458e0f" class="user">
                                 <nuxt-img width="183" height="138" format="webp" quality="80"
                                     src="/assets/images/realuser6.jpg" alt="" />
                             </NuxtLink>
