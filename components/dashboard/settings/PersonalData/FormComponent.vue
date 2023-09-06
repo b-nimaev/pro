@@ -8,8 +8,8 @@
                 <input type="text" id="firstName" v-model="userData.firstName" placeholder="Jhon" @input="userwatch">
             </div>
             <div class="input-group">
-                <label for="surName">Фамилия</label>
-                <input type="text" id="surName" v-model="userData.lastName" placeholder="Doe" @input="userwatch">
+                <label for="lastName">Фамилия</label>
+                <input type="text" id="lastName" v-model="userData.lastName" placeholder="Doe" @input="userwatch">
             </div>
             <div class="input-group">
                 <label for="surName">Отчество</label>
@@ -20,11 +20,20 @@
         <form>
             <div class="input-group">
                 <label for="nickname">Короткая ссылка</label>
-                <input v-if="userData.nickname" type="text" :placeholder="`@${userData._id}`" id="nickname" v-model="nickname" @input="userwatch">
+                <input v-if="userData.nickname" type="text" :placeholder="`@${userData._id}`" id="nickname" v-model="userData.nickname" @input="userwatch">
                 <input v-else type="text" :placeholder="`@${userData._id}`" id="nickname" v-model="nickname" @input="userwatch">
             </div>
         </form>
 
+        <form class="custom-form" @submit.prevent="whataishelpupdate">
+            <div class="input-group">
+                <label for="whatishelp">В чём помогаете?</label>
+                <textarea name="whatishelp" id="whatishelp" v-model="userData.whatishelp" placeholder=""></textarea>
+            </div>
+            <input type="submit" value="Сохранить">
+        </form>
+
+        <hr>
 
 
 
@@ -32,6 +41,10 @@
 </template>
 <style lang="scss" scoped>
 @import '@/assets/css/settings';
+
+hr {
+    border-color: #eee
+}
 
 aside {
     width: 100%;
@@ -44,6 +57,18 @@ aside {
         &:last-child {
             margin-bottom: 0;
         }
+    }
+}
+
+.custom-form {
+    flex-direction: column;
+    input[type="submit"] {
+        padding: 10px 15px;
+        display: block;
+        width: fit-content;
+        background-color: #333;
+        color: #fff;
+        margin-top: 10px;
     }
 }
 </style>
@@ -226,6 +251,19 @@ export default defineComponent({
         }
     },
     methods: {
+        async whataishelpupdate() {
+            await fetch('https://profori.pro/api/users' + this.userData._id, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.mainStore.getUser.whatishelp)
+            }).then(async (response) => {
+                alert('Сохранено!')
+            }).catch(async (error) => {
+                console.error(error)
+            })
+        },
         changePersonality() {
             console.log('123')
         },

@@ -28,12 +28,8 @@ export const useMainStore = defineStore('main', {
             position: '',
             photo100: '',
             password: '',
-            gender: {},
+            gender: '',
             role: '',
-            colorScheme: {
-                name: 'light',
-                value: 'Светлая'
-            },
             experience2: 0,
             photo: '',
             experience: 0,
@@ -42,12 +38,17 @@ export const useMainStore = defineStore('main', {
                 nameEn: 'Moscow',
                 nameRu: 'Москва'
             },
+            whatishelp: '',
+            result: '',
+            whos: '',
+            aboutMe: '',
             subscriptionStatus: '',
             ref: '',
             ref_links: [{
                 value: '',
                 users: []
-            }]
+            }],
+            colorScheme: ''
         },
         registrationData: {
             name: '',
@@ -160,10 +161,7 @@ export const useMainStore = defineStore('main', {
         setLoginStatus(value: string) {
             return this.loginStatus = value
         },
-        setColorScheme(value: {
-            name: string;
-            value: string
-        }) {
+        setColorScheme(value: 'dark' | 'light') {
             return this.userData.colorScheme = value
         }
     }
