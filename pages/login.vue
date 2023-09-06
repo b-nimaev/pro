@@ -43,11 +43,6 @@ export default defineComponent({
     async setup() {
 
         const mainStore = useMainStore()
-        definePageMeta({
-            middleware: [
-                'login'
-            ]
-        })
         return { mainStore }
     },
     data() {

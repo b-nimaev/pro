@@ -64,7 +64,7 @@ import { useMainStore } from '~/store';
 export default defineComponent({
     data() {
         return {
-            email: 'asdfa@mail.ru',
+            email: '',
             password: '',
             confirmPassword: '',
             error: '',
