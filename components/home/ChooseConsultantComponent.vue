@@ -1,8 +1,8 @@
 <template>
-    <section id="choose-consultant">
+    <section id="choose-consultant" :class="{ 'isConsultantsPage': isConsultants }">
         <div class="container">
             <div class="heading">
-                <p class="description">Фильтр</p>
+                <p class="description" v-if="!isConsultants">Фильтр</p>
                 <h2>Выберите <span>консультанта</span></h2>
                 <!-- <div class="line">
                     <IconsLineComponent />
@@ -102,6 +102,12 @@ export default {
             console.log(searchData);
         },
     },
+    props: {
+        isConsultants: {
+            type: Boolean,
+            required: false
+        }
+    },
     computed: {
         sliderMin: {
             get: function () {
@@ -149,6 +155,9 @@ export default {
 #choose-consultant {
     padding: 100px 0;
 
+    &.isConsultantsPage {
+        padding: 50px 0 100px
+    }
     .container {
         display: block;
 

@@ -15,7 +15,7 @@
                                         alt="user-avatar" />
                                 </div>
                                 <div class="user-data">
-                                    <h4>{{ userData.firstName }} {{ userData.surName }}</h4>
+                                    <h4>{{ userData.firstName }} {{ userData.lastName }}</h4>
                                     <p v-if="userData.nickname">@{{ userData.nickname }}</p>
                                     <p class="id" v-if="!userData.nickname">#{{ userData._id }}</p>
                                     <p class="role" v-if="userData.role"><b>Роль:</b> {{ 'consultant' === userData.role ? 'Консультант' : 'Профориентолог' }}</p>
@@ -25,7 +25,7 @@
                                     </div>
                                     <!-- <p>3 дня в сервисе</p> -->
                                     <!-- <p class="last-seen">был 29 минут назад</p> -->
-                                    <div class="reviews">
+                                    <!-- <div class="reviews">
                                         <div class="stars">
                                             <IconsStarsIcon />
                                             <IconsStarsIcon />
@@ -40,7 +40,7 @@
                                         <div class="latest">
                                             <span>21 новых</span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="card-content">
@@ -126,7 +126,8 @@ hr {
 
     .user-data {
         color: #444;
-        margin: 15px 0 0 30px;
+        margin-left: 30px;
+        // margin: 15px 0 0 30px;
         // margin: auto 0 auto 30px;
 
         .user-meta2 {
@@ -198,11 +199,10 @@ hr {
 }
 
 .right-side {
+    // background-color: transparent;
     background-color: #fff;
     padding: 30px;
     width: 100%;
-    border-radius: 8px;
-
 }
 
 .card-content {
@@ -280,7 +280,7 @@ export default defineComponent({
             console.log('123')
             const id = 123
             // this.$router.push("/booking?id=123")
-            this.$router.push(`/booking/${id}`)
+            this.$router.push(`/booking/` + this.$route.params._id)
         }
     },
     async beforeCreate() {

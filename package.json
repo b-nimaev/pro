@@ -31,6 +31,7 @@
     "@unhead/ssr": "^1.1.26",
     "@vueform/slider": "^2.1.7",
     "bootstrap": "^5.3.0",
+    "moment": "^2.29.4",
     "next-auth": "^4.21.1",
     "pinia": "^2.0.34",
     "socket.io-client": "^4.6.1",

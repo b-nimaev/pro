@@ -2,8 +2,7 @@
     <section id="our-consultants">
         <div class="container">
             <div class="heading">
-                <p class="description">Наша команда</p>
-                <h2><span>Эксперты</span> консультанты</h2>
+                <h2><span>Эксперты</span> который могут вам понравиться</h2>
                 <!-- <div class="line">
                     <IconsLineComponent />
                 </div> -->
