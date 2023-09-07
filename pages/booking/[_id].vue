@@ -74,7 +74,7 @@
                                 <hr />
                                 <div class="price-block">
                                     <nuxt-img width="24" height="24" format="webp" quality="80"
-                                        src="/assets/images/credit-card-emoji.png" alt="" /><span>Стоимость 7000 ₽</span>
+                                        src="/assets/images/credit-card-emoji.png" alt="" /><span>Стоимость {{ userData.price }} ₽</span>
                                 </div>
                                 <button class="sendOrder">Отправить заявку</button>
                             </div>
