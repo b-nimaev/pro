@@ -178,7 +178,10 @@ export default defineComponent({
                     
                 }
                 
-                await fetch('https://profori.pro/api/' + id).then(async (user) => { this.mainStore.setUser(user); this.$router.push('/dashboard') })
+                await fetch('https://profori.pro/api/' + id).then(async (user) => { 
+                })
+                this.mainStore.setUser(user); 
+                this.$router.push('/dashboard') 
                 // if (res.status === 200) {
                 // this.mainStore.setUser(await res.json())
                 // useCookie('id').value = this.mainStore.getConfirmID
