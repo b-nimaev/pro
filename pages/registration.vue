@@ -85,7 +85,7 @@ export default defineComponent({
 
             }
 
-            if (this.password.length > 6) {
+            if (this.password.length > 5) {
 
                 if (this.password === this.confirmPassword) {
                     const userData = {
