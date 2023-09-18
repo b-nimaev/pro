@@ -37,7 +37,7 @@ jobs:
         script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/my-nuxt-app:latest
           docker stop profori || true
-          docker rm protori || true
+          docker rm profori || true
           docker rmi ${{ secrets.DOCKER_USERNAME }}/profori:current || true
           docker tag ${{ secrets.DOCKER_USERNAME }}/profori:latest ${{ secrets.DOCKER_USERNAME }}/profori:current
           docker run -d --name profori -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/profori:current
