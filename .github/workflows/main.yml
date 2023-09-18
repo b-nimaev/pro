@@ -35,7 +35,7 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/my-nuxt-app:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/profori:latest
           docker stop profori || true
           docker rm profori || true
           docker rmi ${{ secrets.DOCKER_USERNAME }}/profori:current || true
